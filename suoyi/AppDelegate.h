@@ -1,9 +1,9 @@
 //
 //  AppDelegate.h
-//  suoyi
+//  lanberProject
 //
-//  Created by 王伟 on 2019/1/15.
-//  Copyright © 2019年 liuhuiping. All rights reserved.
+//  Created by lirenbo on 2018/5/10.
+//  Copyright © 2018年 lirenbo. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

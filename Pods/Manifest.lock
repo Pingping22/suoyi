@@ -1,0 +1,84 @@
+PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - AKNumericFormatter (0.0.2)
+  - AlicloudPush (1.9.8):
+    - AlicloudUT
+    - AlicloudUtils
+  - AlicloudUT (5.2.0.5):
+    - AlicloudUTDID
+  - AlicloudUTDID (1.1.0.19)
+  - AlicloudUtils (1.3.6):
+    - AlicloudUTDID
+  - AliyunOSSiOS (2.6.0)
+  - BuglyHotfix (1.1.0):
+    - BuglyHotfix/Core (= 1.1.0)
+  - BuglyHotfix/Core (1.1.0):
+    - JSPatch
+  - JSPatch (1.1.3):
+    - JSPatch/Core (= 1.1.3)
+  - JSPatch/Core (1.1.3)
+  - LDMacro (0.1.0)
+  - Masonry (1.0.2)
+  - MJRefresh (3.1.12)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
+  - YYKit (1.0.9):
+    - YYKit/no-arc (= 1.0.9)
+  - YYKit/no-arc (1.0.9)
+
+DEPENDENCIES:
+  - AFNetworking
+  - AKNumericFormatter (~> 0.0.2)
+  - AlicloudPush
+  - AliyunOSSiOS (~> 2.6.0)
+  - BuglyHotfix
+  - LDMacro (from `https://github.com/SCriminal/LDMacro.git`, tag `0.1.0`)
+  - Masonry
+  - MJRefresh (~> 3.1.12)
+  - SDWebImage
+  - YYKit
+
+EXTERNAL SOURCES:
+  LDMacro:
+    :git: https://github.com/SCriminal/LDMacro.git
+    :tag: 0.1.0
+
+CHECKOUT OPTIONS:
+  LDMacro:
+    :git: https://github.com/SCriminal/LDMacro.git
+    :tag: 0.1.0
+
+SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  AKNumericFormatter: de969ab13c504dca7aa119b558a934ccdbd1e376
+  AlicloudPush: 3bdd90f69af50562275483b5157571f0a7c50a19
+  AlicloudUT: 5e6a87a56c08ca72c6711beec2449e1c254728ef
+  AlicloudUTDID: 79f509c3e997ef85fe307f8bfb2bb3be27f7e205
+  AlicloudUtils: 9047114c9c1854205ae26db58264bf1555242ffb
+  AliyunOSSiOS: 058b038cc82000dadb8f8e3893a97243124f2898
+  BuglyHotfix: 23c68e3e6770e9fd36682aa6150ed236d62bbbf6
+  JSPatch: 02cfed591cb907bbfe80a346666e5a35fc2d349d
+  LDMacro: 92785c3c8a5d3f5134e64eb24e465a9847024641
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
+
+PODFILE CHECKSUM: 9340b002245770dff1de1a21a98684eff27f32d1
+
+COCOAPODS: 1.2.0
