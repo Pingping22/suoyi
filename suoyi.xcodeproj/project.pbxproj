@@ -75,6 +75,11 @@
 		4A83D8D721F04C9700E4EE2A /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A83D8A621F04C9700E4EE2A /* BaseVC.m */; };
 		4A83D8D821F04C9700E4EE2A /* CustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A83D8A921F04C9700E4EE2A /* CustomTabBar.m */; };
 		4A83D8D921F04C9700E4EE2A /* CustomTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A83D8AB21F04C9700E4EE2A /* CustomTabBarController.m */; };
+		4A83D8DF21F05B8500E4EE2A /* AutoScView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A83D8DC21F05B8500E4EE2A /* AutoScView.m */; };
+		4A83D8E021F05B8500E4EE2A /* GuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A83D8DE21F05B8500E4EE2A /* GuideView.m */; };
+		4A83D8E421F06FDF00E4EE2A /* UITableView+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A83D8E321F06FDF00E4EE2A /* UITableView+Category.m */; };
+		4A91660321F17C66006CF9DF /* LHPBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A91660221F17C65006CF9DF /* LHPBtn.m */; };
+		4A91660621F17C78006CF9DF /* RecommendSkillsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A91660521F17C78006CF9DF /* RecommendSkillsView.m */; };
 		4AE183D221EDC34300A4C5A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AE183D121EDC34300A4C5A7 /* Assets.xcassets */; };
 		4AE183D821EDC34300A4C5A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE183D721EDC34300A4C5A7 /* main.m */; };
 		4AE183E221EDC34300A4C5A7 /* suoyiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE183E121EDC34300A4C5A7 /* suoyiTests.m */; };
@@ -248,6 +253,16 @@
 		4A83D8A921F04C9700E4EE2A /* CustomTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBar.m; sourceTree = "<group>"; };
 		4A83D8AA21F04C9700E4EE2A /* CustomTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBarController.h; sourceTree = "<group>"; };
 		4A83D8AB21F04C9700E4EE2A /* CustomTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBarController.m; sourceTree = "<group>"; };
+		4A83D8DB21F05B8500E4EE2A /* AutoScView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoScView.h; sourceTree = "<group>"; };
+		4A83D8DC21F05B8500E4EE2A /* AutoScView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoScView.m; sourceTree = "<group>"; };
+		4A83D8DD21F05B8500E4EE2A /* GuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuideView.h; sourceTree = "<group>"; };
+		4A83D8DE21F05B8500E4EE2A /* GuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuideView.m; sourceTree = "<group>"; };
+		4A83D8E221F06FDF00E4EE2A /* UITableView+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Category.h"; sourceTree = "<group>"; };
+		4A83D8E321F06FDF00E4EE2A /* UITableView+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Category.m"; sourceTree = "<group>"; };
+		4A91660121F17C65006CF9DF /* LHPBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHPBtn.h; sourceTree = "<group>"; };
+		4A91660221F17C65006CF9DF /* LHPBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHPBtn.m; sourceTree = "<group>"; };
+		4A91660421F17C78006CF9DF /* RecommendSkillsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendSkillsView.h; sourceTree = "<group>"; };
+		4A91660521F17C78006CF9DF /* RecommendSkillsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendSkillsView.m; sourceTree = "<group>"; };
 		4AE183C521EDC34300A4C5A7 /* suoyi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = suoyi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AE183D121EDC34300A4C5A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AE183D621EDC34300A4C5A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -461,6 +476,8 @@
 		4A83D6B621F027FC00E4EE2A /* 推荐 */ = {
 			isa = PBXGroup;
 			children = (
+				4A91660421F17C78006CF9DF /* RecommendSkillsView.h */,
+				4A91660521F17C78006CF9DF /* RecommendSkillsView.m */,
 				4A83D6B721F027FC00E4EE2A /* ProductCell.h */,
 				4A83D6B821F027FC00E4EE2A /* ProductCell.m */,
 				4A83D6B921F027FC00E4EE2A /* RecommendTabVC.h */,
@@ -500,6 +517,8 @@
 		4A83D82E21F04C9700E4EE2A /* General */ = {
 			isa = PBXGroup;
 			children = (
+				4A91660021F17C65006CF9DF /* LHPBtn */,
+				4A83D8E121F06FDF00E4EE2A /* BaseTableView */,
 				4A83D82F21F04C9700E4EE2A /* Category */,
 				4A83D86121F04C9700E4EE2A /* CustomRefresh(吃包子) */,
 				4A83D86621F04C9700E4EE2A /* GlobalData */,
@@ -713,6 +732,7 @@
 		4A83D87D21F04C9700E4EE2A /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				4A83D8DA21F05B8500E4EE2A /* 引导页 */,
 				4A83D87E21F04C9700E4EE2A /* 自定义控件 */,
 				4A83D88F21F04C9700E4EE2A /* 选择图片界面 */,
 			);
@@ -858,6 +878,35 @@
 				4A83D8AB21F04C9700E4EE2A /* CustomTabBarController.m */,
 			);
 			path = CustomTabBarController;
+			sourceTree = "<group>";
+		};
+		4A83D8DA21F05B8500E4EE2A /* 引导页 */ = {
+			isa = PBXGroup;
+			children = (
+				4A83D8DB21F05B8500E4EE2A /* AutoScView.h */,
+				4A83D8DC21F05B8500E4EE2A /* AutoScView.m */,
+				4A83D8DD21F05B8500E4EE2A /* GuideView.h */,
+				4A83D8DE21F05B8500E4EE2A /* GuideView.m */,
+			);
+			path = "引导页";
+			sourceTree = "<group>";
+		};
+		4A83D8E121F06FDF00E4EE2A /* BaseTableView */ = {
+			isa = PBXGroup;
+			children = (
+				4A83D8E221F06FDF00E4EE2A /* UITableView+Category.h */,
+				4A83D8E321F06FDF00E4EE2A /* UITableView+Category.m */,
+			);
+			path = BaseTableView;
+			sourceTree = "<group>";
+		};
+		4A91660021F17C65006CF9DF /* LHPBtn */ = {
+			isa = PBXGroup;
+			children = (
+				4A91660121F17C65006CF9DF /* LHPBtn.h */,
+				4A91660221F17C65006CF9DF /* LHPBtn.m */,
+			);
+			path = LHPBtn;
 			sourceTree = "<group>";
 		};
 		4AE183BC21EDC34300A4C5A7 = {
@@ -1125,6 +1174,8 @@
 				4A83D8C121F04C9700E4EE2A /* GlobalData.m in Sources */,
 				4A83D6CD21F027FC00E4EE2A /* ToolsCell.m in Sources */,
 				4AE183D821EDC34300A4C5A7 /* main.m in Sources */,
+				4A91660621F17C78006CF9DF /* RecommendSkillsView.m in Sources */,
+				4A83D8E421F06FDF00E4EE2A /* UITableView+Category.m in Sources */,
 				4A83D8C521F04C9700E4EE2A /* GlobalMethod+Version.m in Sources */,
 				4A83D6C921F027FC00E4EE2A /* ModelProductItem.m in Sources */,
 				4A83D8C421F04C9700E4EE2A /* GlobalMethod+UI.m in Sources */,
@@ -1135,6 +1186,7 @@
 				4A83D8C921F04C9700E4EE2A /* NoticeView.m in Sources */,
 				4A83D8B921F04C9700E4EE2A /* UINavigationController+EndEditing.m in Sources */,
 				4A83D8C021F04C9700E4EE2A /* MJChiBaoZiHeader.m in Sources */,
+				4A83D8DF21F05B8500E4EE2A /* AutoScView.m in Sources */,
 				4A83D8CA21F04C9700E4EE2A /* BaseAlertView.m in Sources */,
 				4A83D8B521F04C9700E4EE2A /* NSURL+Safe.m in Sources */,
 				4A83D6CB21F027FC00E4EE2A /* DynamicCell.m in Sources */,
@@ -1156,6 +1208,7 @@
 				4A83D8C821F04C9700E4EE2A /* NoResultView.m in Sources */,
 				4A83D8D421F04C9700E4EE2A /* BaseNavView.m in Sources */,
 				4A83D8C221F04C9700E4EE2A /* GlobalMethod+Authority.m in Sources */,
+				4A83D8E021F05B8500E4EE2A /* GuideView.m in Sources */,
 				4A83D68621F027EB00E4EE2A /* RequestApi+RequestMicroService.m in Sources */,
 				4A83D8CB21F04C9700E4EE2A /* ImageControl.m in Sources */,
 				4A83D8B021F04C9700E4EE2A /* NSArray+Safe.m in Sources */,
@@ -1174,6 +1227,7 @@
 				4A83D8B721F04C9700E4EE2A /* UIImageView+Jump.m in Sources */,
 				4A83D8D221F04C9700E4EE2A /* BaseImage.m in Sources */,
 				4A83D8D721F04C9700E4EE2A /* BaseVC.m in Sources */,
+				4A91660321F17C66006CF9DF /* LHPBtn.m in Sources */,
 				4A83D8D621F04C9700E4EE2A /* BaseVC+KeyboardObserve.m in Sources */,
 				4A83D8D321F04C9700E4EE2A /* BaseNavController.m in Sources */,
 				4A83D8CF21F04C9700E4EE2A /* ImagePickerCollectionCell.m in Sources */,

@@ -69,7 +69,8 @@
 #import "ImageControl.h"
 #import "BaseImage.h"
 
-
+//base table view
+#import "UITableView+Category.h"
 
 
 #endif /* PrefixHeader_pch */

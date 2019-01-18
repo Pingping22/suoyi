@@ -7,35 +7,24 @@
 //
 
 #import "RecommendTabVC.h"
-#import "ProductCell.h" //cell
-#import "RetailerCell.h" //cell
-#import "SliderView.h" //自定义选择器
-
-@interface RecommendTabVC ()<SliderViewDelegate>
+//view
+#import "RecommendSkillsView.h"
+@interface RecommendTabVC ()
 
 @property (nonatomic, strong) ProductMarketNavView * navView;
 @property (nonatomic, strong) ProductMarketHeaderView * sectionHeadView;
-@property (nonatomic, strong) SliderView * sliderView;
 @property (nonatomic, assign) NSInteger markTag;
 @property (nonatomic, strong) NSMutableArray * productAry;
 @property (nonatomic, strong) NSMutableArray * retailerAry;
-
+@property (nonatomic, strong) ProductMarketSecHeaderView * secHeadView;
+@property (nonatomic, strong) RecommendSkillsView * thirView;
+@property (nonatomic, strong) TrySkillsView * fourView;
 @end
 
 @implementation RecommendTabVC
-
 @synthesize tableView = _tableView;
 
 #pragma mark - lazy
-- (ProductMarketNavView *)navView
-{
-    if (_navView == nil) {
-        _navView = [ProductMarketNavView  new];
-        _navView.frame = CGRectMake(0, 0, SCREEN_WIDTH, NAVIGATIONBAR_HEIGHT);
-        [_navView resetViewWithTitle:@"你好的家"];
-    }
-    return  _navView;
-}
 - (UITableView *)tableView{
     if (!_tableView) {
         _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, self.navView.bottom, SCREEN_WIDTH, SCREEN_HEIGHT-self.navView.bottom-TABBAR_HEIGHT) style:UITableViewStylePlain];
@@ -56,39 +45,108 @@
     }
     return _tableView;
 }
-
+- (ProductMarketNavView *)navView
+{
+    if (_navView == nil) {
+        _navView = [ProductMarketNavView  new];
+        _navView.frame = CGRectMake(0, 0, SCREEN_WIDTH, NAVIGATIONBAR_HEIGHT);
+        [_navView resetViewWithTitle:@"你好的家"];
+    }
+    return  _navView;
+}
 - (ProductMarketHeaderView *)sectionHeadView
 {
     if (_sectionHeadView == nil) {
         _sectionHeadView = [ProductMarketHeaderView  new];
         _sectionHeadView.backgroundColor = [UIColor whiteColor];
-        _sectionHeadView.frame = CGRectMake(0, 0, SCREEN_WIDTH, _sectionHeadView.height);
+        _sectionHeadView.frame = CGRectMake(0, NAVIGATIONBAR_HEIGHT+1, SCREEN_WIDTH, _sectionHeadView.height);
         [_sectionHeadView resetViewWithTitle:@"搜索技能"];
     }
     return  _sectionHeadView;
 }
-- (SliderView *)sliderView
+- (ProductMarketSecHeaderView *)secHeadView
 {
-    if (_sliderView == nil)
-    {
-        _sliderView = [SliderView new];
-        _sliderView.widthHeight = XY(SCREEN_WIDTH, W(40));
-        _sliderView.isHasSlider = true;
-        _sliderView.delegate = self;
-        _sliderView.isLineVerticalHide = YES;
-        _sliderView.viewSlidColor = COLOR_GREEN;
-        _sliderView.viewSlidWidth = W(35);
-        _sliderView.viewSlidHeight = W(3);
-        NSArray * btNameArray = @[@"农资产品",@"农资店铺"];
-        NSMutableArray * btnArray = [[NSMutableArray alloc]init];
-        for ( int i = 0 ; i < btNameArray.count ; i ++ ){
-            [btnArray addObject:[ModelBtn modelWithTitle:btNameArray[i] imageName:nil highImageName:nil tag:i color:COLOR_LABEL selectColor:COLOR_GREEN]];
-        }
-        //刷新-重置 控件
-        [_sliderView resetWithAry:btnArray];
+    if (_secHeadView == nil) {
+        _secHeadView = [ProductMarketSecHeaderView  new];
+        _secHeadView.backgroundColor = [UIColor whiteColor];
+        _secHeadView.frame = CGRectMake(0, 0, SCREEN_WIDTH, _secHeadView.height);
+        [_secHeadView resetViewWithArray:@[@"内容资源",@"教育教学",@"益智游戏",@"休闲娱乐",@"生活服务",@"小度训练师",@"技能分类",@"个人中心"] imgArr:@[@"icon-wd-gray",@"icon-wd-green",@"icon-sy-gray",@"icon-sy-green",@"icon-wd-gray",@"icon-wd-green",@"icon-sy-gray",@"icon-sy-green"]];
+        _secHeadView.topToUpView = W(5);
     }
-    return _sliderView;
+    return  _secHeadView;
 }
+- (RecommendSkillsView *)thirView
+{
+    if (_thirView == nil) {
+        _thirView = [RecommendSkillsView  new];
+        _thirView.frame = CGRectMake(0, 0, SCREEN_WIDTH, W(280));
+        NSMutableArray *ary = [NSMutableArray array];
+        [ary addObjectsFromArray:@[^(){
+            ModelSkills * model = [ModelSkills new];
+            model.imgStr = @"zy_1";
+            model.iconStr = @"zy_1";
+            model.nameStr = @"斗兽棋";
+            model.titleStr = @"益智游戏";
+            model.contentStr = @"胜负对决，你能否站在食物链的顶端";
+            return model;
+        }(),^(){
+            ModelSkills * model = [ModelSkills new];
+            model.imgStr = @"zy_1";
+            model.iconStr = @"zy_1";
+            model.nameStr = @"冲鸭";
+            model.titleStr = @"益智游戏";
+            model.contentStr = @"酷跑冲冲冲，冲鸭赢大奖";
+            return model;
+        }(),^(){
+            ModelSkills * model = [ModelSkills new];
+            model.imgStr = @"zy_1";
+            model.iconStr = @"zy_1";
+            model.nameStr = @"尖叫鸡";
+            model.titleStr = @"休闲娱乐";
+            model.contentStr = @"疯狂咯咯咯，狂捏赢大奖";
+            return model;
+        }(),^(){
+            ModelSkills * model = [ModelSkills new];
+            model.imgStr = @"zy_1";
+            model.iconStr = @"zy_1";
+            model.nameStr = @"最新影讯";
+            model.titleStr = @"工具效率";
+            model.contentStr = @"查最新影讯，看精彩影片";
+            return model;
+        }(),^(){
+            ModelSkills * model = [ModelSkills new];
+            model.imgStr = @"zy_1";
+            model.iconStr = @"zy_1";
+            model.nameStr = @"数学游戏";
+            model.titleStr = @"益智游戏";
+            model.contentStr = @"在应用题的海洋里遨游吧";
+            return model;
+        }(),^(){
+            ModelSkills * model = [ModelSkills new];
+            model.imgStr = @"zy_1";
+            model.iconStr = @"zy_1";
+            model.nameStr = @"我的手机在哪";
+            model.titleStr = @"工具效率";
+            model.contentStr = @"呼唤我，找手机不费力";
+            return model;
+        }()]];
+        [_thirView resetWithImageAry:ary];
+        _thirView.topToUpView = W(5);
+
+    }
+    return  _thirView;
+}
+- (TrySkillsView *)fourView
+{
+    if (_fourView == nil) {
+        _fourView = [TrySkillsView new];
+        _fourView.frame = CGRectMake(0, 0, SCREEN_WIDTH, _fourView.height);
+        _fourView.topToUpView = W(5);
+        [_fourView resetViewWithStr:@"技能尝鲜"];
+    }
+    return  _fourView;
+}
+
 - (NSMutableArray *)productAry
 {
     if (_productAry == nil) {
@@ -109,80 +167,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.navView];
-    //table
-    [self.tableView registerClass:[ProductCell class] forCellReuseIdentifier:NSStringFromClass([ProductCell class])];
-    [self.tableView registerClass:[RetailerCell class] forCellReuseIdentifier:NSStringFromClass([RetailerCell class])];
     self.tableView.backgroundColor = [UIColor whiteColor];
+    self.tableView.tableHeaderViews = @[self.sectionHeadView,self.secHeadView,self.thirView,self.fourView];
     //request
     [self requestList];
 }
 
-#pragma mark - 按钮切换
-- (void)protocolSliderViewBtnSelect:(NSUInteger)tag btn:(CustomSliderControl *)control
-{
-    self.markTag = tag;
-    [self.aryDatas removeAllObjects];
-    self.aryDatas = [NSMutableArray arrayWithArray:tag==0?self.productAry:self.retailerAry];
-    [self.tableView reloadData];
-}
-
-#pragma mark - tableView delegate
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return self.aryDatas.count;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (self.markTag==0) {
-        return [ProductCell fetchHeight:self.aryDatas[indexPath.row] className:nil selectorName:@"resetCellWithModel:"];
-    }else{
-        return [RetailerCell fetchHeight:self.aryDatas[indexPath.row] className:nil selectorName:@"resetCellWithModel:"];
-    }
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (self.markTag==0) {
-        ProductCell * cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ProductCell class]) forIndexPath:indexPath];
-        [cell resetCellWithModel:self.aryDatas[indexPath.row]];
-        return cell;
-    }else{
-        RetailerCell * cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([RetailerCell class]) forIndexPath:indexPath];
-        [cell resetCellWithModel:self.aryDatas[indexPath.row]];
-        return cell;
-    }
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (self.markTag==0) {
-        [GB_Nav pushVCName:@"ProductDetailTabVC" animated:YES];
-    }else{
-        [GB_Nav pushVCName:@"StoreDetailTabVC" animated:YES];
-    }
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return self.sectionHeadView.height;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    return self.sectionHeadView;
-}
 
 #pragma mark - request
 - (void)requestList{
-    [RequestApi requestLocalDataKey:@"LocalData_ProductList" delegate:self success:^(NSDictionary *response, id mark) {
-        NSArray *datas = [GlobalMethod exchangeDic:response toAryWithModelName:@"ModelProductItem"];
-        [self.productAry addObjectsFromArray:datas];
-        self.aryDatas = [NSMutableArray arrayWithArray:self.productAry];
-        [self.tableView reloadData];
-    } failure:^(NSString *errorStr, id mark) {
-        
-    }];
+    
 }
 
 #pragma mark - 改变statusbar颜色
@@ -204,7 +198,7 @@
     if (_iconImg == nil) {
         _iconImg = [UIImageView new];
         _iconImg.image = [UIImage imageNamed:@"icon-sy-gray"];
-        _iconImg.widthHeight = XY(W(20),W(20));
+        _iconImg.widthHeight = XY(W(15),W(15));
     }
     return _iconImg;
 }
@@ -219,7 +213,7 @@
     if (_imgView == nil) {
         _imgView = [UIImageView new];
         _imgView.image = [UIImage imageNamed:@"icon-my-gray"];
-        _imgView.widthHeight = XY(W(20),W(20));
+        _imgView.widthHeight = XY(W(15),W(15));
     }
     return _imgView;
 }
@@ -235,7 +229,7 @@
     if (_lineView == nil) {
         _lineView = [UIView  new];
         _lineView.backgroundColor = COLOR_LINE;
-        _lineView.widthHeight = XY(SCREEN_WIDTH, 0.5);
+        _lineView.widthHeight = XY(SCREEN_WIDTH, 1);
     }
     return  _lineView;
 }
@@ -268,9 +262,9 @@
     
     
     [GlobalMethod resetLabel:self.labelName text:UnPackStr(searchTitle) widthLimit:0];
-    self.labelName.centerXCenterY = XY(SCREEN_WIDTH/2,NAVIGATIONBAR_HEIGHT/2);
+    self.labelName.centerXCenterY = XY(SCREEN_WIDTH/2,(NAVIGATIONBAR_HEIGHT+STATUSBAR_HEIGHT)/2);
     
-    self.iconImg.rightCenterY = XY(self.labelName.left-W(5),NAVIGATIONBAR_HEIGHT/2);
+    self.iconImg.rightCenterY = XY(self.labelName.left-W(5),self.labelName.centerY);
 
     self.imgView.rightCenterY = XY(SCREEN_WIDTH-W(15),self.labelName.centerY);
     
@@ -285,7 +279,8 @@
 
 
 
-
+//auto sc
+#import "AutoScView.h"
 @implementation ProductMarketHeaderView
 
 #pragma mark - 初始化
@@ -303,7 +298,7 @@
     [self addSubview:self.searchBtn];
     [self.searchBtn addSubview:self.searchImg];
     [self.searchBtn addSubview:self.searchTitle];
-    [self addSubview:self.lineView];
+    [self addSubview:self.backView];
 }
 
 #pragma mark - 懒加载
@@ -311,13 +306,23 @@
 {
     if (_searchBtn == nil) {
         _searchBtn = [UIButton  new];
-        _searchBtn.backgroundColor = UIColorFromHexRGB(@"#F4F4F4");
+        _searchBtn.backgroundColor = COLOR_LINE;
         _searchBtn.tag = 3;
         [_searchBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [GlobalMethod setRoundView:_searchBtn color:[UIColor clearColor] numRound:5 width:0];
     }
     return  _searchBtn;
 }
-
+- (AutoScView *)backView{
+    if (_backView == nil) {
+        _backView = [AutoScView new];
+        _backView.backgroundColor = [UIColor whiteColor];
+        _backView.frame =CGRectMake(0, 0, SCREEN_WIDTH, W(200));
+        _backView.isClickValid = false;
+        [_backView timerStart];
+    }
+    return _backView;
+}
 - (UIImageView *)searchImg
 {
     if (_searchImg == nil) {
@@ -338,23 +343,13 @@
     return  _searchTitle;
 }
 
-- (UIView *)lineView
-{
-    if (_lineView == nil) {
-        _lineView = [UIView  new];
-        _lineView.backgroundColor = COLOR_LINE;
-        _lineView.widthHeight = XY(SCREEN_WIDTH, 0.5);
-    }
-    return  _lineView;
-}
-
 #pragma mark - 点击事件
 - (void)btnClick:(UIButton *)sender
 {
     switch (sender.tag) {
-        case 1:
+        case 3:
         {
-            [GB_Nav popViewControllerAnimated:YES];
+
         }
             break;
             break;
@@ -366,17 +361,64 @@
 #pragma mark - 刷新View
 - (void)resetViewWithTitle:(NSString *)searchTitle
 {
-    self.searchBtn.widthHeight = XY(SCREEN_WIDTH-W(15), W(30));
-    self.searchBtn.leftCenterY = XY(W(15), NAVIGATIONBAR_HEIGHT/2);
-    self.searchBtn.layer.cornerRadius = self.searchBtn.height/2;
-    self.searchBtn.layer.masksToBounds = YES;
+    [self removeSubViewWithTag:TAG_LINE];//移除线
+    self.searchBtn.widthHeight = XY(SCREEN_WIDTH-W(30), W(30));
+    self.searchBtn.leftTop = XY(W(15), W(10));
     
-    self.searchImg.centerXCenterY = XY(SCREEN_WIDTH/2, self.searchBtn.height/2);
-    [self.searchTitle fitTitle:searchTitle fixed:(self.searchBtn.width-self.searchImg.right-W(20))];
-    self.searchTitle.leftCenterY = XY(self.searchImg.right+W(8), self.searchImg.centerY);
+    [GlobalMethod resetLabel:self.searchTitle text:UnPackStr(searchTitle) widthLimit:0];
+    self.searchTitle.centerXCenterY = XY(self.searchBtn.width/2, self.searchBtn.height/2);
     
-    self.lineView.leftBottom = XY(0, NAVIGATIONBAR_HEIGHT);
-    self.height = self.lineView.bottom;
+    self.searchImg.rightCenterY = XY(self.searchTitle.left-W(8), self.searchTitle.centerY);
+
+    [self.backView resetWithImageAry:@[@"zy_1",@"zy_2",@"zy_3",@"zy_4"]];
+    self.backView.leftTop = XY(0,W(10)+self.searchBtn.bottom);
+    
+    self.height = self.backView.bottom+W(15);
+}
+#pragma mark 销毁
+- (void)dealloc{
+    [self.backView timerStop];
+}
+@end
+
+
+
+
+
+
+
+#import "LHPBtn.h"
+@implementation ProductMarketSecHeaderView
+
+#pragma mark 刷新view
+- (void)resetViewWithArray:(NSArray *)array imgArr:(NSArray *)imgArr{
+    [self removeAllSubViews];
+    CGFloat left = W(15);
+    CGFloat top = 0;
+    CGFloat w = W(70);
+    CGFloat h = W(60);
+    for (int i = 0; i <  array.count; i++) {
+        LHPBtn *btn = [LHPBtn buttonWithType:(UIButtonTypeCustom)];
+        btn.frame = CGRectMake(left, top, w, h);
+        [btn setTitle:[NSString stringWithFormat:@"%@",array[i]] forState:(UIControlStateNormal)];
+        [btn setTitleColor:COLOR_LABEL forState:UIControlStateNormal];
+        btn.titleLabel.fontNum = F(10);
+        [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@",imgArr[i]]] forState:UIControlStateNormal];
+        [self addSubview:btn];
+        left = btn.right + W(20);
+        if (i == 3) {
+                left = W(15);
+                top = btn.bottom + W(5);
+            }
+        self.height = btn.bottom;
+    }
 }
 
 @end
+
+
+
+
+
+
+

@@ -6,8 +6,8 @@
 //  Copyright © 2018年 lirenbo. All rights reserved.
 //
 
-#import "BaseVC.h"
+#import "BaseTableVC.h"
 
-@interface HomePageVC : BaseVC
+@interface HomePageVC : BaseTableVC
 
 @end

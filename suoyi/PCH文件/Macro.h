@@ -57,6 +57,8 @@
 #define COLOR_DETAIL          [UIColor colorWithHexString:@"#666666"]
 #define COLOR_BACKGROUND      [UIColor colorWithHexString:@"#EFEFF4"]
 #define COLOR_LINE            [UIColor colorWithHexString:@"#E0E0E0"]
+#define COLOR_PAGEBACK [UIColor colorWithHexString:@"#e5e5e5"]
+#define COLOR_CURRENTPAGE [UIColor colorWithHexString:@"#b1b1b1"]
 
 #define UIColorFromHexRGB(rgbValue)  ^(){\
 unsigned int hexNumber;\
@@ -83,6 +85,7 @@ return [UIColor colorWithRed:((float)((hexNumber & 0xFF0000) >> 16))/255.0 green
 
 
 
+#define IMAGE_BIG_DEFAULT @"bg_wjz"//user for image in detail
 
 
 

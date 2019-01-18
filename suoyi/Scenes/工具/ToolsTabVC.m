@@ -8,14 +8,25 @@
 
 #import "ToolsTabVC.h"
 #import "ToolsCell.h" //cell
+#import "RecommendTabVC.h"
 
 @interface ToolsTabVC ()
+@property (nonatomic, strong) ProductMarketNavView * navView;
 
 @end
 
 @implementation ToolsTabVC
 
 #pragma mark - lazy
+- (ProductMarketNavView *)navView
+{
+    if (_navView == nil) {
+        _navView = [ProductMarketNavView  new];
+        _navView.frame = CGRectMake(0, 0, SCREEN_WIDTH, NAVIGATIONBAR_HEIGHT);
+        [_navView resetViewWithTitle:@"你好的家"];
+    }
+    return  _navView;
+}
 
 
 #pragma mark - viewDidLoad
@@ -30,23 +41,12 @@
 
 #pragma mark 添加导航栏
 - (void)addNav{
-    [self.view addSubview:[BaseNavView initNavTitle:@"工具" leftView:nil rightView:nil]];
+    [self.view addSubview:self.navView];
 }
 
-#pragma mark - requestList
-- (void)requestList{
-    [RequestApi requestAgriculturalProductsListWithPageNum:self.pageNum delegate:self success:^(NSDictionary * _Nonnull response, id  _Nonnull mark) {
-        
-        
-        
-    } failure:^(NSString * _Nonnull errorStr, id  _Nonnull mark) {
-        
-    }];
-}
-
-#pragma mark - 修改状态栏的颜色
+#pragma mark - 改变statusbar颜色
 - (UIStatusBarStyle)preferredStatusBarStyle{
-    return UIStatusBarStyleLightContent;
+    return UIStatusBarStyleDefault;
 }
 
 @end

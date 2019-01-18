@@ -33,14 +33,27 @@
 @end
 
 
-
+@class AutoScView;
 @interface ProductMarketHeaderView : UIView
 @property (nonatomic, strong) UIButton    * searchBtn;
 @property (nonatomic, strong) UIImageView * searchImg;
 @property (nonatomic, strong) UILabel     * searchTitle;
-@property (nonatomic, strong) UIView      * lineView;
+@property (strong, nonatomic) AutoScView *backView;
 
 //刷新View
 - (void)resetViewWithTitle:(NSString *)searchTitle;
 
 @end
+
+
+@interface ProductMarketSecHeaderView : UIControl
+@property (nonatomic, strong) NSArray *aryModels;
+#pragma mark 刷新view
+- (void)resetViewWithArray:(NSArray *)array imgArr:(NSArray *)imgArr;
+
+
+@end
+
+
+
+
