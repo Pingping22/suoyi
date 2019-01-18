@@ -9,6 +9,7 @@
 #import "RecommendTabVC.h"
 //view
 #import "RecommendSkillsView.h"
+#import "ResourcesView.h"
 @interface RecommendTabVC ()
 
 @property (nonatomic, strong) ProductMarketNavView * navView;
@@ -19,6 +20,11 @@
 @property (nonatomic, strong) ProductMarketSecHeaderView * secHeadView;
 @property (nonatomic, strong) RecommendSkillsView * thirView;
 @property (nonatomic, strong) TrySkillsView * fourView;
+@property (nonatomic, strong) ResourcesView * videoView;
+@property (nonatomic, strong) ResourcesView * audioView;
+@property (nonatomic, strong) ResourcesView * musicView;
+@property (nonatomic, strong) ResourcesView * childView;
+
 @end
 
 @implementation RecommendTabVC
@@ -146,7 +152,78 @@
     }
     return  _fourView;
 }
-
+- (ResourcesView *)videoView
+{
+    if (_videoView == nil) {
+        _videoView = [ResourcesView new];
+        _videoView.frame = CGRectMake(0, 0, SCREEN_WIDTH, _videoView.height);
+        _videoView.topToUpView = W(5);
+        ModelResources *model = [ModelResources new];
+        model.nameStr = @"视频资源";
+        model.backStr = @"22";
+        model.topStr = @"12";
+        model.firStr = @"zy_3";
+        model.firLabelStr = @"归去来";
+        model.secStr = @"zy_4";
+        model.secLabelStr = @"极限挑战第4季";
+        [_videoView resetViewWithModel:model];
+    }
+    return  _videoView;
+}
+- (ResourcesView *)audioView
+{
+    if (_audioView == nil) {
+        _audioView = [ResourcesView new];
+        _audioView.frame = CGRectMake(0, 0, SCREEN_WIDTH, _audioView.height);
+        _audioView.topToUpView = W(5);
+        ModelResources *model = [ModelResources new];
+        model.nameStr = @"有声资源";
+        model.backStr = @"22";
+        model.topStr = @"12";
+        model.firStr = @"zy_3";
+        model.firLabelStr = @"心理罪";
+        model.secStr = @"zy_4";
+        model.secLabelStr = @"郭德纲相声";
+        [_audioView resetViewWithModel:model];
+    }
+    return  _audioView;
+}
+- (ResourcesView *)musicView
+{
+    if (_musicView == nil) {
+        _musicView = [ResourcesView new];
+        _musicView.frame = CGRectMake(0, 0, SCREEN_WIDTH, _musicView.height);
+        _musicView.topToUpView = W(5);
+        ModelResources *model = [ModelResources new];
+        model.nameStr = @"QQ音乐";
+        model.backStr = @"22";
+        model.topStr = @"12";
+        model.firStr = @"zy_3";
+        model.firLabelStr = @"陈奕迅热门歌曲";
+        model.secStr = @"zy_4";
+        model.secLabelStr = @"王菲热门歌曲";
+        [_musicView resetViewWithModel:model];
+    }
+    return  _musicView;
+}
+- (ResourcesView *)childView
+{
+    if (_childView == nil) {
+        _childView = [ResourcesView new];
+        _childView.frame = CGRectMake(0, 0, SCREEN_WIDTH, _childView.height);
+        _childView.topToUpView = W(5);
+        ModelResources *model = [ModelResources new];
+        model.nameStr = @"儿童资源";
+        model.backStr = @"22";
+        model.topStr = @"12";
+        model.firStr = @"zy_3";
+        model.firLabelStr = @"黑猫警长";
+        model.secStr = @"zy_4";
+        model.secLabelStr = @"小蓓蕾儿歌";
+        [_childView resetViewWithModel:model];
+    }
+    return  _childView;
+}
 - (NSMutableArray *)productAry
 {
     if (_productAry == nil) {
@@ -168,7 +245,7 @@
     [super viewDidLoad];
     [self.view addSubview:self.navView];
     self.tableView.backgroundColor = [UIColor whiteColor];
-    self.tableView.tableHeaderViews = @[self.sectionHeadView,self.secHeadView,self.thirView,self.fourView];
+    self.tableView.tableHeaderViews = @[self.sectionHeadView,self.secHeadView,self.thirView,self.fourView,self.videoView,self.audioView,self.musicView,self.childView];
     //request
     [self requestList];
 }
