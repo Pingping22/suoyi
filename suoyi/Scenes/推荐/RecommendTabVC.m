@@ -10,6 +10,9 @@
 //view
 #import "RecommendSkillsView.h"
 #import "ResourcesView.h"
+//cell
+#import "SkillsCell.h"
+
 @interface RecommendTabVC ()
 
 @property (nonatomic, strong) ProductMarketNavView * navView;
@@ -246,14 +249,124 @@
     [self.view addSubview:self.navView];
     self.tableView.backgroundColor = [UIColor whiteColor];
     self.tableView.tableHeaderViews = @[self.sectionHeadView,self.secHeadView,self.thirView,self.fourView,self.videoView,self.audioView,self.musicView,self.childView];
+    //cell
+     [self.tableView registerClass:[SkillsCell class] forCellReuseIdentifier:@"SkillsCell"];
     //request
     [self requestList];
 }
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 7;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.aryDatas.count;
+}
 
-
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    SkillsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SkillsCell" forIndexPath:indexPath];
+    [cell resetCellWithModel:self.aryDatas[indexPath.row]];
+    return cell;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return [SkillsCell fetchHeight:self.aryDatas[indexPath.row]];
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *view = [UIView new];
+    [view removeSubViewWithTag:TAG_LINE];//移除线
+    view.frame = CGRectMake(0, 0, SCREEN_WIDTH, W(100));
+    view.backgroundColor = [UIColor whiteColor];
+    UILabel*labelName = [UILabel new];
+    [GlobalMethod setLabel:labelName widthLimit:0 numLines:0 fontNum:F(17) textColor:COLOR_LABEL text:@""];
+    switch (section) {
+        case 0:
+        {
+            [GlobalMethod resetLabel:labelName text:@"小依小依，最新技能" widthLimit:0];
+        }
+            break;
+        case 1:
+        {
+            [GlobalMethod resetLabel:labelName text:@"小依小依，热门技能" widthLimit:0];
+        }
+            break;
+        case 2:
+        {
+            [GlobalMethod resetLabel:labelName text:@"实用贴心" widthLimit:0];
+        }
+            break;
+        case 3:
+        {
+            [GlobalMethod resetLabel:labelName text:@"趣味游戏" widthLimit:0];
+        }
+            break;
+        case 4:
+        {
+            [GlobalMethod resetLabel:labelName text:@"教育培养" widthLimit:0];
+        }
+            break;
+        case 5:
+        {
+            [GlobalMethod resetLabel:labelName text:@"陪伴声音" widthLimit:0];
+        }
+            break;
+        case 6:
+        {
+            [GlobalMethod resetLabel:labelName text:@"全部技能" widthLimit:0];
+        }
+            break;
+        default:
+            break;
+    }
+    labelName.leftTop = XY(W(25),W(15)+[view addLineFrame:CGRectMake(0, 0, SCREEN_WIDTH, W(5)) color:COLOR_BACKGROUND]);
+    [view addSubview:labelName];
+    return view;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return W(40);
+}
 #pragma mark - request
 - (void)requestList{
-    
+    [self.aryDatas addObjectsFromArray:@[^(){
+        ModelSkills * model = [ModelSkills new];
+        model.iconStr = @"22";
+        model.nameStr = @"斗兽棋";
+        model.titleStr = @"益智游戏";
+        model.contentStr = @"胜负对决，你能否站在食物链的顶端";
+        return model;
+    }(),^(){
+        ModelSkills * model = [ModelSkills new];
+        model.iconStr = @"12";
+        model.nameStr = @"冲鸭";
+        model.titleStr = @"益智游戏";
+        model.contentStr = @"酷跑冲冲冲，冲鸭赢大奖";
+        return model;
+    }(),^(){
+        ModelSkills * model = [ModelSkills new];
+        model.iconStr = @"22";
+        model.nameStr = @"尖叫鸡";
+        model.titleStr = @"休闲娱乐";
+        model.contentStr = @"疯狂咯咯咯，狂捏赢大奖";
+        return model;
+    }(),^(){
+        ModelSkills * model = [ModelSkills new];
+        model.iconStr = @"12";
+        model.nameStr = @"最新影讯";
+        model.titleStr = @"工具效率";
+        model.contentStr = @"查最新影讯，看精彩影片";
+        return model;
+    }(),^(){
+        ModelSkills * model = [ModelSkills new];
+        model.iconStr = @"22";
+        model.nameStr = @"数学游戏";
+        model.titleStr = @"益智游戏";
+        model.contentStr = @"在应用题的海洋里遨游吧";
+        return model;
+    }(),^(){
+        ModelSkills * model = [ModelSkills new];
+        model.iconStr = @"12";
+        model.nameStr = @"我的手机在哪";
+        model.titleStr = @"工具效率";
+        model.contentStr = @"呼唤我，找手机不费力";
+        return model;
+    }()]];
 }
 
 #pragma mark - 改变statusbar颜色

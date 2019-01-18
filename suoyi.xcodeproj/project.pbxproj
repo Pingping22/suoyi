@@ -79,6 +79,7 @@
 		4A91660321F17C66006CF9DF /* LHPBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A91660221F17C65006CF9DF /* LHPBtn.m */; };
 		4A91660621F17C78006CF9DF /* RecommendSkillsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A91660521F17C78006CF9DF /* RecommendSkillsView.m */; };
 		4A91660921F1A0B4006CF9DF /* ResourcesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A91660821F1A0B4006CF9DF /* ResourcesView.m */; };
+		4A91660C21F1AEE6006CF9DF /* SkillsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A91660B21F1AEE6006CF9DF /* SkillsCell.m */; };
 		4AE183D221EDC34300A4C5A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AE183D121EDC34300A4C5A7 /* Assets.xcassets */; };
 		4AE183D821EDC34300A4C5A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE183D721EDC34300A4C5A7 /* main.m */; };
 		4AE183E221EDC34300A4C5A7 /* suoyiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE183E121EDC34300A4C5A7 /* suoyiTests.m */; };
@@ -260,6 +261,8 @@
 		4A91660521F17C78006CF9DF /* RecommendSkillsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendSkillsView.m; sourceTree = "<group>"; };
 		4A91660721F1A0B4006CF9DF /* ResourcesView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourcesView.h; sourceTree = "<group>"; };
 		4A91660821F1A0B4006CF9DF /* ResourcesView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourcesView.m; sourceTree = "<group>"; };
+		4A91660A21F1AEE6006CF9DF /* SkillsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkillsCell.h; sourceTree = "<group>"; };
+		4A91660B21F1AEE6006CF9DF /* SkillsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillsCell.m; sourceTree = "<group>"; };
 		4AE183C521EDC34300A4C5A7 /* suoyi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = suoyi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AE183D121EDC34300A4C5A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AE183D621EDC34300A4C5A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -479,6 +482,8 @@
 				4A83D6BA21F027FC00E4EE2A /* RecommendTabVC.m */,
 				4A91660721F1A0B4006CF9DF /* ResourcesView.h */,
 				4A91660821F1A0B4006CF9DF /* ResourcesView.m */,
+				4A91660A21F1AEE6006CF9DF /* SkillsCell.h */,
+				4A91660B21F1AEE6006CF9DF /* SkillsCell.m */,
 			);
 			path = "推荐";
 			sourceTree = "<group>";
@@ -1187,6 +1192,7 @@
 				4A83D8B221F04C9700E4EE2A /* NSMutableArray+Safe.m in Sources */,
 				4A83D8CD21F04C9700E4EE2A /* OpenMoreLevelBtnView.m in Sources */,
 				4A83D6C521F027FC00E4EE2A /* ModelBaseData.m in Sources */,
+				4A91660C21F1AEE6006CF9DF /* SkillsCell.m in Sources */,
 				4A83D6C421F027FC00E4EE2A /* ModelAryIndex.m in Sources */,
 				4A83D8B121F04C9700E4EE2A /* NSDictionary+Safe.m in Sources */,
 				4A83D8AD21F04C9700E4EE2A /* NSDictionary+Model.m in Sources */,
