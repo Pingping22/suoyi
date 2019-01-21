@@ -11,3 +11,28 @@
 @interface HomePageVC : BaseTableVC
 
 @end
+
+
+
+
+@interface HomePageHeaderView : UIView
+//属性
+@property (strong, nonatomic) UIImageView *backView;
+@property (strong, nonatomic) UILabel *labelTitle;
+
+#pragma mark 刷新view
+- (void)resetViewWithModel:(id)model;
+@end
+
+
+
+@interface HomePageSecHeaderView : UIView
+//属性
+@property (strong, nonatomic) UILabel *labelTitle;
+@property (strong, nonatomic) UIImageView *imgView;
+@property (strong, nonatomic) UILabel *labelName;
+@property (strong, nonatomic) UIControl *control;
+
+#pragma mark 刷新view
+- (void)resetViewWithModel:(id)model;
+@end

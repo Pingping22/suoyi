@@ -22,7 +22,6 @@
 		4A83D6C921F027FC00E4EE2A /* ModelProductItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A83D6A721F027FC00E4EE2A /* ModelProductItem.m */; };
 		4A83D6CB21F027FC00E4EE2A /* DynamicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A83D6AE21F027FC00E4EE2A /* DynamicCell.m */; };
 		4A83D6CC21F027FC00E4EE2A /* DynamicTabVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A83D6B021F027FC00E4EE2A /* DynamicTabVC.m */; };
-		4A83D6CD21F027FC00E4EE2A /* ToolsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A83D6B321F027FC00E4EE2A /* ToolsCell.m */; };
 		4A83D6CE21F027FC00E4EE2A /* ToolsTabVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A83D6B521F027FC00E4EE2A /* ToolsTabVC.m */; };
 		4A83D6D021F027FC00E4EE2A /* RecommendTabVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A83D6BA21F027FC00E4EE2A /* RecommendTabVC.m */; };
 		4A83D6D221F027FC00E4EE2A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A83D6C021F027FC00E4EE2A /* LoginViewController.m */; };
@@ -146,8 +145,6 @@
 		4A83D6AE21F027FC00E4EE2A /* DynamicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicCell.m; sourceTree = "<group>"; };
 		4A83D6AF21F027FC00E4EE2A /* DynamicTabVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicTabVC.h; sourceTree = "<group>"; };
 		4A83D6B021F027FC00E4EE2A /* DynamicTabVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicTabVC.m; sourceTree = "<group>"; };
-		4A83D6B221F027FC00E4EE2A /* ToolsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolsCell.h; sourceTree = "<group>"; };
-		4A83D6B321F027FC00E4EE2A /* ToolsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolsCell.m; sourceTree = "<group>"; };
 		4A83D6B421F027FC00E4EE2A /* ToolsTabVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolsTabVC.h; sourceTree = "<group>"; };
 		4A83D6B521F027FC00E4EE2A /* ToolsTabVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolsTabVC.m; sourceTree = "<group>"; };
 		4A83D6B921F027FC00E4EE2A /* RecommendTabVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendTabVC.h; sourceTree = "<group>"; };
@@ -465,8 +462,6 @@
 		4A83D6B121F027FC00E4EE2A /* 工具 */ = {
 			isa = PBXGroup;
 			children = (
-				4A83D6B221F027FC00E4EE2A /* ToolsCell.h */,
-				4A83D6B321F027FC00E4EE2A /* ToolsCell.m */,
 				4A83D6B421F027FC00E4EE2A /* ToolsTabVC.h */,
 				4A83D6B521F027FC00E4EE2A /* ToolsTabVC.m */,
 			);
@@ -1171,7 +1166,6 @@
 				4A83D8BB21F04C9700E4EE2A /* UIView+Coordeinate.m in Sources */,
 				4A83D68A21F027EB00E4EE2A /* RequestApi+Recommend.m in Sources */,
 				4A83D8C121F04C9700E4EE2A /* GlobalData.m in Sources */,
-				4A83D6CD21F027FC00E4EE2A /* ToolsCell.m in Sources */,
 				4AE183D821EDC34300A4C5A7 /* main.m in Sources */,
 				4A91660621F17C78006CF9DF /* RecommendSkillsView.m in Sources */,
 				4A83D8E421F06FDF00E4EE2A /* UITableView+Category.m in Sources */,
