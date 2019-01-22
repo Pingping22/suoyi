@@ -369,10 +369,6 @@
     }()]];
 }
 
-#pragma mark - 改变statusbar颜色
-- (UIStatusBarStyle)preferredStatusBarStyle{
-    return UIStatusBarStyleDefault;
-}
 
 @end
 

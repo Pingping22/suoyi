@@ -1,19 +1,23 @@
 //
 //  GlobalMethod+UI.m
-//  lanberProject
+//  乐销
 //
-//  Created by lirenbo on 2018/5/18.
-//  Copyright © 2018年 lirenbo. All rights reserved.
+//  Created by 隋林栋 on 2016/12/16.
+//  Copyright © 2016年 ping. All rights reserved.
 //
 
 #import "GlobalMethod+UI.h"
+//数据大小
+#import <limits.h>
+
 
 @implementation GlobalMethod (UI)
 
-#pragma mark - 计算高度 宽度
+#pragma mark 计算label size
 + (CGFloat)fetchHeightFromLabel:(UILabel *)label{
     return [self fetchHeightFromLabel:label heightLimit:10000];
 }
+
 + (CGFloat)fetchHeightFromLabel:(UILabel *)label heightLimit:(CGFloat )height{
     if (label == nil) {
         return 0;
@@ -27,8 +31,9 @@
         rect =[attributeString boundingRectWithSize:CGSizeMake(label.width, height)  options:NSStringDrawingUsesLineFragmentOrigin context:nil];
         num_height_return = num_height_return >label.numberOfLines*rect.size.height?label.numberOfLines*rect.size.height:num_height_return;
     }
-    return ceil(num_height_return);
+    return ceil(num_height_return) ;
 }
+
 + (CGFloat)fetchWidthFromLabel:(UILabel *)label{
     NSString * strContent = label.text == nil ? @"":label.text;
     
@@ -38,19 +43,16 @@
     //    NSLog(@"ceil Before: %lf",rect.size.width);
     return ceil(rect.size.width);
 }
+
+
 + (CGFloat)fetchWidthFromButton:(UIButton *)btn{
     UILabel * label = [UILabel new];
     label.font = btn.titleLabel.font;
     label.text = btn.titleLabel.text;
     return [self fetchWidthFromLabel:label];
 }
-+ (CGFloat)fetchHeightFromFont:(NSInteger)fontNum{
-    NSAttributedString *attributeString = [[NSAttributedString alloc]initWithString:@"A" attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:fontNum]}];
-    CGRect rect =[attributeString boundingRectWithSize:CGSizeMake(INTMAX_MAX, INTMAX_MAX)  options:NSStringDrawingUsesLineFragmentOrigin context:nil];
-    return  rect.size.height;
-}
 
-#pragma mark - 设置label
+//设置label
 + (void)setLabel:(UILabel *)label
       widthLimit:(CGFloat )widthLimit
         numLines:(NSInteger)numLines
@@ -66,7 +68,7 @@
     label.backgroundColor = color == nil?[UIColor clearColor]:color;
     label.text = UnPackStr(text);
     CGFloat widthMAX= [self fetchWidthFromLabel:label];
-    //NSLog(@"widthMAX : %lf",widthMAX);
+    //    NSLog(@"widthMAX : %lf",widthMAX);
     if (widthLimit != 0 ) {
         if (widthMAX < widthLimit) {
             label.width = widthMAX;
@@ -104,7 +106,6 @@
 {
     [self setLabel:label widthLimit:widthLimit numLines:label.numberOfLines fontNum:label.font.pointSize textColor:label.textColor aligent:label.textAlignment text:text bgColor:label.backgroundColor];
 }
-
 + (void)resetLabel:(UILabel *)label
    attributeString:(NSAttributedString *)text
         widthLimit:(CGFloat )widthLimit{
@@ -113,15 +114,21 @@
     label.width = MIN(CGRectGetWidth(rect), widthLimit?:CGFLOAT_MAX);
     //限制行数
     label.height = [self fetchHeightFromLabel:label heightLimit:CGFLOAT_MAX];
-    //label.height = rect.size.height+1;
+//    label.height = rect.size.height+1;
 }
 
-#pragma mark - 设置圆角
++ (CGFloat)fetchHeightFromFont:(NSInteger)fontNum{
+    NSAttributedString *attributeString = [[NSAttributedString alloc]initWithString:@"A" attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:fontNum]}];
+    CGRect rect =[attributeString boundingRectWithSize:CGSizeMake(INTMAX_MAX, INTMAX_MAX)  options:NSStringDrawingUsesLineFragmentOrigin context:nil];
+    return  rect.size.height;
+}
+//设置圆角
 + (void)setRoundView:(UIView *)iv color:(UIColor *)color
 {
     [self setRoundView:iv color:color numRound:4 width:4];
 }
 
+//设置圆角
 + (void)setRoundView:(UIView *)iv color:(UIColor *)color numRound:(CGFloat)numRound width:(CGFloat)width
 {
     iv.layer.cornerRadius = numRound;//圆角设置
@@ -130,7 +137,136 @@
     iv.layer.borderColor = color.CGColor;
 }
 
-#pragma mark - 改变状态栏
+//设置textfield左间距
++ (void)setTextFileLeftPadding:(UITextField *)ut leftPadding:(float)leftPadding{
+    CGRect frame = ut.frame;
+    frame.size.width = leftPadding;
+    UIView *leftV = [[UIView alloc] initWithFrame:frame];
+    ut.leftViewMode = UITextFieldViewModeAlways;
+    ut.leftView = leftV;
+}
+
+//设置日期格式
++ (NSString *)exchangeDate:(NSDate *)date formatter:(NSString *)formate{
+    if (date == nil || formate == nil) {
+        return @"";
+    }
+    
+    NSMutableDictionary *threadDictionary = [[NSThread currentThread] threadDictionary];
+    NSDateFormatter *dateFormatter = threadDictionary[@"myDateFormatter"];
+    if(!dateFormatter){
+        @synchronized(self){
+            if(!dateFormatter){
+                dateFormatter = [[NSDateFormatter alloc] init];
+                [dateFormatter setAMSymbol:@"上午"];
+                [dateFormatter setPMSymbol:@"下午"];
+                threadDictionary[@"myDateFormatter"] = dateFormatter;
+            }
+        }
+    }
+    // 必填字段
+    //    static NSDateFormatter *dateFormatter = nil;
+    //    if (dateFormatter == nil) {
+    //        dateFormatter = [[NSDateFormatter alloc] init];
+    //        [dateFormatter setAMSymbol:@"上午"];
+    //        [dateFormatter setPMSymbol:@"下午"];
+    //    }
+    //    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
+    //设定时间格式,这里可以设置成自己需要的格式
+    [dateFormatter setDateFormat:formate];
+    //用[NSDate date]可以获取系统当前时间
+    NSString *currentDateStr = [dateFormatter stringFromDate:date];
+    return currentDateStr;
+}
+//设置日期格式
++ (NSDate *)exchangeStringToDate:(NSString *)string formatter:(NSString *)formate{
+    if (!isStr(string) || !isStr(formate)) {
+        return nil;
+    }
+    NSMutableDictionary *threadDictionary = [[NSThread currentThread] threadDictionary];
+    NSDateFormatter *dateFormatter = threadDictionary[@"myStrToDateformatter"];
+    if(!dateFormatter){
+        @synchronized(self){
+            if(!dateFormatter){
+                dateFormatter = [[NSDateFormatter alloc] init];
+                threadDictionary[@"myStrToDateformatter"] = dateFormatter;
+            }
+        }
+    }
+    //    // 必填字段
+    //    static NSDateFormatter *dateFormatter = nil;
+    //    if (dateFormatter == nil) {
+    //        dateFormatter = [[NSDateFormatter alloc] init];
+    //    }
+    //设定时间格式,这里可以设置成自己需要的格式
+    [dateFormatter setDateFormat:formate];
+    //用[NSDate date]可以获取系统当前时间
+    return [dateFormatter dateFromString:string];
+}
+//转换日期格式
++ (NSString *)exchangeString:(NSString *)string fromFormatter:(NSString *)formateFrom toFormatter:(NSString *)formateTo{
+    if (!isStr(string)) {
+        return @"";
+    }
+    NSDate * date= [self exchangeStringToDate:string formatter:formateFrom];
+    if (date) {
+        return [self exchangeDate:date formatter:formateTo];
+    }
+    return @"";
+}
++ (NSDate *)exchangeString:(NSString *)str formatter:(NSString *)formate{
+    if (str == nil || formate == nil) {
+        return [NSDate date];
+    }
+    NSMutableDictionary *threadDictionary = [[NSThread currentThread] threadDictionary];
+    NSDateFormatter *dateFormatter = threadDictionary[@"myStrDateFormatter"];
+    if(!dateFormatter){
+        @synchronized(self){
+            if(!dateFormatter){
+                dateFormatter = [[NSDateFormatter alloc] init];
+                threadDictionary[@"myStrDateFormatter"] = dateFormatter;
+            }
+        }
+    }
+    // 必填字段
+    //    static NSDateFormatter *dateFormatter = nil;
+    //
+    //    if (dateFormatter == nil) {
+    //        dateFormatter = [[NSDateFormatter alloc] init];
+    //    }
+    
+    //设定时间格式,这里可以设置成自己需要的格式
+    [dateFormatter setDateFormat:formate];
+    //用[NSDate date]可以获取系统当前时间
+    NSDate *currentDate = [dateFormatter dateFromString:str];
+    return currentDate;
+}
++ (NSString *)exchangeDateStringResponse:(NSString *)str formatter:(NSString *)formate{
+    if (!isStr(str)) {
+        return @"";
+    }
+    NSRange range = [str rangeOfString:@"0001"];
+    if (range.location != NSNotFound) {
+        return @"";
+    }
+     range = [str rangeOfString:@"."];
+    if (range.length > 0) {
+        str = [str substringToIndex:range.location];
+    }
+//    NSArray * aryDate = [str componentsValidSeparatedByString:@"T"];
+//    NSDate * dateYear = [self exchangeString:aryDate.firstObject formatter:@"yyyy-MM-dd"];
+//    NSDate * dateHour = [self exchangeString:aryDate.lastObject formatter:@"HH-mm-ss"];
+//    NSString * strDate = [NSString stringWithFormat:@"%@ %@",[self exchangeDate:dateYear formatter:@"yyyy-MM-dd"],[self exchangeDate:dateHour formatter:@"HH-mm-ss"]];
+    NSDate * dateRight = [self exchangeString:str formatter:@"yyyy-MM-dd HH-mm-ss"];
+    NSString * strReturn = [self exchangeDate:dateRight formatter:formate];
+    
+    return isStr(strReturn)?strReturn:str;
+}
+
+//获取时间戳
++ (NSString *)fetchTimeStamp{
+    return [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970]];
+}
 // exhcnage status bar
 + (void)exchangeStatusBar:(UIStatusBarStyle) statusBarStyle{
     [GlobalData sharedInstance].statusBarStyle = statusBarStyle;
@@ -142,8 +278,102 @@
     UIViewController * lastVC = GB_Nav.lastVC;
     [lastVC setNeedsStatusBarAppearanceUpdate];
 }
+//红色的数字
++ (void)exchangeLabel:(UILabel *)label positiveCount:(int)count {
+    label.hidden = count <=0;
+    if (!label ) return;
+    count = count>99?99:count;
+    NSString * strNum = count < 10? @"AAA": @"AAAA";
+    [GlobalMethod setLabel:label widthLimit:0 numLines:0 fontNum:F(12) textColor:[UIColor whiteColor] text:strNum];
+    label.backgroundColor = [UIColor redColor];
+    [GlobalMethod setRoundView:label color:[UIColor clearColor] numRound:label.height / 2.0- W(2) width:0];
+    label.text = [NSString stringWithFormat:@"+%d",count];
+    label.textAlignment = NSTextAlignmentCenter;
+    
+}
++ (void)exchangeLabel:(UILabel *)label count:(int)count {
+    label.hidden = count <=0;
+    if (!label ) return;
+    count = count>99?99:count;
+    NSString * strNum = count < 10? @"AA": @"AAA";
+    [GlobalMethod setLabel:label widthLimit:0 numLines:0 fontNum:F(12) textColor:[UIColor whiteColor] text:strNum];
+    label.backgroundColor = [UIColor redColor];
+    [GlobalMethod setRoundView:label color:[UIColor clearColor] numRound:label.height / 2.0 width:0];
+    label.text = [NSString stringWithFormat:@"%d",count];
+    label.textAlignment = NSTextAlignmentCenter;
+}
+//设置行间距
++(void )setAttributeLabel:(UILabel *)label content:(NSString *)content width:(CGFloat)width
+{
+    [self setAttributeLabel:label content:content width:width lineSpace:F(7)];
+}
++(void)setAttributeLabel:(UILabel *)label content:(NSString *)content width:(CGFloat)width lineSpace:(CGFloat)line{
+    label.width = width;
+    NSMutableAttributedString * attributedString = [[NSMutableAttributedString alloc] initWithString:content];
+    NSMutableParagraphStyle * paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    [paragraphStyle setLineSpacing:line];
+    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [content length])];
+    [label setAttributedText:attributedString];
+    [label sizeToFit];
+}
 
-#pragma mark - 收键盘
+//获取审批cell
++ (CGFloat)resetCellView:(UIView *)view withArray:(NSArray *)array{
+    return  [self resetView:view withArray:array];
+}
+
+//sectionHeaderView
++(UIView *)resetTitle:(NSString *)title{
+    UIView *contentView = [[UIView alloc] init];
+    contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"uitableviewbackground"]];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, 100, 22)];
+    label.backgroundColor = [UIColor clearColor];
+    [label setText:title];
+    [contentView addSubview:label];
+    contentView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 30);
+    label.centerY = contentView.height/2.0;
+    return contentView;
+}
++(CGFloat)fetchTitleHeight:(ModelAryIndex *)modelSection{
+    static UIView *view ;
+    if (!view) {
+        view = [self resetTitle:@"A"];
+    }
+    if (modelSection && isStr(modelSection.strFirst)) {
+        return view.height;
+    }
+    return W(10);
+}
+
+//复制内容到剪切板
++ (void)copyToPlte:(NSString *)str{
+    if (!isStr(str)) {
+        return;
+    }
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    pasteboard.string = str;
+}
+
+//显示编辑提示
++ (void)showEditAlert:(void (^)())block view:(UIView *)view{
+    ModelBtn * modelDismiss = [ModelBtn modelWithTitle:@"取消" imageName:nil highImageName:nil tag:TAG_LINE color:[UIColor redColor]];
+    modelDismiss.blockClick = block;
+    ModelBtn * modelConfirm = [ModelBtn modelWithTitle:@"确认" imageName:nil highImageName:nil tag:TAG_LINE color:[UIColor redColor]];
+    modelConfirm.blockClick = ^(void){
+        [GB_Nav popViewControllerAnimated:true];
+    };
+    [BaseAlertView initWithTitle:@"确认取消编辑？" content:@"返回将清除编辑的内容" aryBtnModels:@[modelDismiss,modelConfirm] viewShow:view];
+}
+//显示编辑提示dismissBlock与ConfirmBlock
++ (void)showEditAlertDismiss:(void (^)())dismissblock confirm:(void (^)())confirmblock view:(UIView *)view{
+    ModelBtn * modelDismiss = [ModelBtn modelWithTitle:@"取消" imageName:nil highImageName:nil tag:TAG_LINE color:[UIColor redColor]];
+    modelDismiss.blockClick = dismissblock;
+    ModelBtn * modelConfirm = [ModelBtn modelWithTitle:@"确认" imageName:nil highImageName:nil tag:TAG_LINE color:[UIColor redColor]];
+    modelConfirm.blockClick = confirmblock;
+    [BaseAlertView initWithTitle:@"确认取消编辑？" content:@"返回将清除编辑的内容" aryBtnModels:@[modelDismiss,modelConfirm] viewShow:view];
+}
+
+//收键盘
 + (void)endEditing{
     UIWindow * window = [UIApplication sharedApplication].keyWindow;
     [window endEditing:true];

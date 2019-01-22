@@ -14,7 +14,7 @@
 - (UILabel *)labelTitle{
     if (!_labelTitle) {
         _labelTitle = [UILabel new];
-        [GlobalMethod setLabel:_labelTitle widthLimit:SCREEN_WIDTH - W(50) * 2 numLines:1 fontNum:F(17) textColor:[UIColor whiteColor] text:@""];
+        [GlobalMethod setLabel:_labelTitle widthLimit:SCREEN_WIDTH - W(50) * 2 numLines:1 fontNum:F(17) textColor:[UIColor blackColor] text:@""];
     }
     return _labelTitle;
 }
@@ -34,7 +34,7 @@
     self = [super init];
     if (self) {
         self.frame = CGRectMake(0, 0, SCREEN_WIDTH, NAVIGATIONBAR_HEIGHT);
-        self.backgroundColor = COLOR_NAV_COLOR;
+        self.backgroundColor = [UIColor whiteColor];
 //        //设置渐变色
 //        CAGradientLayer *gradient = [CAGradientLayer layer];
 //        gradient.frame = self.bounds;

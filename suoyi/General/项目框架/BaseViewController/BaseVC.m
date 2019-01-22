@@ -136,8 +136,11 @@
 }
 
 #pragma mark - 改变statusbar颜色
+//- (UIStatusBarStyle)preferredStatusBarStyle{
+//    return [GlobalData sharedInstance].statusBarStyle;
+//}
 - (UIStatusBarStyle)preferredStatusBarStyle{
-    return [GlobalData sharedInstance].statusBarStyle;
+    return UIStatusBarStyleDefault;
 }
 - (BOOL)prefersStatusBarHidden{
     return [GlobalData sharedInstance].statusHidden;

@@ -36,3 +36,14 @@
 #pragma mark 刷新view
 - (void)resetViewWithModel:(id)model;
 @end
+
+
+#import "MineListMindImgView.h"
+@interface HomePageThirHeaderView : UIView
+//属性
+@property (strong, nonatomic) UILabel *labelTitle;
+@property (strong, nonatomic) UIButton *addBtn;
+@property (nonatomic, strong) MineListMindImgView * upImageInfoView;
+#pragma mark 刷新view
+- (void)resetWithAry:(NSArray *)aryImage;
+@end

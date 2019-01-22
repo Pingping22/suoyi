@@ -7,7 +7,6 @@
 //
 
 #import "ToolsTabVC.h"
-#import "ToolsCell.h" //cell
 #import "RecommendTabVC.h"
 
 @interface ToolsTabVC ()
@@ -53,10 +52,7 @@
     [self.view addSubview:self.navView];
 }
 
-#pragma mark - 改变statusbar颜色
-- (UIStatusBarStyle)preferredStatusBarStyle{
-    return UIStatusBarStyleDefault;
-}
+
 
 @end
 
@@ -113,7 +109,6 @@
         _setControl.tag = 2;
         [_setControl addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
         _setControl.backgroundColor = [UIColor clearColor];
-        _setControl.widthHeight = XY(SCREEN_WIDTH,W(0));
     }
     return _setControl;
 }
@@ -146,22 +141,23 @@
     [self removeSubViewWithTag:TAG_LINE];//移除线
     //刷新view
     
-    self.conImg.centerXTop = XY(SCREEN_WIDTH/4,0);
+    self.conImg.centerXTop = XY(SCREEN_WIDTH/4,W(20));
     
     [GlobalMethod resetLabel:self.labelCon text:@"开始远程控制" widthLimit:0];
     self.labelCon.centerXTop = XY(self.conImg.centerX,self.conImg.bottom+W(8));
     
     self.control.widthHeight = XY(W(60), W(60));
-    self.control.leftTop = XY(W(25),0);
+    self.control.centerXTop = XY(SCREEN_WIDTH/4,W(20));
     
-    self.setImg.centerXTop = XY(SCREEN_WIDTH/4*3,0);
+    self.setImg.centerXTop = XY(SCREEN_WIDTH/4*3,W(20));
     
     [GlobalMethod resetLabel:self.labelSet text:@"设置" widthLimit:0];
     self.labelSet.centerXTop = XY(self.setImg.centerX,self.setImg.bottom+W(8));
     
     self.setControl.widthHeight = XY(W(60), W(60));
-    self.setControl.rightTop = XY(SCREEN_WIDTH-W(15),0);
+    self.setControl.centerXTop = XY(SCREEN_WIDTH/4*3,W(20));
     
+    self.height = W(200);
 }
 
 #pragma mark 点击事件
@@ -172,7 +168,11 @@
             
         }
             break;
-            
+        case 2://设置
+        {
+            [GB_Nav pushVCName:@"SetVC" animated:true];
+        }
+            break;
         default:
             break;
     }
