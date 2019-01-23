@@ -37,6 +37,7 @@ PODS:
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
+  - WechatOpenSDK (1.7.7)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
@@ -51,6 +52,7 @@ DEPENDENCIES:
   - Masonry
   - MJRefresh (~> 3.1.12)
   - SDWebImage
+  - WechatOpenSDK
   - YYKit
 
 EXTERNAL SOURCES:
@@ -77,8 +79,9 @@ SPEC CHECKSUMS:
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  WechatOpenSDK: cbd332148eb792d444ed4eec94f421d98f2046ee
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 9340b002245770dff1de1a21a98684eff27f32d1
+PODFILE CHECKSUM: 4a9dee65db205e26bd53e1dee5a43e9dee8f2074
 
 COCOAPODS: 1.2.0

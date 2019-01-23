@@ -22,6 +22,8 @@ def pods
     pod 'BuglyHotfix'
     #YYKit
     pod 'YYKit'
+    #微信
+    pod 'WechatOpenSDK'
 end
 
 target ‘suoyi’ do
