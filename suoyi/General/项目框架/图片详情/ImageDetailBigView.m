@@ -9,7 +9,10 @@
 #import "ImageDetailBigView.h"
 #import "BaseImage.h"//image
 #import "ShareAlertView.h"
-
+//微信
+#import "WXApi.h"
+//微博
+#import "WeiboSDK.h"
 @interface ImageDetailBigView()
 {
     CGFloat contentSetY;
@@ -373,17 +376,23 @@
             break;
         case 11://微信好友
         {
-            
+            [self sharePhoto:^{
+                [weakSelf shareWithWechatType:WXSceneSession];
+            }];
         }
             break;
         case 12://微信朋友圈
         {
-            
+            [self sharePhoto:^{
+                [weakSelf shareWithWechatType:WXSceneTimeline];
+            }];
         }
             break;
         case 13://新浪微博
         {
-            
+            [self sharePhoto:^{
+                [weakSelf shareSinaWeiboWithText:SINA_SHARE_TEXT];
+            }];
         }
             break;
         case 14://下载
@@ -423,6 +432,70 @@
         [alert show];
     }
 }
+-(void)sharePhoto:(void(^)())succeed{
+    
+    if (self.cellShow.iv.image && succeed) {
+        succeed();
+    }
+}
+
+
+//微信
+- (void)shareWithWechatType:(int)type
+{
+    if ([WXApi isWXAppInstalled] && [WXApi isWXAppSupportApi]) {
+        
+        //1.创建多媒体消息结构体
+        WXMediaMessage *mediaMsg = [WXMediaMessage message];
+        //2.创建多媒体消息中包含的图片数据对象
+        WXImageObject *imgObj = [WXImageObject object];
+        //图片真实数据
+        imgObj.imageData = [UIImage imageData:self.cellShow.iv.image];
+        //多媒体数据对象
+        mediaMsg.mediaObject = imgObj;
+        
+        if (imgObj.imageData.length<32*1024) {
+            mediaMsg.thumbData =imgObj.imageData;
+        }else{
+            mediaMsg.thumbData =[UIImage thumbDataWithImageData:imgObj.imageData];
+            if (mediaMsg.thumbData.length>=32*1024) {
+                mediaMsg.thumbData = nil;
+            }
+        }
+        //3.创建发送消息至微信终端程序的消息结构体
+        SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
+        //多媒体消息的内容
+        req.message = mediaMsg;
+        //指定为发送多媒体消息（不能同时发送文本和多媒体消息，两者只能选其一）
+        req.bText = NO;
+        //默认是Session分享给朋友,Timeline是朋友圈,Favorite是收藏
+        req.scene = type;
+        //发送请求到微信,等待微信返回onResp
+        [WXApi sendReq:req];
+        
+    } else {
+        [GlobalMethod showAlert:@"你还没有安装微信"];
+    }
+}
+
+// 发布纯文本
+- (void)shareSinaWeiboWithText:(NSString *)text
+{
+    if (![WeiboSDK isWeiboAppInstalled]) {
+        [GlobalMethod showAlert:@"你还没有安装微博"];
+    }else {
+        WBMessageObject *message = [WBMessageObject message];
+        message.text = text;
+        WBImageObject * imageObj = [WBImageObject object];
+        imageObj.imageData = [UIImage imageData:self.cellShow.iv.image];
+        message.imageObject = imageObj;
+        
+        WBSendMessageToWeiboRequest *request = [WBSendMessageToWeiboRequest requestWithMessage:message];
+        [WeiboSDK sendRequest:request];
+        
+    }
+}
+
 @end
 
 @implementation UpImageDetailImageViewCell

@@ -28,6 +28,8 @@
 		4A5C9CB821F80CBC00CA2332 /* ShareAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C9CB721F80CBC00CA2332 /* ShareAlertView.m */; };
 		4A5C9CC821F8601F00CA2332 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A5C9CBB21F8601F00CA2332 /* libWeiboSDK.a */; };
 		4A5C9CC921F8601F00CA2332 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4A5C9CC521F8601F00CA2332 /* WeiboSDK.bundle */; };
+		4A5C9CCC21F8622700CA2332 /* UIImage+LHP.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C9CCB21F8622700CA2332 /* UIImage+LHP.m */; };
+		4A5C9CD021F8648A00CA2332 /* WXApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C9CCF21F8648A00CA2332 /* WXApiManager.m */; };
 		4A83D68621F027EB00E4EE2A /* RequestApi+RequestMicroService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A83D67821F027EB00E4EE2A /* RequestApi+RequestMicroService.m */; };
 		4A83D68721F027EB00E4EE2A /* RequestApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A83D67A21F027EB00E4EE2A /* RequestApi.m */; };
 		4A83D68821F027EB00E4EE2A /* RequestInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A83D67C21F027EB00E4EE2A /* RequestInstance.m */; };
@@ -171,6 +173,10 @@
 		4A5C9CC521F8601F00CA2332 /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WeiboSDK.bundle; sourceTree = "<group>"; };
 		4A5C9CC621F8601F00CA2332 /* WeiboSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboSDK.h; sourceTree = "<group>"; };
 		4A5C9CC721F8601F00CA2332 /* WeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboUser.h; sourceTree = "<group>"; };
+		4A5C9CCA21F8622600CA2332 /* UIImage+LHP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LHP.h"; sourceTree = "<group>"; };
+		4A5C9CCB21F8622700CA2332 /* UIImage+LHP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LHP.m"; sourceTree = "<group>"; };
+		4A5C9CCE21F8648A00CA2332 /* WXApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiManager.h; sourceTree = "<group>"; };
+		4A5C9CCF21F8648A00CA2332 /* WXApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXApiManager.m; sourceTree = "<group>"; };
 		4A83D28F21F00BEB00E4EE2A /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		4A83D29021F00BEB00E4EE2A /* MacroLocal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroLocal.h; sourceTree = "<group>"; };
 		4A83D29121F00BEB00E4EE2A /* MacroLocalKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroLocalKey.h; sourceTree = "<group>"; };
@@ -449,6 +455,7 @@
 		4A5C9CB521F80C6F00CA2332 /* 页面逻辑 */ = {
 			isa = PBXGroup;
 			children = (
+				4A5C9CCD21F8648A00CA2332 /* WXApiManager */,
 				4A5C9CB621F80CBC00CA2332 /* ShareAlertView.h */,
 				4A5C9CB721F80CBC00CA2332 /* ShareAlertView.m */,
 			);
@@ -481,6 +488,15 @@
 				4A5C9CC721F8601F00CA2332 /* WeiboUser.h */,
 			);
 			path = libWeiboSDK;
+			sourceTree = "<group>";
+		};
+		4A5C9CCD21F8648A00CA2332 /* WXApiManager */ = {
+			isa = PBXGroup;
+			children = (
+				4A5C9CCE21F8648A00CA2332 /* WXApiManager.h */,
+				4A5C9CCF21F8648A00CA2332 /* WXApiManager.m */,
+			);
+			path = WXApiManager;
 			sourceTree = "<group>";
 		};
 		4A83D28E21F00BEB00E4EE2A /* Macro */ = {
@@ -801,6 +817,8 @@
 		4A83D84C21F04C9700E4EE2A /* UIImageView */ = {
 			isa = PBXGroup;
 			children = (
+				4A5C9CCA21F8622600CA2332 /* UIImage+LHP.h */,
+				4A5C9CCB21F8622700CA2332 /* UIImage+LHP.m */,
 				4A83D84D21F04C9700E4EE2A /* UIImageView+Jump.h */,
 				4A83D84E21F04C9700E4EE2A /* UIImageView+Jump.m */,
 			);
@@ -1420,6 +1438,7 @@
 				4A83D8AE21F04C9700E4EE2A /* NSMutableParagraphStyle+Category.m in Sources */,
 				4A91660921F1A0B4006CF9DF /* ResourcesView.m in Sources */,
 				4A5C9C8921F5C2A800CA2332 /* ImageInfoDetailView.m in Sources */,
+				4A5C9CCC21F8622700CA2332 /* UIImage+LHP.m in Sources */,
 				4A83D6CE21F027FC00E4EE2A /* ToolsTabVC.m in Sources */,
 				4A83D6D221F027FC00E4EE2A /* LoginViewController.m in Sources */,
 				4A83D8CC21F04C9700E4EE2A /* SliderView.m in Sources */,
@@ -1439,6 +1458,7 @@
 				4A83D8C321F04C9700E4EE2A /* GlobalMethod+LocalDatas.m in Sources */,
 				4A83D68821F027EB00E4EE2A /* RequestInstance.m in Sources */,
 				4A83D8BC21F04C9700E4EE2A /* UIView+SelectImageView.m in Sources */,
+				4A5C9CD021F8648A00CA2332 /* WXApiManager.m in Sources */,
 				4A5C9CA821F7026C00CA2332 /* AlbumCollectionViewCell.m in Sources */,
 				4A83D8B321F04C9700E4EE2A /* NSObject+Catrgory.m in Sources */,
 				4A83D8B621F04C9700E4EE2A /* UIColor+Category.m in Sources */,

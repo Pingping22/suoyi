@@ -8,8 +8,13 @@
 
 #import "AppDelegate.h"
 #import "GlobalMethod+Version.h" //全局方法
-
-@interface AppDelegate ()
+//微信
+#import "WXApi.h"
+//微博
+#import "WeiboSDK.h"
+//Wechat
+#import "WXApiManager.h"
+@interface AppDelegate ()<UIAlertViewDelegate,WXApiDelegate,WeiboSDKDelegate>
 
 @end
 
@@ -21,10 +26,59 @@
     [GlobalMethod createRootNav];
     //网易云信
 //    [self configNIMSDKWithApplication:application launchOptions:launchOptions];
-    
+    //配置 app id
+    [self configureAPIKey];
     return YES;
 }
+#pragma mark 配置appid
+- (void)configureAPIKey
+{
+   
+    //注册微信ID
+    [WXApiManager registerApp];
+    //微博
+    [WeiboSDK registerApp:WEIBOAPPID];
+    
+}
+#pragma mark 微信
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    if ([url.host isEqualToString:@"weixin"]||[url.host isEqualToString:@"wechat"]) {
+        return [WXApi handleOpenURL:url delegate:[WXApiManager sharedManager]];
+    }
+    return [WeiboSDK handleOpenURL:url delegate:self];
+}
 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    if ([url.host isEqualToString:@"weixin"]||[url.host isEqualToString:@"wechat"]) {
+        return [WXApi handleOpenURL:url delegate:[WXApiManager sharedManager]];
+    }
+    return [WeiboSDK handleOpenURL:url delegate:self];
+}
+#pragma mark -- WeiboSDKDelegate
+- (void)didReceiveWeiboResponse:(WBBaseResponse *)response {
+    if ([response isKindOfClass:WBSendMessageToWeiboResponse.class])
+    {
+        if (response.statusCode == 0) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"成功" message:@"新浪微博分享成功" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"失败" message:@"新浪微博分享失败" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+    }
+    else if ([response isKindOfClass:WBAuthorizeResponse.class]){
+        if (response.statusCode == 0) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"成功" message:@"新浪微博授权成功" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"失败" message:@"新浪微博授权失败" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+    }
+    
+}
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
