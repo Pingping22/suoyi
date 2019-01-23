@@ -332,7 +332,7 @@
     switch (sender.tag) {
         case 1:
         {
-            
+            [GB_Nav pushVCName:@"CustomPhotoAlbumViewController" animated:true];
         }
             break;
             
