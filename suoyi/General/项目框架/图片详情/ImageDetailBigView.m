@@ -8,6 +8,7 @@
 
 #import "ImageDetailBigView.h"
 #import "BaseImage.h"//image
+#import "ShareAlertView.h"
 
 @interface ImageDetailBigView()
 {
@@ -16,7 +17,7 @@
 @property (nonatomic, strong) UpImageDetailImageViewCell *cellShow;
 @property (nonatomic, strong) UIControl *btnDelete;
 @property (nonatomic, strong) UILabel *labelNum;
-
+@property (nonatomic, strong) ShareAlertView * shareAlertView;
 @end
 
 @implementation ImageDetailBigView
@@ -98,6 +99,21 @@
     }
     return _btnDelete;
 }
+- (ShareAlertView *)shareAlertView
+{
+    if (_shareAlertView == nil) {
+        _shareAlertView = [ShareAlertView new];
+        _shareAlertView.frame = CGRectMake(W(0), W(0), SCREEN_WIDTH, SCREEN_HEIGHT);
+        [_shareAlertView.wechatControl addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [_shareAlertView.personControl addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [_shareAlertView.weiboControl addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [_shareAlertView.downControl addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [_shareAlertView.deleteControl addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+
+    }
+    return  _shareAlertView;
+}
+
 - (UILabel *)label{
     if (_label == nil) {
         _label = [UILabel new];
@@ -239,8 +255,8 @@
     } completion:^(BOOL finished) {
         [backgroundView removeFromSuperview];
         [viewShow addSubview:self];
-        self.navView.alpha = 0;
-        self.label.alpha = 0;
+//        self.navView.alpha = 0;
+//        self.label.alpha = 0;
         [UIView animateWithDuration:0.2 animations:^{
             self.navView.alpha = 1;
             self.label.alpha = 1;
@@ -350,15 +366,34 @@
 - (void)btnClick:(UIButton *)sender{
     WEAKSELF
     switch (sender.tag) {
-        case 1://edit
-            {
-                if (self.blockEdit) {
-                    self.blockEdit();
-                }
-                [self removeSelf:NO];
-            }
+        case 2:
+        {
+            [[UIApplication sharedApplication].keyWindow addSubview:self.shareAlertView];
+        }
             break;
-        case 2://delete
+        case 11://微信好友
+        {
+            
+        }
+            break;
+        case 12://微信朋友圈
+        {
+            
+        }
+            break;
+        case 13://新浪微博
+        {
+            
+        }
+            break;
+        case 14://下载
+        {
+            [self.shareAlertView removeFromSuperview];
+            UIImageWriteToSavedPhotosAlbum(weakSelf.cellShow.iv.image,weakSelf,@selector(imageSavedToPhotosAlbum:didFinishSavingWithError:contextInfo:),nil);
+
+        }
+            break;
+        case 15://删除
         {
             ModelBtn * modelDismiss = [ModelBtn modelWithTitle:@"取消" imageName:nil highImageName:nil tag:TAG_LINE color:[UIColor redColor]];
             ModelBtn * modelConfirm = [ModelBtn modelWithTitle:@"确认" imageName:nil highImageName:nil tag:TAG_LINE color:COLOR_LABEL];
@@ -366,10 +401,26 @@
                 [weakSelf removeItemNow];
             };
             [BaseAlertView initWithTitle:@"确认删除？" content:@"确认删除当前图片" aryBtnModels:@[modelDismiss,modelConfirm] viewShow:self];
+            
         }
             break;
+                
         default:
             break;
+    }
+}
+
+- (void)imageSavedToPhotosAlbum:(UIImage*)image didFinishSavingWithError:  (NSError*)error contextInfo:(void*)contextInfo{
+    NSString*message =@"";
+    if(!error) {
+        message =@"成功保存到相册";
+        UIAlertView*alert = [[UIAlertView alloc]initWithTitle:@"提示"message:message delegate:self cancelButtonTitle:@"确定"otherButtonTitles:nil];
+        [alert show];
+    }else
+    {
+        message = [error description];
+        UIAlertView*alert = [[UIAlertView alloc]initWithTitle:@"提    示"message:message delegate:self cancelButtonTitle:@"确定"otherButtonTitles:nil];
+        [alert show];
     }
 }
 @end
@@ -463,30 +514,17 @@
 -(void)imglongTapClick:(UIGestureRecognizer *)gesture{
     if(gesture.state==UIGestureRecognizerStateBegan)
     {
-        WEAKSELF
-        [GlobalMethod fetchPhotoAuthorityBlock:^{
-            [BaseAlertView customAlertControllerWithTitle:@"保存图片" modelBtnArr:@[[ModelBtn modelWithTitle:@"保存图片到手机" imageName:nil highImageName:nil tag:1 color:COLOR_LABEL]] cancelTitle:@"取消" cancelColor:COLOR_LABEL selectIndex:^(int selectIndex) {
-                if (selectIndex==1) {
-                    UIImageWriteToSavedPhotosAlbum(weakSelf.iv.image,weakSelf,@selector(imageSavedToPhotosAlbum:didFinishSavingWithError:contextInfo:),nil);
-                }
-            }];
-        }];
+//        WEAKSELF
+//        [GlobalMethod fetchPhotoAuthorityBlock:^{
+//            [BaseAlertView customAlertControllerWithTitle:@"保存图片" modelBtnArr:@[[ModelBtn modelWithTitle:@"保存图片到手机" imageName:nil highImageName:nil tag:1 color:COLOR_LABEL]] cancelTitle:@"取消" cancelColor:COLOR_LABEL selectIndex:^(int selectIndex) {
+//                if (selectIndex==1) {
+//                    UIImageWriteToSavedPhotosAlbum(weakSelf.iv.image,weakSelf,@selector(imageSavedToPhotosAlbum:didFinishSavingWithError:contextInfo:),nil);
+//                }
+//            }];
+//        }];
     }
 }
 
-- (void)imageSavedToPhotosAlbum:(UIImage*)image didFinishSavingWithError:  (NSError*)error contextInfo:(void*)contextInfo{
-    NSString*message =@"";
-    if(!error) {
-        message =@"成功保存到相册";
-        UIAlertView*alert = [[UIAlertView alloc]initWithTitle:@"提示"message:message delegate:self cancelButtonTitle:@"确定"otherButtonTitles:nil];
-        [alert show];
-    }else
-    {
-        message = [error description];
-        UIAlertView*alert = [[UIAlertView alloc]initWithTitle:@"提    示"message:message delegate:self cancelButtonTitle:@"确定"otherButtonTitles:nil];
-        [alert show];
-    }
-}
 
 - (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale
 {

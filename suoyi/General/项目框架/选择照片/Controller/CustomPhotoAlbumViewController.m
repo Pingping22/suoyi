@@ -317,10 +317,7 @@
             
             headerView.allSelectButton.hidden = NO;
             //显示日期
-            NSString *dataStr = self.photosDateArray[indexPath.section];
-            NSDate *data1 = [GlobalMethod exchangeString:dataStr formatter:TIME_DAY_CN];
-            
-            headerView.dateStr = [GlobalMethod exchangeDateStringResponse:dataStr formatter:TIME_DAY_CN];
+            headerView.dateStr = self.photosDateArray[indexPath.section];
 
             //判断是否是全选的
             NSArray * sectionArray = [NSArray arrayWithArray:self.photosDict[self.photosDateArray[indexPath.section]]];

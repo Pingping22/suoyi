@@ -7,7 +7,7 @@
 //
 
 #import "HomePageVC.h"
-#import "RecommendTabVC.h"
+#import "ProductMarketNavView.h"
 @interface HomePageVC ()
 @property (nonatomic, strong) ProductMarketNavView * navView;
 @property (nonatomic, strong) HomePageHeaderView * headerView;

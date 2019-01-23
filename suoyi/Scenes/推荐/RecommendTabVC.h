@@ -15,24 +15,6 @@
 
 
 
-
-
-#pragma mark - 导航栏View
-
-@interface ProductMarketNavView : UIView
-//属性
-@property (strong, nonatomic) UIImageView *iconImg;
-@property (strong, nonatomic) UILabel *labelName;
-@property (strong, nonatomic) UIImageView *imgView;
-@property (strong, nonatomic) UILabel *labelRed;
-@property (nonatomic, strong) UIView      * lineView;
-
-#pragma mark 刷新view
-- (void)resetViewWithTitle:(NSString *)searchTitle;
-
-@end
-
-
 @class AutoScView;
 @interface ProductMarketHeaderView : UIView
 @property (nonatomic, strong) UIButton    * searchBtn;

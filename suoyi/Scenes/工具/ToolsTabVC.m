@@ -7,7 +7,7 @@
 //
 
 #import "ToolsTabVC.h"
-#import "RecommendTabVC.h"
+#import "ProductMarketNavView.h"
 
 @interface ToolsTabVC ()
 @property (nonatomic, strong) ProductMarketNavView * navView;

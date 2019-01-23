@@ -7,7 +7,6 @@
 //
 
 #import "SetVC.h"
-#import "RecommendTabVC.h"
 
 @interface SetVC ()
 @property (nonatomic, strong) SetView * headerView;
