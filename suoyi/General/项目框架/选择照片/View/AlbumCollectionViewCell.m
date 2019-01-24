@@ -10,7 +10,6 @@
 #import "GXPhotoAssetModel.h"
 #import "GXPHKitTool.h"
 
-#define SCREEN_W ([UIScreen mainScreen].bounds.size.width)
 
 @interface AlbumCollectionViewCell ()
 @property (nonatomic ,strong)UIButton * selectButton;
@@ -63,7 +62,7 @@
 {
     _assetModel = assetModel;
     
-    CGSize imgSize = CGSizeMake(((SCREEN_W-5)/4)*2, ((SCREEN_W-5)/4)*2);
+    CGSize imgSize = CGSizeMake(((SCREEN_WIDTH-5)/4)*2, ((SCREEN_WIDTH-5)/4)*2);
     
     PHImageRequestOptions * options = [[PHImageRequestOptions alloc]init];
     options.resizeMode = PHImageRequestOptionsResizeModeExact;

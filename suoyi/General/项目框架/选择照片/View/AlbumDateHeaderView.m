@@ -22,7 +22,7 @@
         
         
         self.backgroundColor = [UIColor whiteColor];
-        UILabel * dateLab = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, 56)];
+        UILabel * dateLab = [[UILabel alloc]initWithFrame:CGRectMake(0, 15, self.frame.size.width, 56)];
         dateLab.textColor = RGBA_COLOR(75, 75, 75, 1);
         dateLab.font      = [UIFont systemFontOfSize:14.0];
         self.dateLabel    = dateLab;

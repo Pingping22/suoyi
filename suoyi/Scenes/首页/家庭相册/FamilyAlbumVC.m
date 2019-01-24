@@ -7,12 +7,13 @@
 //
 
 #import "FamilyAlbumVC.h"
-#import "AlbumCollectionViewCell.h"
 #import "GXPhotoAssetModel.h"
 #import "AlbumNavTitleView.h"
 #import "AlbumSelectAssetGroupView.h"
 #import "LargePhotoPageViewController.h"
 #import "GXPHKitTool.h"
+//view
+#import "ImageDetailBigView.h"
 @interface FamilyAlbumVC ()<UICollectionViewDelegate,UICollectionViewDataSource,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
 @property (nonatomic ,strong)UICollectionView * albumCollectionView;
@@ -112,7 +113,7 @@
         _albumCollectionView.delegate           = self;
         _albumCollectionView.alwaysBounceVertical = YES; //不够一屏也能滚
         _albumCollectionView.pagingEnabled      = NO;
-        [_albumCollectionView registerClass:[AlbumCollectionViewCell class] forCellWithReuseIdentifier:@"AlbumCell"];
+        [_albumCollectionView registerClass:[FamilyAlbumCell class] forCellWithReuseIdentifier:@"FamilyAlbumCell"];
         [_albumCollectionView registerClass:[FamilyAlbumHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"ReusableView"];
         
     }
@@ -227,8 +228,8 @@
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString * CellIdentifier = @"AlbumCell";
-    AlbumCollectionViewCell * collect = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString * CellIdentifier = @"FamilyAlbumCell";
+    FamilyAlbumCell * collect = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
     
     if (self.photosDateArray.count > 0) {
         
@@ -236,44 +237,25 @@
         NSArray * array           = self.photosDict[self.photosDateArray[indexPath.section]];
         GXPhotoAssetModel * model = array[indexPath.row];
         collect.assetModel        = model;
-        
-        collect.isSelected = NO;
-        
-        [self.selectedImageArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            GXPhotoAssetModel * tmpModel = (GXPhotoAssetModel *)obj;
-            
-            if ([tmpModel.asset isEqual:model.asset]) {
-                collect.isSelected = YES;
-                *stop = YES;
-            }
-        }];
+        collect.ary = @[^(){
+            ModelImage * model = [ModelImage new];
+            model.url = @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1548138517507&di=78799c29d427b33735de2756e1a89a2d&imgtype=0&src=http%3A%2F%2Fwww.pp3.cn%2Fuploads%2F201701%2F2017022305.jpg";
+            return model;
+        }(),^(){
+            ModelImage * model = [ModelImage new];
+            model.url = @"22";
+            return model;
+        }(),^(){
+            ModelImage * model = [ModelImage new];
+            model.url = @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1548139295838&di=77757991a6ffe2652e4e7589f5d7dd68&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fblog%2F201508%2F03%2F20150803090619_sYGZM.thumb.700_0.jpeg";
+            return model;
+        }(),^(){
+            ModelImage * model = [ModelImage new];
+            model.url = @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1548138934438&di=382a1d65280c7b7544c9b4515b0f39c3&imgtype=0&src=http%3A%2F%2Fs1.sinaimg.cn%2Fmw690%2F001KcHF3zy75TWW2s7ud0%26690";
+            return model;
+        }()].mutableCopy;
         
     }
-    WEAKSELF
-    __weak typeof(collect)weakCell = collect;
-    //单个添加已选的照片model
-    weakCell.albumCellSelectBlock = ^(GXPhotoAssetModel *model,UIButton * isSelectBtn) {
-        
-        if (isSelectBtn.selected == YES) {
-            
-            [weakSelf.selectedImageArray addObject:model];
-        } else {
-            
-            [weakSelf.selectedImageArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                
-                GXPhotoAssetModel * m = (GXPhotoAssetModel*)obj;
-                if ([m.asset isEqual:model.asset]) {
-                    [weakSelf.selectedImageArray removeObject:m];
-                    *stop = YES;
-                }
-                
-            }];
-        }
-        //刷新section(为了判断该组是否是全选)
-        [UIView performWithoutAnimation:^{
-            [collectionView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section]];
-        }];
-    };
     return collect;
 }
 #pragma mark - 头部视图（日期和全选）
@@ -283,7 +265,7 @@
         
         FamilyAlbumHeaderView * headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"ReusableView" forIndexPath:indexPath];
             //显示日期
-        headerView.dateStr = @"今天";
+        [headerView resetCellWithStr:@"今天"];
         return headerView;
     } else {
         return nil;
@@ -313,62 +295,10 @@
     return size;
 }
 
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    __weak typeof(self) weakSelf = self;
-    LargePhotoPageViewController * largePageVC = [[LargePhotoPageViewController alloc]init];
-    largePageVC.indexPath    = indexPath;
-    largePageVC.allDateArray = self.photosDateArray;
-    largePageVC.allImgDict   = self.photosDict;
-    largePageVC.selectedImgArray = self.selectedImageArray;
-    largePageVC.largePhotoBlock  = ^(NSMutableArray * largeArray) {
-        
-        weakSelf.selectedImageArray  = [NSMutableArray arrayWithArray:largeArray];
-        
-        [weakSelf.albumCollectionView reloadData];
-    };
-    //浏览大图完成，开始写记忆
-    largePageVC.largePhotoWriteBlock = ^{
-        
-        NSLog(@"选照片结束------%@",weakSelf.selectedImageArray);
-        [weakSelf dismissViewControllerAnimated:YES completion:^{
-            
-        }];
-    };
-    [self.navigationController pushViewController:largePageVC animated:YES];
-}
+
 -(BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return YES;
-}
-- (NSString *)exchangeDateStringResponse:(NSString *)str formatter:(NSString *)formate{
-    if (!isStr(str)) {
-        return @"";
-    }
-    NSRange  range = [str rangeOfString:@"-"];
-    if (range.length > 0) {
-        str = [str substringToIndex:range.location];
-    }
-    //    NSArray * aryDate = [str componentsValidSeparatedByString:@"T"];
-    //    NSDate * dateYear = [self exchangeString:aryDate.firstObject formatter:@"yyyy-MM-dd"];
-    //    NSDate * dateHour = [self exchangeString:aryDate.lastObject formatter:@"HH-mm-ss"];
-    //    NSString * strDate = [NSString stringWithFormat:@"%@ %@",[self exchangeDate:dateYear formatter:@"yyyy-MM-dd"],[self exchangeDate:dateHour formatter:@"HH-mm-ss"]];
-    NSDate * dateRight = [GlobalMethod exchangeString:str formatter:@"yyyy-MM-dd HH-mm-ss"];
-    NSString * strReturn = [GlobalMethod exchangeDate:dateRight formatter:formate];
-    
-    return isStr(strReturn)?strReturn:str;
-}
-#pragma mark - 选照片完成
-- (void)completeBtnClick
-{
-    if (self.selectedImageArray.count == 0) {
-        return;
-    }
-    NSLog(@"选照片结束------%@",self.selectedImageArray);
-    
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
 }
 
 @end
@@ -381,25 +311,99 @@
 
 
 @implementation FamilyAlbumHeaderView
+#pragma mark 懒加载
+- (UILabel *)dateLabel{
+    if (_dateLabel == nil) {
+        _dateLabel = [UILabel new];
+        [GlobalMethod setLabel:_dateLabel widthLimit:0 numLines:0 fontNum:F(15) textColor:COLOR_LABEL text:@""];
+    }
+    return _dateLabel;
+}
+
 -(instancetype)initWithFrame:(CGRect)frame
 {
     if (self == [super initWithFrame:frame]) {
-        
-        
         self.backgroundColor = [UIColor whiteColor];
-        UILabel * dateLab = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, 56)];
-        dateLab.textColor = [UIColor blackColor];
-        dateLab.font      = [UIFont systemFontOfSize:14.0];
-        self.dateLabel    = dateLab;
-        [self.contentView addSubview:dateLab];
+        [self.contentView addSubview:self.dateLabel];
         
     }
     return self;
 }
--(void)setDateStr:(NSString *)dateStr
-{
-    _dateStr = dateStr;
-    self.dateLabel.text = dateStr;
+- (void)resetCellWithStr:(NSString *)str{
+    
+    [self.contentView removeSubViewWithTag:TAG_LINE];//移除线
+    //刷新view
+    [GlobalMethod resetLabel:self.dateLabel text:UnPackStr(str) widthLimit:0];
+    self.dateLabel.leftTop = XY(W(15),W(15));
+    
+    self.height = self.dateLabel.bottom+W(15);
 }
 
+@end
+
+
+
+
+
+
+
+
+@implementation FamilyAlbumCell
+#pragma mark 懒加载
+- (UIImageView *)photoButton{
+    if (_photoButton == nil) {
+        _photoButton = [UIImageView new];
+        _photoButton.frame      = self.bounds;
+        [_photoButton setContentMode:UIViewContentModeScaleAspectFill];
+        _photoButton.clipsToBounds = YES;
+        _photoButton.userInteractionEnabled  = true;
+        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageClick:)];
+        [_photoButton addGestureRecognizer:tap];
+    }
+    return _photoButton;
+}
+- (NSMutableArray *)ary
+{
+    if (_ary == nil) {
+        _ary = [NSMutableArray new];
+    }
+    return  _ary;
+}
+
+-(instancetype)initWithFrame:(CGRect)frame
+{
+    if (self == [super initWithFrame:frame]) {
+        
+        self.backgroundColor = [UIColor whiteColor];
+        
+        [self.contentView addSubview:self.photoButton];
+    }
+    return self;
+}
+- (void)setAssetModel:(GXPhotoAssetModel *)assetModel
+{
+    _assetModel = assetModel;
+    
+    CGSize imgSize = CGSizeMake(((SCREEN_WIDTH-5)/4)*2, ((SCREEN_WIDTH-5)/4)*2);
+    
+    PHImageRequestOptions * options = [[PHImageRequestOptions alloc]init];
+    options.resizeMode = PHImageRequestOptionsResizeModeExact;
+    
+    [[GXPHKitTool sharedPHKitTool].phManager requestImageForAsset:assetModel.asset
+                                                       targetSize:imgSize
+                                                      contentMode:PHImageContentModeAspectFill
+                                                          options:options
+                                                    resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+                                                        [self.photoButton setImage:result];
+                                                    }];
+    
+}
+#pragma mark image Click
+- (void)imageClick:(UITapGestureRecognizer *)tap{
+    UIImageView * view = (UIImageView *)tap.view;
+    ImageDetailBigView * detailView = [ImageDetailBigView new];
+    
+    [detailView resetView:self.ary isEdit:false index: view.tag];
+    [detailView showInView:GB_Nav.lastVC.view imageViewShow:view];
+}
 @end

@@ -19,7 +19,17 @@ NS_ASSUME_NONNULL_END
 
 
 @interface FamilyAlbumHeaderView : UICollectionViewCell
-@property (nonatomic ,copy)NSString * dateStr;
 @property (nonatomic ,strong)UILabel * dateLabel;
+#pragma mark 刷新cell
+- (void)resetCellWithStr:(NSString *)str;
+@end
 
+
+
+
+@class GXPhotoAssetModel;
+@interface FamilyAlbumCell : UICollectionViewCell
+@property (nonatomic ,strong)UIImageView * photoButton;
+@property (nonatomic ,strong)GXPhotoAssetModel * assetModel;
+@property (nonatomic, strong) NSMutableArray * ary;
 @end
