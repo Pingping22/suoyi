@@ -123,10 +123,10 @@
     UIImageView * view = (UIImageView *)tap.view;
     if (view.tag==self.aryModels.count-1) {
         
-        [GB_Nav pushVCName:@"SetVC" animated:true];
+        [GB_Nav pushVCName:@"FamilyAlbumVC" animated:true];
     }else if (self.aryModels.count>9) {
         if (view.tag==self.aryModels.count-2) {
-            [GB_Nav pushVCName:@"SetVC" animated:true];
+            [GB_Nav pushVCName:@"FamilyAlbumVC" animated:true];
         }else{
             ImageDetailBigView * detailView = [ImageDetailBigView new];
             

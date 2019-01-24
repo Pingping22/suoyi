@@ -100,6 +100,7 @@
 		4A91660621F17C78006CF9DF /* RecommendSkillsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A91660521F17C78006CF9DF /* RecommendSkillsView.m */; };
 		4A91660921F1A0B4006CF9DF /* ResourcesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A91660821F1A0B4006CF9DF /* ResourcesView.m */; };
 		4A91660C21F1AEE6006CF9DF /* SkillsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A91660B21F1AEE6006CF9DF /* SkillsCell.m */; };
+		4AA9502421F9875A004AD66F /* FamilyAlbumVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA9502321F9875A004AD66F /* FamilyAlbumVC.m */; };
 		4AE183D221EDC34300A4C5A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AE183D121EDC34300A4C5A7 /* Assets.xcassets */; };
 		4AE183D821EDC34300A4C5A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE183D721EDC34300A4C5A7 /* main.m */; };
 		4AE183E221EDC34300A4C5A7 /* suoyiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE183E121EDC34300A4C5A7 /* suoyiTests.m */; };
@@ -331,6 +332,8 @@
 		4A91660821F1A0B4006CF9DF /* ResourcesView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourcesView.m; sourceTree = "<group>"; };
 		4A91660A21F1AEE6006CF9DF /* SkillsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkillsCell.h; sourceTree = "<group>"; };
 		4A91660B21F1AEE6006CF9DF /* SkillsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillsCell.m; sourceTree = "<group>"; };
+		4AA9502221F9875A004AD66F /* FamilyAlbumVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FamilyAlbumVC.h; sourceTree = "<group>"; };
+		4AA9502321F9875A004AD66F /* FamilyAlbumVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FamilyAlbumVC.m; sourceTree = "<group>"; };
 		4AE183C521EDC34300A4C5A7 /* suoyi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = suoyi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AE183D121EDC34300A4C5A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AE183D621EDC34300A4C5A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -706,6 +709,7 @@
 		4A83D6C121F027FC00E4EE2A /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
+				4AA9502121F9873E004AD66F /* 家庭相册 */,
 				4A5C9C8121F5C24100CA2332 /* MineListMindImgView.h */,
 				4A5C9C8021F5C24100CA2332 /* MineListMindImgView.m */,
 				4A83D6C221F027FC00E4EE2A /* HomePageVC.h */,
@@ -1113,6 +1117,15 @@
 			path = LHPBtn;
 			sourceTree = "<group>";
 		};
+		4AA9502121F9873E004AD66F /* 家庭相册 */ = {
+			isa = PBXGroup;
+			children = (
+				4AA9502221F9875A004AD66F /* FamilyAlbumVC.h */,
+				4AA9502321F9875A004AD66F /* FamilyAlbumVC.m */,
+			);
+			path = "家庭相册";
+			sourceTree = "<group>";
+		};
 		4AE183BC21EDC34300A4C5A7 = {
 			isa = PBXGroup;
 			children = (
@@ -1394,6 +1407,7 @@
 				4A83D8B921F04C9700E4EE2A /* UINavigationController+EndEditing.m in Sources */,
 				4A83D8C021F04C9700E4EE2A /* MJChiBaoZiHeader.m in Sources */,
 				4A83D8DF21F05B8500E4EE2A /* AutoScView.m in Sources */,
+				4AA9502421F9875A004AD66F /* FamilyAlbumVC.m in Sources */,
 				4A83D8CA21F04C9700E4EE2A /* BaseAlertView.m in Sources */,
 				4A83D8B521F04C9700E4EE2A /* NSURL+Safe.m in Sources */,
 				4A83D6CB21F027FC00E4EE2A /* DynamicCell.m in Sources */,
@@ -1607,9 +1621,10 @@
 			baseConfigurationReference = 6F54F6254E228327D5925B2D /* Pods-suoyi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 2KV962GCGE;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/suoyi/PCH文件/PrefixHeader.pch";
 				INFOPLIST_FILE = suoyi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1629,9 +1644,10 @@
 			baseConfigurationReference = 300F1D58666BF4805763C17E /* Pods-suoyi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 2KV962GCGE;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/suoyi/PCH文件/PrefixHeader.pch";
 				INFOPLIST_FILE = suoyi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
