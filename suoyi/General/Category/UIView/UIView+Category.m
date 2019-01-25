@@ -1,16 +1,15 @@
 //
 //  UIView+Category.m
-//  lanberProject
+//  乐销
 //
-//  Created by lirenbo on 2018/5/18.
-//  Copyright © 2018年 lirenbo. All rights reserved.
+//  Created by 刘惠萍 on 2017/5/29.
+//  Copyright © 2017年 ping. All rights reserved.
 //
 
 #import "UIView+Category.h"
 
 @implementation UIView (Category)
-
-#pragma mark - get
+//get
 - (BOOL)isEdited{
     if ([self isKindOfClass:[UITextField class]]||[self isKindOfClass:[UITextView class]]) {
         UITextView * text = (UITextView *)self;
@@ -27,8 +26,7 @@
     }
     return false;
 }
-
-#pragma mark - 获取第一响应者
+//fist responder
 - (UIView *)fetchFirstResponder
 {
     if (self.isFirstResponder) {
@@ -43,7 +41,7 @@
     return nil;
 }
 
-#pragma mark - 获取获取所在vc
+//获取所在vc
 - (UIViewController *)fetchVC{
     UIView * view = self;
     while (view) {
@@ -56,14 +54,14 @@
     return nil;
 }
 
-#pragma mark - 移除全部视图
+//移除全部
 - (void)removeAllSubViews{
     while (self.subviews.count) {
         [self.subviews.lastObject removeFromSuperview];
     }
 }
 
-#pragma mark - 增加顶部高度
+//增加顶部高度
 - (void)addSubViewsTopHeight:(CGFloat)height{
     for (UIView * view in self.subviews) {
         view.top += height;
@@ -71,7 +69,7 @@
     self.height += height;
 }
 
-#pragma mark - 移除视图，根据tag
+// 移除视图
 - (void)removeSubViewWithTag:(NSInteger)tag{
     if (self == nil) return;
     NSArray * aryView = self.subviews;
@@ -82,7 +80,7 @@
     }
 }
 
-#pragma mark - 获取子视图，根据tag
+//获取子视图  根据tag
 - (NSMutableArray  *)fetchSubViewsWithTag:(NSInteger)tag{
     NSMutableArray * aryReturn = [NSMutableArray array];
     for (UIView * subView in self.subviews) {
@@ -93,7 +91,7 @@
     return aryReturn;
 }
 
-#pragma mark - 添加线
+//添加线
 - (CGFloat)addLineFrame:(CGRect)rect{
     return [self addLineFrame:rect color:COLOR_LINE];
 }
@@ -112,8 +110,7 @@
 - (CGFloat)addLineWithHeight:(CGFloat)height{
     return [self addLineFrame:CGRectMake(0, 0, self.width, height) color:COLOR_LINE];
 }
-
-#pragma mark - 获取线视图
+//获取线视图
 + (UIView *)lineWithFrame:(CGRect)rect color:(UIColor *)color{
     UIView * viewLine = [[UIView alloc]initWithFrame:rect];
     viewLine.backgroundColor = color;
@@ -127,8 +124,9 @@
     return [self lineWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, height) color:color];
 }
 
-#pragma mark - 增加点击事件
 /**
+ 增加点击事件
+ 
  @param target 目标
  @param action 点击事件
  */
@@ -140,5 +138,25 @@
         [self addGestureRecognizer:tapClick];
     }
 }
+
+- (void)addKeyboardHideGesture{
+    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapGestureHideKeyboardClick)];
+    tap.cancelsTouchesInView = NO;
+    tap.delegate = self;
+    [self addGestureRecognizer:tap];
+}
+- (void)tapGestureHideKeyboardClick{
+    [GlobalMethod hideKeyboard];
+}
+#pragma mark gesture delegate
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
+    if ([touch.view isKindOfClass:[UIControl class]]) {
+        return  false;
+    }if ([touch.view isKindOfClass:[UICollectionView class]]){
+        return false;
+    }
+    return true;
+}
+
 
 @end

@@ -104,6 +104,8 @@
 		4AA9502A21F9B783004AD66F /* HomeAddressBookListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA9502921F9B782004AD66F /* HomeAddressBookListVC.m */; };
 		4AA9502E21FAB156004AD66F /* MineSetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA9502D21FAB156004AD66F /* MineSetVC.m */; };
 		4AA9503B21FAEDA5004AD66F /* MineSetEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA9503A21FAEDA5004AD66F /* MineSetEditVC.m */; };
+		4AA9503F21FAFBD4004AD66F /* MineNameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA9503D21FAFBD4004AD66F /* MineNameVC.m */; };
+		4AA9504521FB026B004AD66F /* Next_ChangePasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA9504121FB026A004AD66F /* Next_ChangePasswordVC.m */; };
 		4AE183D221EDC34300A4C5A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AE183D121EDC34300A4C5A7 /* Assets.xcassets */; };
 		4AE183D821EDC34300A4C5A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE183D721EDC34300A4C5A7 /* main.m */; };
 		4AE183E221EDC34300A4C5A7 /* suoyiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE183E121EDC34300A4C5A7 /* suoyiTests.m */; };
@@ -343,6 +345,10 @@
 		4AA9502D21FAB156004AD66F /* MineSetVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineSetVC.m; sourceTree = "<group>"; };
 		4AA9503921FAEDA5004AD66F /* MineSetEditVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineSetEditVC.h; sourceTree = "<group>"; };
 		4AA9503A21FAEDA5004AD66F /* MineSetEditVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineSetEditVC.m; sourceTree = "<group>"; };
+		4AA9503D21FAFBD4004AD66F /* MineNameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineNameVC.m; sourceTree = "<group>"; };
+		4AA9503E21FAFBD4004AD66F /* MineNameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineNameVC.h; sourceTree = "<group>"; };
+		4AA9504121FB026A004AD66F /* Next_ChangePasswordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Next_ChangePasswordVC.m; sourceTree = "<group>"; };
+		4AA9504321FB026A004AD66F /* Next_ChangePasswordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Next_ChangePasswordVC.h; sourceTree = "<group>"; };
 		4AE183C521EDC34300A4C5A7 /* suoyi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = suoyi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AE183D121EDC34300A4C5A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AE183D621EDC34300A4C5A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1149,12 +1155,32 @@
 		4AA9502B21FAAF05004AD66F /* 个人设置 */ = {
 			isa = PBXGroup;
 			children = (
+				4AA9504021FB026A004AD66F /* 修改密码 */,
+				4AA9503C21FAFBD4004AD66F /* 姓名 */,
 				4AA9502C21FAB156004AD66F /* MineSetVC.h */,
 				4AA9502D21FAB156004AD66F /* MineSetVC.m */,
 				4AA9503921FAEDA5004AD66F /* MineSetEditVC.h */,
 				4AA9503A21FAEDA5004AD66F /* MineSetEditVC.m */,
 			);
 			path = "个人设置";
+			sourceTree = "<group>";
+		};
+		4AA9503C21FAFBD4004AD66F /* 姓名 */ = {
+			isa = PBXGroup;
+			children = (
+				4AA9503D21FAFBD4004AD66F /* MineNameVC.m */,
+				4AA9503E21FAFBD4004AD66F /* MineNameVC.h */,
+			);
+			path = "姓名";
+			sourceTree = "<group>";
+		};
+		4AA9504021FB026A004AD66F /* 修改密码 */ = {
+			isa = PBXGroup;
+			children = (
+				4AA9504321FB026A004AD66F /* Next_ChangePasswordVC.h */,
+				4AA9504121FB026A004AD66F /* Next_ChangePasswordVC.m */,
+			);
+			path = "修改密码";
 			sourceTree = "<group>";
 		};
 		4AE183BC21EDC34300A4C5A7 = {
@@ -1439,6 +1465,7 @@
 				4A83D8C021F04C9700E4EE2A /* MJChiBaoZiHeader.m in Sources */,
 				4A83D8DF21F05B8500E4EE2A /* AutoScView.m in Sources */,
 				4AA9502421F9875A004AD66F /* FamilyAlbumVC.m in Sources */,
+				4AA9504521FB026B004AD66F /* Next_ChangePasswordVC.m in Sources */,
 				4A83D8CA21F04C9700E4EE2A /* BaseAlertView.m in Sources */,
 				4A83D8B521F04C9700E4EE2A /* NSURL+Safe.m in Sources */,
 				4A83D6CB21F027FC00E4EE2A /* DynamicCell.m in Sources */,
@@ -1498,6 +1525,7 @@
 				4A83D8D621F04C9700E4EE2A /* BaseVC+KeyboardObserve.m in Sources */,
 				4A83D8D321F04C9700E4EE2A /* BaseNavController.m in Sources */,
 				4AA9502A21F9B783004AD66F /* HomeAddressBookListVC.m in Sources */,
+				4AA9503F21FAFBD4004AD66F /* MineNameVC.m in Sources */,
 				4A5C9C8821F5C2A800CA2332 /* ImageDetailBigView.m in Sources */,
 				4A83D8CF21F04C9700E4EE2A /* ImagePickerCollectionCell.m in Sources */,
 				4A83D6C721F027FC00E4EE2A /* ModelUser.m in Sources */,

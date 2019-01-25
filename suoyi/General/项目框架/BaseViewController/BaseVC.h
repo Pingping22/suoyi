@@ -25,7 +25,7 @@
 @property (nonatomic, strong) NoResultView *noResultView; //无结果页
 @property (nonatomic, strong) NoResultView *noResultLoadingView; //无结果页
 
-@property (nonatomic, strong) void (^blockBack)(void);   //返回时的block
+//@property (nonatomic, strong) void (^blockBack)(void);   //返回时的block
 
 //添加键盘监听
 - (void)addObserveOfKeyboard;

@@ -206,5 +206,10 @@
     [window endEditing:true];
     [[GlobalData sharedInstance].GB_NoticeView showNotice:strAlert time:1 frame:[UIScreen mainScreen].bounds viewShow:window ];
 }
+#pragma mark 收键盘
++ (void)hideKeyboard{
+    UIViewController * vc = GB_Nav.lastVC;
+    [vc.view endEditing:true];
+}
 
 @end

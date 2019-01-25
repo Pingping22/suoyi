@@ -26,7 +26,7 @@
     if ([self.viewControllers.lastObject isKindOfClass:[BaseVC class]]) {
         BaseVC * lastVC = self.viewControllers.lastObject;
         if (lastVC.blockBack) {
-            lastVC.blockBack();
+            lastVC.blockBack(lastVC);
         }
     }
     [self sldPopViewControllerAnimated:animated];

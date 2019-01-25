@@ -1,16 +1,16 @@
 //
 //  UIView+Category.h
-//  lanberProject
+//  乐销
 //
-//  Created by lirenbo on 2018/5/18.
-//  Copyright © 2018年 lirenbo. All rights reserved.
+//  Created by 刘惠萍 on 2017/5/29.
+//  Copyright © 2017年 ping. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface UIView (Category)
+@interface UIView (Category)<UIGestureRecognizerDelegate>
 
-@property (nonatomic, assign, readonly) BOOL isEdited;
+@property (nonatomic, assign,readonly) BOOL isEdited;
 
 //获取第一响应者
 - (UIView *)fetchFirstResponder;
@@ -43,5 +43,5 @@
 
 //增加点击事件
 - (void)addTarget:(id)target action:(SEL)action;
-
+- (void)addKeyboardHideGesture;
 @end

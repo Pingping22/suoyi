@@ -46,5 +46,6 @@
 
 #pragma mark - 显示提示
 + (void)showAlert:(NSString *)strAlert;
-
+#pragma mark 收键盘
++ (void)hideKeyboard;
 @end

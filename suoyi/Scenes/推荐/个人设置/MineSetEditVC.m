@@ -10,6 +10,7 @@
 
 @interface MineSetEditVC ()
 @property (nonatomic, strong) MineSetEditListHeaderView *headerView;
+@property (nonatomic, strong) UIButton *submitButton;
 
 @end
 
@@ -27,37 +28,65 @@
     }
     return _headerView;
 }
+-(UIButton *)submitButton{
+    if (_submitButton == nil) {
+        _submitButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _submitButton.tag = 1;
+        [_submitButton addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+        _submitButton.backgroundColor = [UIColor redColor];
+        _submitButton.titleLabel.font = [UIFont systemFontOfSize:W(17)];
+        [GlobalMethod setRoundView:_submitButton color:[UIColor clearColor] numRound:W(20) width:0];
+        [_submitButton setTitle:@"退出登录" forState:(UIControlStateNormal)];
+        _submitButton.widthHeight = XY(SCREEN_WIDTH - W(30),W(40));
+    }
+    return _submitButton;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     //添加导航栏
     [self addNav];
     self.tableView.tableHeaderView = self.headerView;
     self.tableView.backgroundColor = COLOR_BACKGROUND;
+    self.viewBG.backgroundColor = COLOR_BACKGROUND;
+    self.tableView.height = W(300);
+
+    self.submitButton.frame = CGRectMake(W(15), self.tableView.bottom + W(20), SCREEN_WIDTH - W(30), W(40));
+    [self.view addSubview:self.submitButton];
      [self.tableView registerClass:[MineSetEditListCell class] forCellReuseIdentifier:@"MineSetEditListCell"];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     [self creatDataSource];
 
 }
-
+#pragma mark click
+- (void)btnClick:(UIButton *)sender {
+    switch (sender.tag) {
+        case 1://退出
+//            [GlobalMethod logoutSuccess];
+            
+            break;
+            
+        default:
+            break;
+    }
+}
 - (void)creatDataSource{
-    ModelUser *modelUser = [GlobalData sharedInstance].GB_UserModel;
     [self.aryDatas removeAllObjects];
     WEAKSELF
     
     [self.aryDatas addObjectsFromArray:@[^(){
         ModelBaseData * model = [ModelBaseData new];
         model.string = @"姓名";
+        model.subString = @"你";
         model.enumType = ENUM_COMPANYINFOEDITLISTCELL_TITLE;
-        model.subString = UnPackStr(modelUser.accountName);
         model.blocClick = ^(ModelBaseData *modelData) {
-//            [weakSelf jumpToEditVC:@"MineNameVC"];
+            [weakSelf jumpToEditVC:@"MineNameVC"];
         };
         return model;
     }(),^(){
         ModelBaseData * model = [ModelBaseData new];
         model.string = @"手机号";
-        model.enumType = ENUM_COMPANYINFOEDITLISTCELL_TITLE;
-        model.subString = UnPackStr(modelUser.accountPhone);
+        model.enumType = ENUM_COMPANYINFOEDITLISTCELL_NOARROW;
+        model.subString = @"15006373289";
         model.hideState = true;
         model.blocClick = ^(ModelBaseData *modelData) {
         };
@@ -71,14 +100,21 @@
         model.string = @"修改密码";
         model.enumType = ENUM_COMPANYINFOEDITLISTCELL_TITLE;
         model.hideState = true;
-        model.subString = UnPackStr(modelUser.introduction);
         model.blocClick = ^(ModelBaseData *modelData) {
-
+            [weakSelf jumpToEditVC:@"Next_ChangePasswordVC"];
         };
         return  model;
     }()]];
     
     [self.tableView reloadData];
+}
+- (void)jumpToEditVC:(NSString *)className{
+    WEAKSELF
+    BaseVC *vc = (BaseVC *)[NSClassFromString(className) new];
+    vc.blockBack = ^(UIViewController *vc){
+        [weakSelf creatDataSource];
+    };
+    [GB_Nav pushViewController:vc animated:true];
 }
 #pragma mark 添加导航栏
 - (void)addNav{
@@ -209,8 +245,6 @@
     }else{
         self.labelDetail.rightCenterY = XY(self.imgView.left-W(10),self.labelTitle.centerY);
     }
-    self.labelDetail.hidden = model.enumType != ENUM_COMPANYINFOEDITLISTCELL_TITLE && model.enumType != ENUM_COMPANYINFOEDITLISTCELL_NOARROW;
-    
     
     //设置总高度
     self.height = self.labelTitle.bottom+W(15);
