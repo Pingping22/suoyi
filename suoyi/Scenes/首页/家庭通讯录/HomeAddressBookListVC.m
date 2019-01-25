@@ -19,7 +19,7 @@
     [self.view addSubview:[BaseNavView initNavBackTitle:@"家庭通讯录" rightTitle:@"陪伴记录" rightBlock:^{
         
     }]];
-    self.tableView.backgroundColor = [UIColor whiteColor];
+    self.tableView.backgroundColor = COLOR_BACKGROUND;
      [self.tableView registerClass:[HomeAddressBookListCell class] forCellReuseIdentifier:@"HomeAddressBookListCell"];
     //request
     [self requestList];
@@ -45,6 +45,11 @@
     [view removeSubViewWithTag:TAG_LINE];//移除线
     view.frame = CGRectMake(0, 0, SCREEN_WIDTH, W(100));
     view.backgroundColor = [UIColor clearColor];
+    UILabel*labelName = [UILabel new];
+    [GlobalMethod setLabel:labelName widthLimit:0 numLines:0 fontNum:F(15) textColor:COLOR_DETAIL text:@""];
+    [GlobalMethod resetLabel:labelName text:@"家庭圈" widthLimit:0];
+    labelName.leftTop = XY(W(10),W(25));
+    [view addSubview:labelName];
     return view;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -128,8 +133,8 @@
 - (UIImageView *)videoImg{
     if (_videoImg == nil) {
         _videoImg = [UIImageView new];
-        _videoImg.image = [UIImage imageNamed:@"12"];
-        _videoImg.widthHeight = XY(W(15),W(15));
+        _videoImg.image = [UIImage imageNamed:@"shexiangtou"];
+        _videoImg.widthHeight = XY(W(30),W(30));
     }
     return _videoImg;
 }
@@ -175,7 +180,7 @@
     
     [GlobalMethod resetLabel:self.labelNum text:UnPackStr(model.alertString) widthLimit:0];
     self.labelNum.leftTop = XY(W(15)+self.iconImg.right,self.labelName.bottom+W(8));
-    self.labelEquipment.hidden = model.hideSubState == true;
+    self.labelNum.hidden = model.hideSubState == true;
     
     self.videoImg.rightCenterY = XY(SCREEN_WIDTH-W(15),self.iconImg.centerY);
     

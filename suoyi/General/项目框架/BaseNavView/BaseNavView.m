@@ -225,7 +225,7 @@
     UILabel * label = [UILabel new];
     label.numLimit = 6;
     label.numberOfLines = 1;
-    label.textColor = [UIColor whiteColor];
+    label.textColor = [UIColor orangeColor];
     label.fontNum = BASENAVVIEW_LEFT_TITLE_FONT_NUM;
     label.backgroundColor = [UIColor clearColor];
     [label fitTitle:title variable:0];

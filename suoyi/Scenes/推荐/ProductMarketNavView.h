@@ -15,6 +15,7 @@
 @property (strong, nonatomic) UIImageView *imgView;
 @property (strong, nonatomic) UILabel *labelRed;
 @property (nonatomic, strong) UIView      * lineView;
+@property (strong, nonatomic) UIControl *control;
 
 #pragma mark 刷新view
 - (void)resetViewWithTitle:(NSString *)searchTitle;

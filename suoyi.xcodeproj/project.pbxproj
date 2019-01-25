@@ -102,6 +102,8 @@
 		4A91660C21F1AEE6006CF9DF /* SkillsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A91660B21F1AEE6006CF9DF /* SkillsCell.m */; };
 		4AA9502421F9875A004AD66F /* FamilyAlbumVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA9502321F9875A004AD66F /* FamilyAlbumVC.m */; };
 		4AA9502A21F9B783004AD66F /* HomeAddressBookListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA9502921F9B782004AD66F /* HomeAddressBookListVC.m */; };
+		4AA9502E21FAB156004AD66F /* MineSetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA9502D21FAB156004AD66F /* MineSetVC.m */; };
+		4AA9503B21FAEDA5004AD66F /* MineSetEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA9503A21FAEDA5004AD66F /* MineSetEditVC.m */; };
 		4AE183D221EDC34300A4C5A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AE183D121EDC34300A4C5A7 /* Assets.xcassets */; };
 		4AE183D821EDC34300A4C5A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE183D721EDC34300A4C5A7 /* main.m */; };
 		4AE183E221EDC34300A4C5A7 /* suoyiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE183E121EDC34300A4C5A7 /* suoyiTests.m */; };
@@ -337,6 +339,10 @@
 		4AA9502321F9875A004AD66F /* FamilyAlbumVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FamilyAlbumVC.m; sourceTree = "<group>"; };
 		4AA9502821F9B782004AD66F /* HomeAddressBookListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeAddressBookListVC.h; sourceTree = "<group>"; };
 		4AA9502921F9B782004AD66F /* HomeAddressBookListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeAddressBookListVC.m; sourceTree = "<group>"; };
+		4AA9502C21FAB156004AD66F /* MineSetVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineSetVC.h; sourceTree = "<group>"; };
+		4AA9502D21FAB156004AD66F /* MineSetVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineSetVC.m; sourceTree = "<group>"; };
+		4AA9503921FAEDA5004AD66F /* MineSetEditVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineSetEditVC.h; sourceTree = "<group>"; };
+		4AA9503A21FAEDA5004AD66F /* MineSetEditVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineSetEditVC.m; sourceTree = "<group>"; };
 		4AE183C521EDC34300A4C5A7 /* suoyi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = suoyi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AE183D121EDC34300A4C5A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AE183D621EDC34300A4C5A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -678,6 +684,7 @@
 		4A83D6B621F027FC00E4EE2A /* 推荐 */ = {
 			isa = PBXGroup;
 			children = (
+				4AA9502B21FAAF05004AD66F /* 个人设置 */,
 				4A91660421F17C78006CF9DF /* RecommendSkillsView.h */,
 				4A91660521F17C78006CF9DF /* RecommendSkillsView.m */,
 				4A83D6B921F027FC00E4EE2A /* RecommendTabVC.h */,
@@ -1139,6 +1146,17 @@
 			path = "家庭通讯录";
 			sourceTree = "<group>";
 		};
+		4AA9502B21FAAF05004AD66F /* 个人设置 */ = {
+			isa = PBXGroup;
+			children = (
+				4AA9502C21FAB156004AD66F /* MineSetVC.h */,
+				4AA9502D21FAB156004AD66F /* MineSetVC.m */,
+				4AA9503921FAEDA5004AD66F /* MineSetEditVC.h */,
+				4AA9503A21FAEDA5004AD66F /* MineSetEditVC.m */,
+			);
+			path = "个人设置";
+			sourceTree = "<group>";
+		};
 		4AE183BC21EDC34300A4C5A7 = {
 			isa = PBXGroup;
 			children = (
@@ -1468,10 +1486,12 @@
 				4A5C9CCC21F8622700CA2332 /* UIImage+LHP.m in Sources */,
 				4A83D6CE21F027FC00E4EE2A /* ToolsTabVC.m in Sources */,
 				4A83D6D221F027FC00E4EE2A /* LoginViewController.m in Sources */,
+				4AA9503B21FAEDA5004AD66F /* MineSetEditVC.m in Sources */,
 				4A83D8CC21F04C9700E4EE2A /* SliderView.m in Sources */,
 				4A83D8D821F04C9700E4EE2A /* CustomTabBar.m in Sources */,
 				4A83D6D021F027FC00E4EE2A /* RecommendTabVC.m in Sources */,
 				4A83D8B721F04C9700E4EE2A /* UIImageView+Jump.m in Sources */,
+				4AA9502E21FAB156004AD66F /* MineSetVC.m in Sources */,
 				4A83D8D221F04C9700E4EE2A /* BaseImage.m in Sources */,
 				4A83D8D721F04C9700E4EE2A /* BaseVC.m in Sources */,
 				4A91660321F17C66006CF9DF /* LHPBtn.m in Sources */,

@@ -50,6 +50,16 @@
     }
     return  _lineView;
 }
+- (UIControl *)control{
+    if (_control == nil) {
+        _control = [UIControl new];
+        _control.tag = 1;
+        [_control addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+        _control.backgroundColor = [UIColor clearColor];
+        _control.widthHeight = XY(W(50),W(50));
+    }
+    return _control;
+}
 #pragma mark 初始化
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
@@ -67,7 +77,8 @@
     [self addSubview:self.imgView];
     [self addSubview:self.labelRed];
     [self addSubview:self.lineView];
-    
+    [self addSubview:self.control];
+
     //初始化页面
     [self resetViewWithTitle:nil];
 }
@@ -85,6 +96,8 @@
     
     self.imgView.rightCenterY = XY(SCREEN_WIDTH-W(15),self.labelName.centerY);
     
+    self.control.rightTop = XY(SCREEN_WIDTH,0);
+
     [GlobalMethod resetLabel:self.labelRed text:@"" widthLimit:0];
     self.labelRed.rightTop = XY(W(2)+self.imgView.right,self.imgView.top);
     
@@ -92,4 +105,17 @@
     self.height = self.lineView.bottom;
 }
 
+#pragma mark 点击事件
+- (void)btnClick:(UIButton *)sender{
+    switch (sender.tag) {
+        case 1:
+        {
+            [GB_Nav pushVCName:@"MineSetVC" animated:true];
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
 @end
