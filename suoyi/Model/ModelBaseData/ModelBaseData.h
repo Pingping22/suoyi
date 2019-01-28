@@ -23,6 +23,7 @@
 @property (nonatomic, strong) NSString *cellName;//cell name
 @property (nonatomic, assign) BOOL hideState;//hide default NO
 @property (nonatomic, assign) BOOL hideSubState;//hide default NO
+@property (nonatomic, assign) BOOL hidelineState;//hide default NO
 
 
 @property (nonatomic, strong) void (^blockValueChange)(ModelBaseData *);//block value change

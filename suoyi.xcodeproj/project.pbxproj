@@ -1168,8 +1168,8 @@
 		4AA9503C21FAFBD4004AD66F /* 姓名 */ = {
 			isa = PBXGroup;
 			children = (
-				4AA9503D21FAFBD4004AD66F /* MineNameVC.m */,
 				4AA9503E21FAFBD4004AD66F /* MineNameVC.h */,
+				4AA9503D21FAFBD4004AD66F /* MineNameVC.m */,
 			);
 			path = "姓名";
 			sourceTree = "<group>";
