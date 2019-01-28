@@ -8,6 +8,61 @@
 
 /* Begin PBXBuildFile section */
 		27AE1703E24D4DEBF6AE4BCD /* libPods-suoyi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6CDD99303CB48466C34AB14 /* libPods-suoyi.a */; };
+		4A257D5521FED58000220225 /* LHPDialVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A257D5421FED58000220225 /* LHPDialVC.m */; };
+		4A257D8D21FED93700220225 /* Key11@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D5821FED93600220225 /* Key11@3x.png */; };
+		4A257D8E21FED93700220225 /* Key13@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D5921FED93600220225 /* Key13@2x.png */; };
+		4A257D8F21FED93700220225 /* Key12_2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D5A21FED93600220225 /* Key12_2@3x.png */; };
+		4A257D9021FED93700220225 /* Key4_2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D5B21FED93600220225 /* Key4_2@3x.png */; };
+		4A257D9121FED93700220225 /* Key5_2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D5C21FED93600220225 /* Key5_2@3x.png */; };
+		4A257D9221FED93700220225 /* Key2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D5D21FED93600220225 /* Key2@2x.png */; };
+		4A257D9321FED93700220225 /* Key2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D5E21FED93600220225 /* Key2@3x.png */; };
+		4A257D9421FED93700220225 /* Key4_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D5F21FED93600220225 /* Key4_2@2x.png */; };
+		4A257D9521FED93700220225 /* Key5_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D6021FED93600220225 /* Key5_2@2x.png */; };
+		4A257D9621FED93700220225 /* Key12_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D6121FED93600220225 /* Key12_2@2x.png */; };
+		4A257D9721FED93700220225 /* Key13@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D6221FED93600220225 /* Key13@3x.png */; };
+		4A257D9821FED93700220225 /* Key11@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D6321FED93600220225 /* Key11@2x.png */; };
+		4A257D9921FED93700220225 /* Key6@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D6421FED93600220225 /* Key6@3x.png */; };
+		4A257D9A21FED93700220225 /* icon_close_4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D6521FED93600220225 /* icon_close_4@2x.png */; };
+		4A257D9B21FED93700220225 /* Key8@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D6621FED93600220225 /* Key8@2x.png */; };
+		4A257D9C21FED93700220225 /* Key4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D6721FED93600220225 /* Key4@2x.png */; };
+		4A257D9D21FED93700220225 /* Key9_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D6821FED93600220225 /* Key9_2@2x.png */; };
+		4A257D9E21FED93700220225 /* Key8_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D6921FED93600220225 /* Key8_2@2x.png */; };
+		4A257D9F21FED93700220225 /* Key9_2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D6A21FED93600220225 /* Key9_2@3x.png */; };
+		4A257DA021FED93700220225 /* Key8_2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D6B21FED93600220225 /* Key8_2@3x.png */; };
+		4A257DA121FED93700220225 /* Key4@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D6C21FED93600220225 /* Key4@3x.png */; };
+		4A257DA221FED93700220225 /* Key8@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D6D21FED93600220225 /* Key8@3x.png */; };
+		4A257DA321FED93700220225 /* Key6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D6E21FED93600220225 /* Key6@2x.png */; };
+		4A257DA421FED93700220225 /* icon_close_4@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D6F21FED93600220225 /* icon_close_4@3x.png */; };
+		4A257DA521FED93700220225 /* Key1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D7021FED93600220225 /* Key1@3x.png */; };
+		4A257DA621FED93700220225 /* Key3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D7121FED93600220225 /* Key3@2x.png */; };
+		4A257DA721FED93700220225 /* Key12@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D7221FED93600220225 /* Key12@2x.png */; };
+		4A257DA821FED93700220225 /* Key10@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D7321FED93600220225 /* Key10@3x.png */; };
+		4A257DA921FED93700220225 /* Key7_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D7421FED93600220225 /* Key7_2@2x.png */; };
+		4A257DAA21FED93700220225 /* Key6_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D7521FED93600220225 /* Key6_2@2x.png */; };
+		4A257DAB21FED93700220225 /* Key3-_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D7621FED93600220225 /* Key3-_2@2x.png */; };
+		4A257DAC21FED93700220225 /* Key11_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D7721FED93600220225 /* Key11_2@2x.png */; };
+		4A257DAD21FED93700220225 /* Key10_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D7821FED93600220225 /* Key10_2@2x.png */; };
+		4A257DAE21FED93700220225 /* Key11_2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D7921FED93600220225 /* Key11_2@3x.png */; };
+		4A257DAF21FED93700220225 /* Key10_2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D7A21FED93600220225 /* Key10_2@3x.png */; };
+		4A257DB021FED93700220225 /* Key3-_2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D7B21FED93600220225 /* Key3-_2@3x.png */; };
+		4A257DB121FED93700220225 /* Key7_2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D7C21FED93600220225 /* Key7_2@3x.png */; };
+		4A257DB221FED93700220225 /* Key6_2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D7D21FED93700220225 /* Key6_2@3x.png */; };
+		4A257DB321FED93700220225 /* Key10@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D7E21FED93700220225 /* Key10@2x.png */; };
+		4A257DB421FED93700220225 /* Key12@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D7F21FED93700220225 /* Key12@3x.png */; };
+		4A257DB521FED93700220225 /* Key3@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D8021FED93700220225 /* Key3@3x.png */; };
+		4A257DB621FED93700220225 /* Key1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D8121FED93700220225 /* Key1@2x.png */; };
+		4A257DB721FED93700220225 /* Key1_2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D8221FED93700220225 /* Key1_2@3x.png */; };
+		4A257DB821FED93700220225 /* Key9@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D8321FED93700220225 /* Key9@2x.png */; };
+		4A257DB921FED93700220225 /* Key5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D8421FED93700220225 /* Key5@2x.png */; };
+		4A257DBA21FED93700220225 /* Key2-_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D8521FED93700220225 /* Key2-_2@2x.png */; };
+		4A257DBB21FED93700220225 /* Key7@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D8621FED93700220225 /* Key7@3x.png */; };
+		4A257DBC21FED93700220225 /* Key7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D8721FED93700220225 /* Key7@2x.png */; };
+		4A257DBD21FED93700220225 /* Key2-_2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D8821FED93700220225 /* Key2-_2@3x.png */; };
+		4A257DBE21FED93700220225 /* Key5@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D8921FED93700220225 /* Key5@3x.png */; };
+		4A257DBF21FED93700220225 /* Key9@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D8A21FED93700220225 /* Key9@3x.png */; };
+		4A257DC021FED93700220225 /* Key1_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D8B21FED93700220225 /* Key1_2@2x.png */; };
+		4A257DC121FED93700220225 /* NumberList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D8C21FED93700220225 /* NumberList.plist */; };
+		4A257DC421FEEB7900220225 /* LHPDialListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A257DC321FEEB7900220225 /* LHPDialListVC.m */; };
 		4A5C9C7F21F5ACA600CA2332 /* SetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C9C7E21F5ACA600CA2332 /* SetVC.m */; };
 		4A5C9C8221F5C24100CA2332 /* MineListMindImgView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C9C8021F5C24100CA2332 /* MineListMindImgView.m */; };
 		4A5C9C8821F5C2A800CA2332 /* ImageDetailBigView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C9C8521F5C2A800CA2332 /* ImageDetailBigView.m */; };
@@ -131,6 +186,63 @@
 
 /* Begin PBXFileReference section */
 		300F1D58666BF4805763C17E /* Pods-suoyi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-suoyi.release.xcconfig"; path = "Pods/Target Support Files/Pods-suoyi/Pods-suoyi.release.xcconfig"; sourceTree = "<group>"; };
+		4A257D5321FED58000220225 /* LHPDialVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHPDialVC.h; sourceTree = "<group>"; };
+		4A257D5421FED58000220225 /* LHPDialVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHPDialVC.m; sourceTree = "<group>"; };
+		4A257D5821FED93600220225 /* Key11@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key11@3x.png"; sourceTree = "<group>"; };
+		4A257D5921FED93600220225 /* Key13@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key13@2x.png"; sourceTree = "<group>"; };
+		4A257D5A21FED93600220225 /* Key12_2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key12_2@3x.png"; sourceTree = "<group>"; };
+		4A257D5B21FED93600220225 /* Key4_2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key4_2@3x.png"; sourceTree = "<group>"; };
+		4A257D5C21FED93600220225 /* Key5_2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key5_2@3x.png"; sourceTree = "<group>"; };
+		4A257D5D21FED93600220225 /* Key2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key2@2x.png"; sourceTree = "<group>"; };
+		4A257D5E21FED93600220225 /* Key2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key2@3x.png"; sourceTree = "<group>"; };
+		4A257D5F21FED93600220225 /* Key4_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key4_2@2x.png"; sourceTree = "<group>"; };
+		4A257D6021FED93600220225 /* Key5_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key5_2@2x.png"; sourceTree = "<group>"; };
+		4A257D6121FED93600220225 /* Key12_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key12_2@2x.png"; sourceTree = "<group>"; };
+		4A257D6221FED93600220225 /* Key13@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key13@3x.png"; sourceTree = "<group>"; };
+		4A257D6321FED93600220225 /* Key11@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key11@2x.png"; sourceTree = "<group>"; };
+		4A257D6421FED93600220225 /* Key6@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key6@3x.png"; sourceTree = "<group>"; };
+		4A257D6521FED93600220225 /* icon_close_4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_close_4@2x.png"; sourceTree = "<group>"; };
+		4A257D6621FED93600220225 /* Key8@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key8@2x.png"; sourceTree = "<group>"; };
+		4A257D6721FED93600220225 /* Key4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key4@2x.png"; sourceTree = "<group>"; };
+		4A257D6821FED93600220225 /* Key9_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key9_2@2x.png"; sourceTree = "<group>"; };
+		4A257D6921FED93600220225 /* Key8_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key8_2@2x.png"; sourceTree = "<group>"; };
+		4A257D6A21FED93600220225 /* Key9_2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key9_2@3x.png"; sourceTree = "<group>"; };
+		4A257D6B21FED93600220225 /* Key8_2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key8_2@3x.png"; sourceTree = "<group>"; };
+		4A257D6C21FED93600220225 /* Key4@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key4@3x.png"; sourceTree = "<group>"; };
+		4A257D6D21FED93600220225 /* Key8@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key8@3x.png"; sourceTree = "<group>"; };
+		4A257D6E21FED93600220225 /* Key6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key6@2x.png"; sourceTree = "<group>"; };
+		4A257D6F21FED93600220225 /* icon_close_4@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_close_4@3x.png"; sourceTree = "<group>"; };
+		4A257D7021FED93600220225 /* Key1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key1@3x.png"; sourceTree = "<group>"; };
+		4A257D7121FED93600220225 /* Key3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key3@2x.png"; sourceTree = "<group>"; };
+		4A257D7221FED93600220225 /* Key12@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key12@2x.png"; sourceTree = "<group>"; };
+		4A257D7321FED93600220225 /* Key10@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key10@3x.png"; sourceTree = "<group>"; };
+		4A257D7421FED93600220225 /* Key7_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key7_2@2x.png"; sourceTree = "<group>"; };
+		4A257D7521FED93600220225 /* Key6_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key6_2@2x.png"; sourceTree = "<group>"; };
+		4A257D7621FED93600220225 /* Key3-_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key3-_2@2x.png"; sourceTree = "<group>"; };
+		4A257D7721FED93600220225 /* Key11_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key11_2@2x.png"; sourceTree = "<group>"; };
+		4A257D7821FED93600220225 /* Key10_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key10_2@2x.png"; sourceTree = "<group>"; };
+		4A257D7921FED93600220225 /* Key11_2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key11_2@3x.png"; sourceTree = "<group>"; };
+		4A257D7A21FED93600220225 /* Key10_2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key10_2@3x.png"; sourceTree = "<group>"; };
+		4A257D7B21FED93600220225 /* Key3-_2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key3-_2@3x.png"; sourceTree = "<group>"; };
+		4A257D7C21FED93600220225 /* Key7_2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key7_2@3x.png"; sourceTree = "<group>"; };
+		4A257D7D21FED93700220225 /* Key6_2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key6_2@3x.png"; sourceTree = "<group>"; };
+		4A257D7E21FED93700220225 /* Key10@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key10@2x.png"; sourceTree = "<group>"; };
+		4A257D7F21FED93700220225 /* Key12@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key12@3x.png"; sourceTree = "<group>"; };
+		4A257D8021FED93700220225 /* Key3@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key3@3x.png"; sourceTree = "<group>"; };
+		4A257D8121FED93700220225 /* Key1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key1@2x.png"; sourceTree = "<group>"; };
+		4A257D8221FED93700220225 /* Key1_2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key1_2@3x.png"; sourceTree = "<group>"; };
+		4A257D8321FED93700220225 /* Key9@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key9@2x.png"; sourceTree = "<group>"; };
+		4A257D8421FED93700220225 /* Key5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key5@2x.png"; sourceTree = "<group>"; };
+		4A257D8521FED93700220225 /* Key2-_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key2-_2@2x.png"; sourceTree = "<group>"; };
+		4A257D8621FED93700220225 /* Key7@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key7@3x.png"; sourceTree = "<group>"; };
+		4A257D8721FED93700220225 /* Key7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key7@2x.png"; sourceTree = "<group>"; };
+		4A257D8821FED93700220225 /* Key2-_2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key2-_2@3x.png"; sourceTree = "<group>"; };
+		4A257D8921FED93700220225 /* Key5@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key5@3x.png"; sourceTree = "<group>"; };
+		4A257D8A21FED93700220225 /* Key9@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key9@3x.png"; sourceTree = "<group>"; };
+		4A257D8B21FED93700220225 /* Key1_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key1_2@2x.png"; sourceTree = "<group>"; };
+		4A257D8C21FED93700220225 /* NumberList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = NumberList.plist; sourceTree = "<group>"; };
+		4A257DC221FEEB7900220225 /* LHPDialListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHPDialListVC.h; sourceTree = "<group>"; };
+		4A257DC321FEEB7900220225 /* LHPDialListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHPDialListVC.m; sourceTree = "<group>"; };
 		4A5C9C7D21F5ACA600CA2332 /* SetVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetVC.h; sourceTree = "<group>"; };
 		4A5C9C7E21F5ACA600CA2332 /* SetVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetVC.m; sourceTree = "<group>"; };
 		4A5C9C8021F5C24100CA2332 /* MineListMindImgView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineListMindImgView.m; sourceTree = "<group>"; };
@@ -390,6 +502,85 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A257D5221FED54D00220225 /* 拨号盘 */ = {
+			isa = PBXGroup;
+			children = (
+				4A257D5321FED58000220225 /* LHPDialVC.h */,
+				4A257D5421FED58000220225 /* LHPDialVC.m */,
+				4A257DC221FEEB7900220225 /* LHPDialListVC.h */,
+				4A257DC321FEEB7900220225 /* LHPDialListVC.m */,
+			);
+			path = "拨号盘";
+			sourceTree = "<group>";
+		};
+		4A257D5621FED93600220225 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				4A257D5721FED93600220225 /* 键盘 */,
+				4A257D8C21FED93700220225 /* NumberList.plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		4A257D5721FED93600220225 /* 键盘 */ = {
+			isa = PBXGroup;
+			children = (
+				4A257D5821FED93600220225 /* Key11@3x.png */,
+				4A257D5921FED93600220225 /* Key13@2x.png */,
+				4A257D5A21FED93600220225 /* Key12_2@3x.png */,
+				4A257D5B21FED93600220225 /* Key4_2@3x.png */,
+				4A257D5C21FED93600220225 /* Key5_2@3x.png */,
+				4A257D5D21FED93600220225 /* Key2@2x.png */,
+				4A257D5E21FED93600220225 /* Key2@3x.png */,
+				4A257D5F21FED93600220225 /* Key4_2@2x.png */,
+				4A257D6021FED93600220225 /* Key5_2@2x.png */,
+				4A257D6121FED93600220225 /* Key12_2@2x.png */,
+				4A257D6221FED93600220225 /* Key13@3x.png */,
+				4A257D6321FED93600220225 /* Key11@2x.png */,
+				4A257D6421FED93600220225 /* Key6@3x.png */,
+				4A257D6521FED93600220225 /* icon_close_4@2x.png */,
+				4A257D6621FED93600220225 /* Key8@2x.png */,
+				4A257D6721FED93600220225 /* Key4@2x.png */,
+				4A257D6821FED93600220225 /* Key9_2@2x.png */,
+				4A257D6921FED93600220225 /* Key8_2@2x.png */,
+				4A257D6A21FED93600220225 /* Key9_2@3x.png */,
+				4A257D6B21FED93600220225 /* Key8_2@3x.png */,
+				4A257D6C21FED93600220225 /* Key4@3x.png */,
+				4A257D6D21FED93600220225 /* Key8@3x.png */,
+				4A257D6E21FED93600220225 /* Key6@2x.png */,
+				4A257D6F21FED93600220225 /* icon_close_4@3x.png */,
+				4A257D7021FED93600220225 /* Key1@3x.png */,
+				4A257D7121FED93600220225 /* Key3@2x.png */,
+				4A257D7221FED93600220225 /* Key12@2x.png */,
+				4A257D7321FED93600220225 /* Key10@3x.png */,
+				4A257D7421FED93600220225 /* Key7_2@2x.png */,
+				4A257D7521FED93600220225 /* Key6_2@2x.png */,
+				4A257D7621FED93600220225 /* Key3-_2@2x.png */,
+				4A257D7721FED93600220225 /* Key11_2@2x.png */,
+				4A257D7821FED93600220225 /* Key10_2@2x.png */,
+				4A257D7921FED93600220225 /* Key11_2@3x.png */,
+				4A257D7A21FED93600220225 /* Key10_2@3x.png */,
+				4A257D7B21FED93600220225 /* Key3-_2@3x.png */,
+				4A257D7C21FED93600220225 /* Key7_2@3x.png */,
+				4A257D7D21FED93700220225 /* Key6_2@3x.png */,
+				4A257D7E21FED93700220225 /* Key10@2x.png */,
+				4A257D7F21FED93700220225 /* Key12@3x.png */,
+				4A257D8021FED93700220225 /* Key3@3x.png */,
+				4A257D8121FED93700220225 /* Key1@2x.png */,
+				4A257D8221FED93700220225 /* Key1_2@3x.png */,
+				4A257D8321FED93700220225 /* Key9@2x.png */,
+				4A257D8421FED93700220225 /* Key5@2x.png */,
+				4A257D8521FED93700220225 /* Key2-_2@2x.png */,
+				4A257D8621FED93700220225 /* Key7@3x.png */,
+				4A257D8721FED93700220225 /* Key7@2x.png */,
+				4A257D8821FED93700220225 /* Key2-_2@3x.png */,
+				4A257D8921FED93700220225 /* Key5@3x.png */,
+				4A257D8A21FED93700220225 /* Key9@3x.png */,
+				4A257D8B21FED93700220225 /* Key1_2@2x.png */,
+			);
+			path = "键盘";
+			sourceTree = "<group>";
+		};
 		4A5C9C7C21F5A88900CA2332 /* 设置 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1155,6 +1346,7 @@
 		4AA9502B21FAAF05004AD66F /* 个人设置 */ = {
 			isa = PBXGroup;
 			children = (
+				4A257D5221FED54D00220225 /* 拨号盘 */,
 				4AA9504021FB026A004AD66F /* 修改密码 */,
 				4AA9503C21FAFBD4004AD66F /* 姓名 */,
 				4AA9502C21FAB156004AD66F /* MineSetVC.h */,
@@ -1208,6 +1400,7 @@
 		4AE183C721EDC34300A4C5A7 /* suoyi */ = {
 			isa = PBXGroup;
 			children = (
+				4A257D5621FED93600220225 /* Resource */,
 				4A5C9CB921F8601F00CA2332 /* SDKFile */,
 				4A83D82E21F04C9700E4EE2A /* General */,
 				4A83D69521F027FC00E4EE2A /* Model */,
@@ -1368,10 +1561,63 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A257DB721FED93700220225 /* Key1_2@3x.png in Resources */,
+				4A257DAA21FED93700220225 /* Key6_2@2x.png in Resources */,
+				4A257D9421FED93700220225 /* Key4_2@2x.png in Resources */,
+				4A257D9C21FED93700220225 /* Key4@2x.png in Resources */,
+				4A257DB321FED93700220225 /* Key10@2x.png in Resources */,
+				4A257DC021FED93700220225 /* Key1_2@2x.png in Resources */,
+				4A257DA421FED93700220225 /* icon_close_4@3x.png in Resources */,
+				4A257DAE21FED93700220225 /* Key11_2@3x.png in Resources */,
+				4A257D8E21FED93700220225 /* Key13@2x.png in Resources */,
+				4A257DBC21FED93700220225 /* Key7@2x.png in Resources */,
+				4A257DB021FED93700220225 /* Key3-_2@3x.png in Resources */,
+				4A257DB121FED93700220225 /* Key7_2@3x.png in Resources */,
+				4A257D9D21FED93700220225 /* Key9_2@2x.png in Resources */,
+				4A257DBD21FED93700220225 /* Key2-_2@3x.png in Resources */,
+				4A257DA921FED93700220225 /* Key7_2@2x.png in Resources */,
+				4A257D9E21FED93700220225 /* Key8_2@2x.png in Resources */,
+				4A257D9321FED93700220225 /* Key2@3x.png in Resources */,
+				4A257D9021FED93700220225 /* Key4_2@3x.png in Resources */,
+				4A257D9821FED93700220225 /* Key11@2x.png in Resources */,
+				4A257DB521FED93700220225 /* Key3@3x.png in Resources */,
+				4A257D9A21FED93700220225 /* icon_close_4@2x.png in Resources */,
+				4A257DAF21FED93700220225 /* Key10_2@3x.png in Resources */,
+				4A257D9621FED93700220225 /* Key12_2@2x.png in Resources */,
+				4A257DBB21FED93700220225 /* Key7@3x.png in Resources */,
+				4A257DA221FED93700220225 /* Key8@3x.png in Resources */,
+				4A257DA621FED93700220225 /* Key3@2x.png in Resources */,
+				4A257D9B21FED93700220225 /* Key8@2x.png in Resources */,
+				4A257D9121FED93700220225 /* Key5_2@3x.png in Resources */,
 				4A5C9CAD21F7026C00CA2332 /* AlbumSelectTableViewCell.xib in Resources */,
+				4A257DA321FED93700220225 /* Key6@2x.png in Resources */,
+				4A257DB821FED93700220225 /* Key9@2x.png in Resources */,
+				4A257DAC21FED93700220225 /* Key11_2@2x.png in Resources */,
+				4A257DA021FED93700220225 /* Key8_2@3x.png in Resources */,
+				4A257DA121FED93700220225 /* Key4@3x.png in Resources */,
+				4A257DAB21FED93700220225 /* Key3-_2@2x.png in Resources */,
 				4AE183D221EDC34300A4C5A7 /* Assets.xcassets in Resources */,
+				4A257DBE21FED93700220225 /* Key5@3x.png in Resources */,
+				4A257DB621FED93700220225 /* Key1@2x.png in Resources */,
+				4A257DA821FED93700220225 /* Key10@3x.png in Resources */,
 				4A83D68921F027EB00E4EE2A /* LocalData_ProductList.json in Resources */,
+				4A257DAD21FED93700220225 /* Key10_2@2x.png in Resources */,
+				4A257DB221FED93700220225 /* Key6_2@3x.png in Resources */,
+				4A257D8D21FED93700220225 /* Key11@3x.png in Resources */,
+				4A257D9921FED93700220225 /* Key6@3x.png in Resources */,
+				4A257D9F21FED93700220225 /* Key9_2@3x.png in Resources */,
+				4A257D9221FED93700220225 /* Key2@2x.png in Resources */,
+				4A257D8F21FED93700220225 /* Key12_2@3x.png in Resources */,
+				4A257DB421FED93700220225 /* Key12@3x.png in Resources */,
+				4A257DA521FED93700220225 /* Key1@3x.png in Resources */,
+				4A257D9721FED93700220225 /* Key13@3x.png in Resources */,
+				4A257DBF21FED93700220225 /* Key9@3x.png in Resources */,
+				4A257DB921FED93700220225 /* Key5@2x.png in Resources */,
+				4A257DBA21FED93700220225 /* Key2-_2@2x.png in Resources */,
+				4A257D9521FED93700220225 /* Key5_2@2x.png in Resources */,
+				4A257DA721FED93700220225 /* Key12@2x.png in Resources */,
 				4A5C9CC921F8601F00CA2332 /* WeiboSDK.bundle in Resources */,
+				4A257DC121FED93700220225 /* NumberList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1531,12 +1777,14 @@
 				4A83D6C721F027FC00E4EE2A /* ModelUser.m in Sources */,
 				4A83D6D321F027FC00E4EE2A /* HomePageVC.m in Sources */,
 				4A83D8AC21F04C9700E4EE2A /* NSArray+Category.m in Sources */,
+				4A257DC421FEEB7900220225 /* LHPDialListVC.m in Sources */,
 				4A83D8C321F04C9700E4EE2A /* GlobalMethod+LocalDatas.m in Sources */,
 				4A83D68821F027EB00E4EE2A /* RequestInstance.m in Sources */,
 				4A83D8BC21F04C9700E4EE2A /* UIView+SelectImageView.m in Sources */,
 				4A5C9CD021F8648A00CA2332 /* WXApiManager.m in Sources */,
 				4A5C9CA821F7026C00CA2332 /* AlbumCollectionViewCell.m in Sources */,
 				4A83D8B321F04C9700E4EE2A /* NSObject+Catrgory.m in Sources */,
+				4A257D5521FED58000220225 /* LHPDialVC.m in Sources */,
 				4A83D8B621F04C9700E4EE2A /* UIColor+Category.m in Sources */,
 				4A5C9C9721F7023200CA2332 /* LargePhotoViewController.m in Sources */,
 			);

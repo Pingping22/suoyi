@@ -44,7 +44,7 @@
         model.hidelineState = true;
         model.hideSubState = true;
         model.blocClick = ^(ModelBaseData *modelData) {
-            [weakSelf jumpToEditVC:@"MineNameVC"];
+            [weakSelf jumpToEditVC:@"LHPDialListVC"];
         };
         return model;
     }(),^(){

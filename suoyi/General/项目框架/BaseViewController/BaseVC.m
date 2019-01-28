@@ -19,7 +19,7 @@
 - (UIView *)viewBG{
     if (!_viewBG) {
         _viewBG = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
-        _viewBG.backgroundColor = [UIColor whiteColor];
+        _viewBG.backgroundColor = COLOR_BACKGROUND;
     }
     return _viewBG;
 }
