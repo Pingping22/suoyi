@@ -39,3 +39,16 @@ NS_ASSUME_NONNULL_END
 
 
 
+
+@interface MineSetCell : UITableViewCell
+@property (strong, nonatomic) UILabel *labelTitle;
+@property (strong, nonatomic) UILabel *labelDetail;
+@property (strong, nonatomic) UIImageView *rightImg;
+@property (strong, nonatomic) UIImageView *iconImgView;
+@property (strong, nonatomic) UIImageView *imgView;
+@property (strong, nonatomic) UIView *lineView;
+@property (nonatomic, strong) ModelBaseData *model;
+
+#pragma mark 刷新cell
+- (void)resetCellWithModel:(ModelBaseData *)model;
+@end
