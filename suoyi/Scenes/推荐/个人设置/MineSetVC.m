@@ -58,6 +58,7 @@
         model.imageName = @"shuidi2";
         model.string = @"3G/4G省流量模式";
         model.hideSubState = true;
+        model.hideState = true;
         model.blocClick = ^(ModelBaseData *modelData) {
         };
         return  model;
@@ -86,7 +87,7 @@
         model.string = @"使用说明";
         model.hideSubState = true;
         model.blocClick = ^(ModelBaseData *modelData) {
-            [weakSelf jumpToEditVC:@"Next_ChangePasswordVC"];
+
         };
         return  model;
     }(),^(){
@@ -95,7 +96,7 @@
         model.string = @"社区";
         model.hideSubState = true;
         model.blocClick = ^(ModelBaseData *modelData) {
-            [weakSelf jumpToEditVC:@"Next_ChangePasswordVC"];
+
         };
         return  model;
     }(),^(){
@@ -104,7 +105,7 @@
         model.string = @"问题反馈";
         model.hideSubState = true;
         model.blocClick = ^(ModelBaseData *modelData) {
-            [weakSelf jumpToEditVC:@"Next_ChangePasswordVC"];
+
         };
         return  model;
     }(),^(){
@@ -114,7 +115,7 @@
         model.hideSubState = true;
         model.hidelineState = true;
         model.blocClick = ^(ModelBaseData *modelData) {
-            [weakSelf jumpToEditVC:@"Next_ChangePasswordVC"];
+
         };
         return  model;
     }(),^(){
@@ -347,6 +348,17 @@
     }
     return _lineView;
 }
+-(UIButton *)openSwitch{
+    if (_openSwitch == nil) {
+        _openSwitch = [UIButton buttonWithType:UIButtonTypeCustom];
+        _openSwitch.tag = 1;
+        [_openSwitch addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [_openSwitch setImage:[UIImage imageNamed:@"guan"] forState:(UIControlStateNormal)];
+        [_openSwitch setImage:[UIImage imageNamed:@"kai"] forState:(UIControlStateSelected)];
+        _openSwitch.widthHeight = XY(W(70),W(50));
+    }
+    return _openSwitch;
+}
 #pragma mark 初始化
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -360,6 +372,7 @@
         [self.contentView addSubview:self.rightImg];
         [self.contentView addSubview:self.iconImgView];
         [self.contentView addSubview:self.lineView];
+        [self.contentView addSubview:self.openSwitch];
         [self.contentView addTarget:self action:@selector(cellClick)];
         self.clipsToBounds = true;
         self.contentView.userInteractionEnabled = true;
@@ -392,6 +405,14 @@
         self.labelDetail.rightCenterY = XY(self.imgView.left-W(10),self.labelTitle.centerY);
     }
     
+    if (model.hideState) {
+        self.openSwitch.rightCenterY = XY(SCREEN_WIDTH,self.labelTitle.centerY);
+
+    }else{
+        self.openSwitch.hidden = true;
+    }
+    
+    
     //设置总高度
     self.height = self.iconImgView.bottom+W(15);
     
@@ -405,6 +426,21 @@
 - (void)cellClick{
     if (self.model.blocClick) {
         self.model.blocClick(self.model);
+    }
+}
+#pragma mark 点击事件
+- (void)btnClick:(UIButton *)sender{
+    switch (sender.tag) {
+        case 1:
+        {
+            self.model.btnState = !self.model.btnState;
+            self.openSwitch.selected = !self.openSwitch.selected;
+            
+        }
+            break;
+            
+        default:
+            break;
     }
 }
 @end

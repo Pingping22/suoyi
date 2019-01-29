@@ -47,7 +47,9 @@ NS_ASSUME_NONNULL_END
 @property (strong, nonatomic) UIImageView *iconImgView;
 @property (strong, nonatomic) UIImageView *imgView;
 @property (strong, nonatomic) UIView *lineView;
+@property (strong, nonatomic) UIButton *openSwitch;
 @property (nonatomic, strong) ModelBaseData *model;
+@property (nonatomic, strong) void (^blockSwitch) (ModelBaseData *);
 
 #pragma mark 刷新cell
 - (void)resetCellWithModel:(ModelBaseData *)model;
