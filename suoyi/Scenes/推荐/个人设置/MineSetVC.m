@@ -11,8 +11,11 @@
 #import "BaseImage.h"
 //#import "AliClient.h"
 #import "UIView+SelectImageView.h"
+//vc
+#import "AutomaticWatchVC.h"
 @interface MineSetVC ()
 @property (nonatomic, strong) MineSetHeaderView * headerView;
+@property (nonatomic, strong) ModelBaseData * modelB;
 @end
 
 @implementation MineSetVC
@@ -36,7 +39,6 @@
 - (void)creatDataSource{
     [self.aryDatas removeAllObjects];
     WEAKSELF
-    
     [self.aryDatas addObjectsFromArray:@[^(){
         ModelBaseData * model = [ModelBaseData new];
         model.imageName = @"dianhua";
@@ -63,11 +65,15 @@
         ModelBaseData * model = [ModelBaseData new];
         model.imageName = @"kanguo";
         model.string = @"自动观看";
-        model.subString = @"仅WiFi网络下开启";
+        model.subString = @"一直开启";
         model.hideSubState = true;
         model.hidelineState = true;
         model.blocClick = ^(ModelBaseData *modelData) {
-            [weakSelf jumpToEditVC:@"Next_ChangePasswordVC"];
+            AutomaticWatchVC *vc = [AutomaticWatchVC new];
+            vc.blockModel = ^(ModelBaseData * model11) {
+                weakSelf.modelB = model11;
+            };
+            [GB_Nav pushViewController:vc animated:true];
         };
         return  model;
     }(),^(){
