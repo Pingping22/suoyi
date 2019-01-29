@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 @class LHPNumData;
 @interface LHPDialVC : UIView
-@property (nonatomic, strong) void (^NumBlock)(void);
+@property (nonatomic, strong) void (^NumBlock)(LHPNumData *data);
 @property (nonatomic,strong) LHPNumData *data;
 @end
 
@@ -19,8 +19,9 @@ NS_ASSUME_NONNULL_END
 
 
 @interface LHPNumCell : UICollectionViewCell
-@property (nonatomic,strong) UIButton *numberBtn;
+@property (nonatomic,strong) UIImageView *numberBtn;
 @property (nonatomic,strong) LHPNumData *data;
+- (void)resetCellWithModel:(LHPNumData *)model;
 
 @end
 

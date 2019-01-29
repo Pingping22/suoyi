@@ -42,10 +42,10 @@
         _dialView.frame = CGRectMake(0, SCREEN_HEIGHT-W(400), SCREEN_WIDTH, W(400));
         _dialView.backgroundColor = COLOR_BACKGROUND;
         WEAKSELF
-        _dialView.NumBlock = ^(){
-                    NSString *text = weakSelf.numview.inputNumberLabel.text;
-                    [weakSelf.numview.inputNumberLabel setText:[text stringByAppendingString:weakSelf.dialView.data.num]];
-                    [weakSelf.numview.delBtn setHidden:NO];
+        _dialView.NumBlock = ^(LHPNumData *data){
+            NSString *text = weakSelf.numview.inputNumberLabel.text;
+            [weakSelf.numview.inputNumberLabel setText:[text stringByAppendingString:data.num]];
+            [weakSelf.numview.delBtn setHidden:NO];
             
         };
     }
@@ -61,7 +61,7 @@
     self.submitButton.frame = CGRectMake(0, SCREEN_HEIGHT- W(40), SCREEN_WIDTH, W(40));
     [self.view addSubview:self.submitButton];
     //cell
-     [self.tableView registerClass:[LHPDialListCell class] forCellReuseIdentifier:@"LHPDialListCell"];
+    [self.tableView registerClass:[LHPDialListCell class] forCellReuseIdentifier:@"LHPDialListCell"];
 }
 #pragma mark 点击事件
 - (void)btnClick:(UIButton *)sender{
@@ -283,7 +283,7 @@
     self.iconImg.leftTop = XY(W(20)+self.leftImg.width,W(15)+[self.contentView addLineFrame:CGRectMake(0, 0, SCREEN_WIDTH, W(10)) color:COLOR_BACKGROUND]);
     
     self.leftImg.leftCenterY = XY(W(10),self.iconImg.centerY);
-
+    
     [GlobalMethod resetLabel:self.labelName text:@"你好的家" widthLimit:0];
     self.labelName.leftTop = XY(W(10)+self.iconImg.right,self.iconImg.top);
     

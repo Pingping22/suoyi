@@ -37,6 +37,7 @@
     _xmDialCollectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
     [_xmDialCollectionView registerClass:[LHPNumCell class] forCellWithReuseIdentifier:@"LHPNumCell"];
     _xmDialCollectionView.dataSource = self;
+    _xmDialCollectionView.delegate = self;
     _xmDialCollectionView.backgroundColor = COLOR_BACKGROUND;
     [self addSubview:_xmDialCollectionView];
     [_xmDialCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -45,6 +46,17 @@
         make.width.mas_equalTo(@(SCREEN_WIDTH));
         make.height.mas_equalTo(weakSelf);
     }];
+
+    UIButton *downSet = [UIButton buttonWithType:UIButtonTypeCustom];
+    [downSet setBackgroundImage:[UIImage imageNamed:@"downset"] forState:UIControlStateNormal];
+    [downSet addTarget:self action:@selector(downSetCall) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:downSet];
+    [downSet mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(@(W(60)));
+        make.bottom.equalTo(weakSelf).with.offset(-10);
+        make.size.mas_equalTo(CGSizeMake(W(50), W(50)));
+    }];
+    
     UIButton *call = [UIButton buttonWithType:UIButtonTypeCustom];
     [call setBackgroundImage:[UIImage imageNamed:@"Key13"] forState:UIControlStateNormal];
     [call addTarget:self action:@selector(phoneCall) forControlEvents:UIControlEventTouchUpInside];
@@ -52,8 +64,9 @@
     [call mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(weakSelf);
         make.bottom.equalTo(weakSelf).with.offset(-5);
-        make.size.mas_equalTo(CGSizeMake(60, 60));
+        make.size.mas_equalTo(CGSizeMake(W(60), W(60)));
     }];
+    
     
 }
 
@@ -65,22 +78,29 @@
     LHPNumData *data =  [[LHPNumData alloc]init];
     [data getData:indexPath.row];
     LHPNumCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"LHPNumCell" forIndexPath:indexPath ];
-    cell.data = data;
-    self.data = data;
-    //点击拨号盘事件
-    [cell.numberBtn addTarget:self action:@selector(handleAction:) forControlEvents:UIControlEventTouchUpInside];
+    [cell resetCellWithModel:data];
     return cell;
 }
--(void)handleAction:(UIButton *)sender{
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    LHPNumData *data =  [[LHPNumData alloc]init];
+    [data getData:indexPath.row];
     if (self.NumBlock) {
-        self.NumBlock();
+        self.NumBlock(data);
     }
+    // 手动触发cell为选中状态
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [collectionView selectItemAtIndexPath:indexPath animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+    });
 }
+
 #pragma mark 拨打电话
 -(void)phoneCall{
     
 }
-
+- (void)downSetCall{
+    [self removeFromSuperview];
+}
 #pragma mark 销毁
 - (void)dealloc{
     NSLog(@"%s  %@",__func__,self.class);
@@ -93,24 +113,25 @@
 
 
 @implementation LHPNumCell
-
+- (UIImageView *)numberBtn{
+    if (_numberBtn == nil) {
+        _numberBtn = [UIImageView new];
+        _numberBtn.widthHeight = XY(W(62),W(62));
+    }
+    return _numberBtn;
+}
 -(instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        self.numberBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.contentView addSubview:self.numberBtn];
     }
     return self;
 }
 
--(void)layoutSubviews{
-    [super layoutSubviews];
-    self.numberBtn.frame = CGRectMake(0,0,62,62);
-}
--(void)setData:(LHPNumData *)data{
-    if (_data != data) {
-        _data = data;
-    }
-    [self.numberBtn setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@",data.normal]] forState:UIControlStateNormal];
+- (void)resetCellWithModel:(LHPNumData *)model{
+    self.data = model;
+    self.numberBtn.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",UnPackStr(model.normal)]];
+    self.numberBtn.leftTop = XY(0,0);
+    self.height = self.numberBtn.bottom ;
 }
 
 @end
