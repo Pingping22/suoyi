@@ -66,6 +66,8 @@
 		4A257DC822001BC500220225 /* AutomaticWatchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A257DC722001BC500220225 /* AutomaticWatchVC.m */; };
 		4A257DCC2201336000220225 /* LDFeedbackController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A257DCA2201336000220225 /* LDFeedbackController.m */; };
 		4A257DD02201381600220225 /* PlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A257DCE2201381600220225 /* PlaceHolderTextView.m */; };
+		4A257DD4220155CE00220225 /* SearchSkillsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A257DD3220155CE00220225 /* SearchSkillsVC.m */; };
+		4A257DD82201586800220225 /* QRCoderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A257DD72201586700220225 /* QRCoderVC.m */; };
 		4A5C9C7F21F5ACA600CA2332 /* SetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C9C7E21F5ACA600CA2332 /* SetVC.m */; };
 		4A5C9C8221F5C24100CA2332 /* MineListMindImgView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C9C8021F5C24100CA2332 /* MineListMindImgView.m */; };
 		4A5C9C8821F5C2A800CA2332 /* ImageDetailBigView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C9C8521F5C2A800CA2332 /* ImageDetailBigView.m */; };
@@ -252,6 +254,10 @@
 		4A257DCB2201336000220225 /* LDFeedbackController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDFeedbackController.h; sourceTree = "<group>"; };
 		4A257DCE2201381600220225 /* PlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceHolderTextView.m; sourceTree = "<group>"; };
 		4A257DCF2201381600220225 /* PlaceHolderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceHolderTextView.h; sourceTree = "<group>"; };
+		4A257DD2220155CE00220225 /* SearchSkillsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchSkillsVC.h; sourceTree = "<group>"; };
+		4A257DD3220155CE00220225 /* SearchSkillsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchSkillsVC.m; sourceTree = "<group>"; };
+		4A257DD62201586700220225 /* QRCoderVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCoderVC.h; sourceTree = "<group>"; };
+		4A257DD72201586700220225 /* QRCoderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCoderVC.m; sourceTree = "<group>"; };
 		4A5C9C7D21F5ACA600CA2332 /* SetVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetVC.h; sourceTree = "<group>"; };
 		4A5C9C7E21F5ACA600CA2332 /* SetVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetVC.m; sourceTree = "<group>"; };
 		4A5C9C8021F5C24100CA2332 /* MineListMindImgView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineListMindImgView.m; sourceTree = "<group>"; };
@@ -617,6 +623,24 @@
 			path = PlaceHolderTextView;
 			sourceTree = "<group>";
 		};
+		4A257DD1220155AC00220225 /* 技能搜索 */ = {
+			isa = PBXGroup;
+			children = (
+				4A257DD2220155CE00220225 /* SearchSkillsVC.h */,
+				4A257DD3220155CE00220225 /* SearchSkillsVC.m */,
+			);
+			path = "技能搜索";
+			sourceTree = "<group>";
+		};
+		4A257DD52201586700220225 /* 扫描二维码页面 */ = {
+			isa = PBXGroup;
+			children = (
+				4A257DD62201586700220225 /* QRCoderVC.h */,
+				4A257DD72201586700220225 /* QRCoderVC.m */,
+			);
+			path = "扫描二维码页面";
+			sourceTree = "<group>";
+		};
 		4A5C9C7C21F5A88900CA2332 /* 设置 */ = {
 			isa = PBXGroup;
 			children = (
@@ -700,6 +724,7 @@
 		4A5C9CB521F80C6F00CA2332 /* 页面逻辑 */ = {
 			isa = PBXGroup;
 			children = (
+				4A257DD52201586700220225 /* 扫描二维码页面 */,
 				4A5C9CCD21F8648A00CA2332 /* WXApiManager */,
 				4A5C9CB621F80CBC00CA2332 /* ShareAlertView.h */,
 				4A5C9CB721F80CBC00CA2332 /* ShareAlertView.m */,
@@ -907,6 +932,7 @@
 		4A83D6B121F027FC00E4EE2A /* 工具 */ = {
 			isa = PBXGroup;
 			children = (
+				4A257DD1220155AC00220225 /* 技能搜索 */,
 				4A5C9C7C21F5A88900CA2332 /* 设置 */,
 				4A83D6B421F027FC00E4EE2A /* ToolsTabVC.h */,
 				4A83D6B521F027FC00E4EE2A /* ToolsTabVC.m */,
@@ -1772,6 +1798,7 @@
 				4A83D6C621F027FC00E4EE2A /* ModelBtn.m in Sources */,
 				4A83D8B821F04C9700E4EE2A /* UILabel+Category.m in Sources */,
 				4A83D8B421F04C9700E4EE2A /* NSString+Category.m in Sources */,
+				4A257DD82201586800220225 /* QRCoderVC.m in Sources */,
 				4A83D68721F027EB00E4EE2A /* RequestApi.m in Sources */,
 				4A5C9CB821F80CBC00CA2332 /* ShareAlertView.m in Sources */,
 				4A5C9C8221F5C24100CA2332 /* MineListMindImgView.m in Sources */,
@@ -1790,6 +1817,7 @@
 				4A83D68B21F027EB00E4EE2A /* AppDelegate.m in Sources */,
 				4A5C9C9B21F7024E00CA2332 /* GXPhotoAssetModel.m in Sources */,
 				4A83D8C621F04C9700E4EE2A /* GlobalMethod.m in Sources */,
+				4A257DD4220155CE00220225 /* SearchSkillsVC.m in Sources */,
 				4A83D8BD21F04C9700E4EE2A /* UIView+Size.m in Sources */,
 				4A257DCC2201336000220225 /* LDFeedbackController.m in Sources */,
 				4A83D8BE21F04C9700E4EE2A /* UIViewController+Category.m in Sources */,

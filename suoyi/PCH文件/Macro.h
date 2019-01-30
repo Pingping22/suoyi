@@ -21,6 +21,7 @@
 #define isIphone6  ([UIScreen mainScreen].bounds.size.width == 375)
 #define isIphone6p ([UIScreen mainScreen].bounds.size.width == 414)
 #define isIphoneXSERIES  ([UIScreen mainScreen].bounds.size.height == 812 || [UIScreen mainScreen].bounds.size.height == 896)
+#define isIphoneX  ([UIScreen mainScreen].bounds.size.height == 812)
 
 #define SCREEN_WIDTH  [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height

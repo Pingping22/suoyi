@@ -281,7 +281,11 @@
             [GB_Nav pushVCName:@"MineSetEditVC" animated:true];
         }
             break;
-            
+        case 2:
+        {
+            [GB_Nav pushVCName:@"QRCoderVC" animated:true];
+        }
+            break;
         default:
             break;
     }
