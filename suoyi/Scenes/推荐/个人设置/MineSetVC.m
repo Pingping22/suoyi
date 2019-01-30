@@ -105,7 +105,7 @@
         model.string = @"问题反馈";
         model.hideSubState = true;
         model.blocClick = ^(ModelBaseData *modelData) {
-
+            [weakSelf jumpToEditVC:@"LDFeedbackController"];
         };
         return  model;
     }(),^(){
