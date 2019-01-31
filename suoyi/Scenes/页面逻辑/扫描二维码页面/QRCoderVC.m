@@ -87,7 +87,7 @@ static const NSInteger QRBTNTAG     = 3;
     ImageLineTop = isIphoneX ? W(166)+W(34):W(166);
     [self initUI];
     [self setNavigationBar];
-    [self creatLightBtn];
+//    [self creatLightBtn];
     [self registerNotification];
     [self creatImagePicker];
     
@@ -137,7 +137,7 @@ static const NSInteger QRBTNTAG     = 3;
     
     [self.view addSubview:^(){
         UILabel * label = [UILabel new];
-        label.text = @"将二维码放入框内，即可自动扫描";
+        label.text = @"将取景框对准屏幕上的二维码即可扫描";
         label.fontNum = F(14);
         label.textColor = [UIColor whiteColor];
         label.textAlignment = NSTextAlignmentCenter;
@@ -148,7 +148,30 @@ static const NSInteger QRBTNTAG     = 3;
         return label;
     }()];
 
-
+    [self.view addSubview:^(){
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        btn.tag = 1;
+        [btn addTarget:self action:@selector(btnCli:) forControlEvents:UIControlEventTouchUpInside];
+        btn.titleLabel.font = [UIFont systemFontOfSize:F(14)];
+        [btn setTitle:@"输入视频号码/验证码" forState:(UIControlStateNormal)];
+        [btn setTitleColor:[UIColor orangeColor] forState:(UIControlStateNormal)];
+        btn.widthHeight = XY(SCREEN_WIDTH,W(20));
+        btn.centerXBottom = XY(SCREEN_WIDTH/2.0, SCREEN_HEIGHT-W(20));
+        return btn;
+    }()];
+}
+#pragma mark 点击事件
+- (void)btnCli:(UIButton *)sender{
+    switch (sender.tag) {
+        case 1:
+        {
+            [GB_Nav pushVCName:@"AddFacilityVC" animated:true];
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 #pragma  mark - 添加通知
 -(void)registerNotification{

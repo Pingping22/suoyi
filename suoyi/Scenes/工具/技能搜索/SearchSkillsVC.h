@@ -15,3 +15,16 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+
+
+
+
+
+
+@interface SearchSkillsBtnView : UIView
+//属性
+@property (strong, nonatomic) UIButton *nameBtn;
+
+#pragma mark 刷新view
+- (void)resetViewWithModel:(id)model;
+@end

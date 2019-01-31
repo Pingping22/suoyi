@@ -228,6 +228,7 @@
         _addBtn.titleLabel.font = [UIFont systemFontOfSize:F(17)];
         [GlobalMethod setRoundView:_addBtn color:[UIColor clearColor] numRound:W(20) width:0];
         [_addBtn setTitle:@"添加设备" forState:(UIControlStateNormal)];
+        [_addBtn setImage:[UIImage imageNamed:@"jiahao"] forState:(UIControlStateNormal)];
         _addBtn.widthHeight = XY(W(100),W(40));
     }
     return _addBtn;
