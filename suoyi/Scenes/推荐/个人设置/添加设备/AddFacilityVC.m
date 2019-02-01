@@ -72,7 +72,7 @@
     [self.view addSubview:[BaseNavView initNavBackTitle:@"添加" rightView:nil]];
     [self resetView];
     //add keyboard observe
-    [self addObserveOfKeyboard];
+    [self.view addKeyboardHideGesture];
 }
 
 #pragma mark addsubview

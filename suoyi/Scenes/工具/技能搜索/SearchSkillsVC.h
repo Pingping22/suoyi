@@ -18,13 +18,44 @@ NS_ASSUME_NONNULL_END
 
 
 
+@class SearchSkillsBtnView;
+//热门搜索
+@interface TopSearchView : UIView
+//属性
+@property (strong, nonatomic) UILabel *labelName;
+@property (strong, nonatomic) SearchSkillsBtnView *skillView;
+@property (nonatomic, copy) void(^tagSelectblock)(ModelBtn *);
+
+#pragma mark 刷新view
+- (void)resetViewWithModel:(id)model;
+@end
+
+
+
+
+@class SearchSkillsBtnView;
+//热门搜索
+@interface HistorySearchView : UIView
+//属性
+@property (strong, nonatomic) UILabel *labelName;
+@property (strong, nonatomic) SearchSkillsBtnView *skillView;
+@property (strong, nonatomic) UIButton *deleteBtn;
+@property (nonatomic, copy) void(^tagSelectblock)(ModelBtn *);
+@property (nonatomic, strong) NSMutableArray * aryData;
+#pragma mark 刷新view
+- (void)resetViewWithModel:(id)model;
+@end
+
+
+
 
 
 
 @interface SearchSkillsBtnView : UIView
-//属性
-@property (strong, nonatomic) UIButton *nameBtn;
+@property (nonatomic, strong) NSMutableArray *aryModels;//ary models
+@property (nonatomic, assign) NSInteger numLinesLimit;//default 0 indicate don't limit
+@property (nonatomic, copy) void(^tagSelectblock)(ModelBtn *);
 
 #pragma mark 刷新view
-- (void)resetViewWithModel:(id)model;
+- (void)resetViewWithAry:(NSMutableArray *)ary widthLimit:(CGFloat)widthLimit;
 @end

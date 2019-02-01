@@ -227,7 +227,7 @@ static const NSInteger QRBTNTAG     = 3;
 }
 //设置导航内容
 - (void)setNavigationBar{
-    [self.view addSubview:[BaseNavView initNavBackTitle:@"扫一扫" rightView:nil]];
+    [self.view addSubview:[BaseNavView initNavBackTitle:@"添加" rightView:nil]];
 }
 //按钮点击事件
 - (void)btnClick:(UIButton *)btn{

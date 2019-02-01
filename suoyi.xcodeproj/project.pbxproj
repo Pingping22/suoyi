@@ -69,6 +69,10 @@
 		4A257DD4220155CE00220225 /* SearchSkillsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A257DD3220155CE00220225 /* SearchSkillsVC.m */; };
 		4A257DD82201586800220225 /* QRCoderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A257DD72201586700220225 /* QRCoderVC.m */; };
 		4A257DDC2202BF1200220225 /* AddFacilityVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A257DDB2202BF1200220225 /* AddFacilityVC.m */; };
+		4A257DE82204160500220225 /* LdSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A257DE62204160500220225 /* LdSearchView.m */; };
+		4A257DE92204160500220225 /* SearchTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A257DE72204160500220225 /* SearchTextField.m */; };
+		4A257DEC22041EA400220225 /* UIButton+Creat.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A257DEB22041EA400220225 /* UIButton+Creat.m */; };
+		4A257DF0220427B600220225 /* NSMutableArray+Insert.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A257DEF220427B600220225 /* NSMutableArray+Insert.m */; };
 		4A5C9C7F21F5ACA600CA2332 /* SetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C9C7E21F5ACA600CA2332 /* SetVC.m */; };
 		4A5C9C8221F5C24100CA2332 /* MineListMindImgView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C9C8021F5C24100CA2332 /* MineListMindImgView.m */; };
 		4A5C9C8821F5C2A800CA2332 /* ImageDetailBigView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C9C8521F5C2A800CA2332 /* ImageDetailBigView.m */; };
@@ -261,6 +265,14 @@
 		4A257DD72201586700220225 /* QRCoderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCoderVC.m; sourceTree = "<group>"; };
 		4A257DDA2202BF1200220225 /* AddFacilityVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddFacilityVC.h; sourceTree = "<group>"; };
 		4A257DDB2202BF1200220225 /* AddFacilityVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddFacilityVC.m; sourceTree = "<group>"; };
+		4A257DE42204160500220225 /* SearchTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTextField.h; sourceTree = "<group>"; };
+		4A257DE52204160500220225 /* LdSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LdSearchView.h; sourceTree = "<group>"; };
+		4A257DE62204160500220225 /* LdSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LdSearchView.m; sourceTree = "<group>"; };
+		4A257DE72204160500220225 /* SearchTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTextField.m; sourceTree = "<group>"; };
+		4A257DEA22041EA400220225 /* UIButton+Creat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Creat.h"; sourceTree = "<group>"; };
+		4A257DEB22041EA400220225 /* UIButton+Creat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Creat.m"; sourceTree = "<group>"; };
+		4A257DEE220427B600220225 /* NSMutableArray+Insert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Insert.h"; sourceTree = "<group>"; };
+		4A257DEF220427B600220225 /* NSMutableArray+Insert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Insert.m"; sourceTree = "<group>"; };
 		4A5C9C7D21F5ACA600CA2332 /* SetVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetVC.h; sourceTree = "<group>"; };
 		4A5C9C7E21F5ACA600CA2332 /* SetVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetVC.m; sourceTree = "<group>"; };
 		4A5C9C8021F5C24100CA2332 /* MineListMindImgView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineListMindImgView.m; sourceTree = "<group>"; };
@@ -653,6 +665,26 @@
 			path = "添加设备";
 			sourceTree = "<group>";
 		};
+		4A257DE32204160500220225 /* 搜索框 */ = {
+			isa = PBXGroup;
+			children = (
+				4A257DE42204160500220225 /* SearchTextField.h */,
+				4A257DE72204160500220225 /* SearchTextField.m */,
+				4A257DE52204160500220225 /* LdSearchView.h */,
+				4A257DE62204160500220225 /* LdSearchView.m */,
+			);
+			path = "搜索框";
+			sourceTree = "<group>";
+		};
+		4A257DED220427B600220225 /* NSMutableArray */ = {
+			isa = PBXGroup;
+			children = (
+				4A257DEE220427B600220225 /* NSMutableArray+Insert.h */,
+				4A257DEF220427B600220225 /* NSMutableArray+Insert.m */,
+			);
+			path = NSMutableArray;
+			sourceTree = "<group>";
+		};
 		4A5C9C7C21F5A88900CA2332 /* 设置 */ = {
 			isa = PBXGroup;
 			children = (
@@ -736,6 +768,7 @@
 		4A5C9CB521F80C6F00CA2332 /* 页面逻辑 */ = {
 			isa = PBXGroup;
 			children = (
+				4A257DE32204160500220225 /* 搜索框 */,
 				4A257DD52201586700220225 /* 扫描二维码页面 */,
 				4A5C9CCD21F8648A00CA2332 /* WXApiManager */,
 				4A5C9CB621F80CBC00CA2332 /* ShareAlertView.h */,
@@ -1022,6 +1055,7 @@
 		4A83D82F21F04C9700E4EE2A /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				4A257DED220427B600220225 /* NSMutableArray */,
 				4A83D83021F04C9700E4EE2A /* NSArray */,
 				4A83D83321F04C9700E4EE2A /* NSDictionary */,
 				4A83D83621F04C9700E4EE2A /* NSMutableParagraphStyle */,
@@ -1394,6 +1428,8 @@
 		4A91660021F17C65006CF9DF /* LHPBtn */ = {
 			isa = PBXGroup;
 			children = (
+				4A257DEA22041EA400220225 /* UIButton+Creat.h */,
+				4A257DEB22041EA400220225 /* UIButton+Creat.m */,
 				4A91660121F17C65006CF9DF /* LHPBtn.h */,
 				4A91660221F17C65006CF9DF /* LHPBtn.m */,
 			);
@@ -1778,6 +1814,7 @@
 				4A91660621F17C78006CF9DF /* RecommendSkillsView.m in Sources */,
 				4A83D8E421F06FDF00E4EE2A /* UITableView+Category.m in Sources */,
 				4A83D8C521F04C9700E4EE2A /* GlobalMethod+Version.m in Sources */,
+				4A257DE82204160500220225 /* LdSearchView.m in Sources */,
 				4A83D6C921F027FC00E4EE2A /* ModelProductItem.m in Sources */,
 				4A83D8BA21F04C9700E4EE2A /* UIView+Category.m in Sources */,
 				4A257DC822001BC500220225 /* AutomaticWatchVC.m in Sources */,
@@ -1801,6 +1838,7 @@
 				4A83D6C421F027FC00E4EE2A /* ModelAryIndex.m in Sources */,
 				4A5C9C8C21F6F17100CA2332 /* GlobalMethod+UI.m in Sources */,
 				4A83D8B121F04C9700E4EE2A /* NSDictionary+Safe.m in Sources */,
+				4A257DE92204160500220225 /* SearchTextField.m in Sources */,
 				4A5C9CB121F7028F00CA2332 /* GXPHKitTool.m in Sources */,
 				4A5C9CAC21F7026C00CA2332 /* AlbumSelectTableViewCell.m in Sources */,
 				4A83D8AD21F04C9700E4EE2A /* NSDictionary+Model.m in Sources */,
@@ -1865,12 +1903,14 @@
 				4A83D68821F027EB00E4EE2A /* RequestInstance.m in Sources */,
 				4A83D8BC21F04C9700E4EE2A /* UIView+SelectImageView.m in Sources */,
 				4A5C9CD021F8648A00CA2332 /* WXApiManager.m in Sources */,
+				4A257DEC22041EA400220225 /* UIButton+Creat.m in Sources */,
 				4A5C9CA821F7026C00CA2332 /* AlbumCollectionViewCell.m in Sources */,
 				4A257DD02201381600220225 /* PlaceHolderTextView.m in Sources */,
 				4A83D8B321F04C9700E4EE2A /* NSObject+Catrgory.m in Sources */,
 				4A257D5521FED58000220225 /* LHPDialVC.m in Sources */,
 				4A83D8B621F04C9700E4EE2A /* UIColor+Category.m in Sources */,
 				4A5C9C9721F7023200CA2332 /* LargePhotoViewController.m in Sources */,
+				4A257DF0220427B600220225 /* NSMutableArray+Insert.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
