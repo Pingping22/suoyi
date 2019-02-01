@@ -76,8 +76,9 @@
     switch (sender.tag) {
         case 1:
         {
-            self.searchTextField.text = @"";
-            [GlobalMethod hideKeyboard];
+            if (self.blockDele) {
+                self.blockDele();
+            }
         }
             break;
             
@@ -100,7 +101,6 @@
 }
 
 - (void)textFieldValueChange{
-  
 }
 
 

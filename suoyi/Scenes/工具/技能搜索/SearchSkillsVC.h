@@ -59,3 +59,18 @@ NS_ASSUME_NONNULL_END
 #pragma mark 刷新view
 - (void)resetViewWithAry:(NSMutableArray *)ary widthLimit:(CGFloat)widthLimit;
 @end
+
+
+
+
+
+
+
+@interface SearchSkillsCell : UITableViewCell
+@property (strong, nonatomic) UIImageView *iconImg;
+@property (strong, nonatomic) UILabel *labelName;
+@property (strong, nonatomic) UILabel *labelContent;
+@property (nonatomic, strong) ModelBaseData * model;
+#pragma mark 刷新cell
+- (void)resetCellWithModel:(ModelBaseData *)model;
+@end

@@ -30,6 +30,21 @@
     if (_searchView == nil) {
         _searchView = [LdSearchView new];
         _searchView.frame = CGRectMake(0, 0, SCREEN_WIDTH, _searchView.height);
+        WEAKSELF
+        _searchView.blockDele = ^{
+            weakSelf.searchView.searchTextField.text = @"";
+            [weakSelf.view addKeyboardHideGesture];
+            [weakSelf.aryDatas removeAllObjects];
+            [weakSelf resetView];
+            [weakSelf.tableView reloadData];
+        };
+        _searchView.blockSearch = ^(NSString *str) {
+            ModelBtn *modelC = [ModelBtn modelWithTitle:UnPackStr(str)];
+            [weakSelf.aryHis addObject:modelC];
+            [weakSelf searchTitle:UnPackStr(str)];
+            [weakSelf resetView];
+            [weakSelf.tableView reloadData];
+        };
     }
     return  _searchView;
 }
@@ -62,9 +77,34 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:[BaseNavView initNavBackTitle:@"技能搜索" rightView:nil]];
-    self.tableView.tableHeaderViews = @[self.searchView,self.btnView,self.hisView];
+    [self resetView];
+//cell
+     [self.tableView registerClass:[SearchSkillsCell class] forCellReuseIdentifier:@"SearchSkillsCell"];
 
-
+}
+- (void)resetView{
+    if (isAry(self.aryDatas)||isStr(self.searchView.searchTextField.text)) {
+        self.tableView.tableHeaderViews = @[self.searchView];
+    }else{
+        self.tableView.tableHeaderViews = @[self.searchView,self.btnView,self.hisView];
+    }
+}
+#pragma mark UITableViewDelegate
+//row num
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.aryDatas.count;
+}
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+//cell
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    SearchSkillsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchSkillsCell" forIndexPath:indexPath];
+    [cell resetCellWithModel:self.aryDatas[indexPath.row]];
+    return cell;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return [SearchSkillsCell fetchHeight:self.aryDatas[indexPath.row]];
 }
 
 - (void)searchTitle:(NSString *)str{
@@ -82,6 +122,13 @@
     [self.hisView.skillView resetViewWithAry:self.aryHis widthLimit:SCREEN_WIDTH];
     [self.hisView resetViewWithModel:nil];
     self.tableView.tableHeaderViews = @[self.searchView,self.btnView,self.hisView];
+    
+    [self.aryDatas removeAllObjects];
+    ModelBaseData *model = [ModelBaseData new];
+    model.string = str;
+    [self.aryDatas addObject:model];
+    [self resetView];
+    [self.tableView reloadData];
 }
 
 @end
@@ -140,7 +187,7 @@
     
     self.skillView.widthHeight = XY(SCREEN_WIDTH, self.skillView.height);
     self.skillView.leftTop = XY(0,self.labelName.bottom);
-    [self.skillView resetViewWithAry:@[[ModelBtn modelWithTitle:@"我e啥说啥"],[ModelBtn modelWithTitle:@"奥都懂的"],[ModelBtn modelWithTitle:@"奥的"],[ModelBtn modelWithTitle:@"奥顶顶顶顶顶"],[ModelBtn modelWithTitle:@"奥大大"],[ModelBtn modelWithTitle:@"奥顶顶顶顶顶大大"]].mutableCopy widthLimit:SCREEN_WIDTH];
+    [self.skillView resetViewWithAry:@[[ModelBtn modelWithTitle:@"我爱猜歌词"],[ModelBtn modelWithTitle:@"词汇乐园"],[ModelBtn modelWithTitle:@"小伴龙儿歌"],[ModelBtn modelWithTitle:@"宝宝知道"],[ModelBtn modelWithTitle:@"音乐"],[ModelBtn modelWithTitle:@"新闻"],[ModelBtn modelWithTitle:@"闹钟"],[ModelBtn modelWithTitle:@"天气"],[ModelBtn modelWithTitle:@"时间"],[ModelBtn modelWithTitle:@"百科"]].mutableCopy widthLimit:SCREEN_WIDTH];
     self.height = self.skillView.bottom;
 }
 
@@ -327,6 +374,71 @@
     if (self.tagSelectblock) {
         self.tagSelectblock(sender.modelBtn);
     }
+}
+
+@end
+
+
+
+
+
+
+
+
+@implementation SearchSkillsCell
+#pragma mark 懒加载
+- (UIImageView *)iconImg{
+    if (_iconImg == nil) {
+        _iconImg = [UIImageView new];
+        _iconImg.image = [UIImage imageNamed:@"22"];
+        _iconImg.widthHeight = XY(W(50),W(50));
+        [GlobalMethod setRoundView:_iconImg color:[UIColor clearColor] numRound:7 width:0];
+    }
+    return _iconImg;
+}
+- (UILabel *)labelName{
+    if (_labelName == nil) {
+        _labelName = [UILabel new];
+        [GlobalMethod setLabel:_labelName widthLimit:0 numLines:0 fontNum:F(15) textColor:COLOR_LABEL text:@""];
+    }
+    return _labelName;
+}
+- (UILabel *)labelContent{
+    if (_labelContent == nil) {
+        _labelContent = [UILabel new];
+        [GlobalMethod setLabel:_labelContent widthLimit:0 numLines:0 fontNum:F(13) textColor:COLOR_DETAIL text:@""];
+    }
+    return _labelContent;
+}
+
+#pragma mark 初始化
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        self.contentView.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = [UIColor whiteColor];
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        [self.contentView addSubview:self.iconImg];
+        [self.contentView addSubview:self.labelName];
+        [self.contentView addSubview:self.labelContent];
+        
+    }
+    return self;
+}
+#pragma mark 刷新cell
+- (void)resetCellWithModel:(ModelBaseData *)model{
+    [self.contentView removeSubViewWithTag:TAG_LINE];//移除线
+    //刷新view
+    self.model = model;
+    self.iconImg.leftTop = XY(W(15),W(15));
+    
+    [GlobalMethod resetLabel:self.labelName text:UnPackStr(model.string) widthLimit:0];
+    self.labelName.leftTop = XY(W(10)+self.iconImg.right,self.iconImg.top+W(2));
+    
+    [GlobalMethod resetLabel:self.labelContent text:@"打开我爱猜歌名" widthLimit:0];
+    self.labelContent.leftTop = XY(self.labelName.left,self.labelName.bottom+W(8));
+    
+    self.height = self.iconImg.bottom+W(15);
 }
 
 @end

@@ -12,9 +12,9 @@
 @interface LdSearchView : UIView<UITextFieldDelegate>
 @property (nonatomic, strong) SearchTextField *searchTextField;
 @property (nonatomic, strong) UIButton  *rightView;
-
+@property (nonatomic, strong) void (^blockDele)(void);
 @property (nonatomic, copy)void(^blockSearch)(NSString *);
+
 //刷新页面
 - (void)resetView;
-
 @end
