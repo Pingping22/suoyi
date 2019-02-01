@@ -81,6 +81,7 @@
     }
     [self.hisView.skillView resetViewWithAry:self.aryHis widthLimit:SCREEN_WIDTH];
     [self.hisView resetViewWithModel:nil];
+    self.tableView.tableHeaderViews = @[self.searchView,self.btnView,self.hisView];
 }
 
 @end
