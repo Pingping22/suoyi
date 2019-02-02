@@ -48,12 +48,15 @@
     UILabel*labelName = [UILabel new];
     [GlobalMethod setLabel:labelName widthLimit:0 numLines:0 fontNum:F(15) textColor:COLOR_DETAIL text:@""];
     [GlobalMethod resetLabel:labelName text:@"家庭圈" widthLimit:0];
-    labelName.leftTop = XY(W(10),W(25));
+    labelName.leftTop = XY(W(10),W(15));
     [view addSubview:labelName];
     return view;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return W(40);
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [GB_Nav pushVCName:@"HomeAddressBookDetailVC" animated:true];
 }
 #pragma mark - request
 - (void)requestList{
