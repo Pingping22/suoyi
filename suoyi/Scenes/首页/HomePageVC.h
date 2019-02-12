@@ -7,6 +7,7 @@
 //
 
 #import "BaseTableVC.h"
+#import "SPMultipleSwitch.h"
 
 @interface HomePageVC : BaseTableVC
 
@@ -19,7 +20,7 @@
 //属性
 @property (strong, nonatomic) UIImageView *backView;
 @property (strong, nonatomic) UILabel *labelTitle;
-
+@property (nonatomic, strong) SPMultipleSwitch * switch3;
 #pragma mark 刷新view
 - (void)resetViewWithModel:(id)model;
 @end

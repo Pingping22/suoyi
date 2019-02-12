@@ -8,6 +8,7 @@
 
 #import "HomePageVC.h"
 #import "ProductMarketNavView.h"
+
 @interface HomePageVC ()
 @property (nonatomic, strong) ProductMarketNavView * navView;
 @property (nonatomic, strong) HomePageHeaderView * headerView;
@@ -103,12 +104,6 @@
 }
 
 
-
-
-#pragma mark - 改变statusbar颜色
-- (UIStatusBarStyle)preferredStatusBarStyle{
-    return UIStatusBarStyleDefault;
-}
 @end
 
 
@@ -132,6 +127,23 @@
     }
     return _labelTitle;
 }
+- (SPMultipleSwitch *)switch3
+{
+    if (_switch3 == nil) {
+        _switch3 = [[SPMultipleSwitch alloc] initWithItems:@[@"",@"视频通话"]];
+        _switch3.widthHeight = XY(SCREEN_WIDTH-W(180),W(40));
+        _switch3.backgroundColor = COLOR_GREEN;
+        _switch3.selectedTitleColor = [UIColor clearColor];
+        _switch3.titleColor = [UIColor whiteColor];
+        _switch3.trackerColor = [UIColor whiteColor];
+        _switch3.contentInset = 5;
+        _switch3.spacing = 10;
+        _switch3.titleFont = [UIFont systemFontOfSize:F(12)];
+        _switch3.trackerImage = [UIImage imageNamed:@"tracker"];
+        [_switch3 addTarget:self action:@selector(switchAction3:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return  _switch3;
+}
 
 #pragma mark 初始化
 - (instancetype)initWithFrame:(CGRect)frame{
@@ -147,7 +159,7 @@
 - (void)addSubView{
     [self addSubview:self.backView];
     [self addSubview:self.labelTitle];
-    
+    [self addSubview:self.switch3];
     //初始化页面
     [self resetViewWithModel:nil];
 }
@@ -160,11 +172,16 @@
     self.backView.leftTop = XY(0,0);
     
     [GlobalMethod resetLabel:self.labelTitle text:@"滑动按钮，开始视频通话" widthLimit:0];
-    self.labelTitle.centerXTop = XY(SCREEN_WIDTH/2,W(50));
+    self.labelTitle.centerXTop = XY(SCREEN_WIDTH/2,W(80));
     
+    self.switch3.leftTop = XY(W(90),W(50)+self.labelTitle.bottom);
+
+    self.backView.height = self.switch3.bottom+W(10);
     self.height = self.backView.bottom;
 }
-
+- (void)switchAction3:(SPMultipleSwitch *)multipleSwitch {
+    NSLog(@"点击了第%zd个",multipleSwitch.selectedSegmentIndex);
+}
 @end
 
 
