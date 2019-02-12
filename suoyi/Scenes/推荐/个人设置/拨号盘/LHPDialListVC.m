@@ -54,7 +54,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view addSubview:[BaseNavView initNavBackTitle:@"拨号盘" rightView:nil]];
+    [self addNav];
     self.tableView.tableHeaderView = self.numview;
     self.tableView.backgroundColor = COLOR_BACKGROUND;
     self.tableView.height = SCREEN_HEIGHT - NAVIGATIONBAR_HEIGHT - W(60);
@@ -62,6 +62,16 @@
     [self.view addSubview:self.submitButton];
     //cell
     [self.tableView registerClass:[LHPDialListCell class] forCellReuseIdentifier:@"LHPDialListCell"];
+}
+-(void)addNav{
+    WEAKSELF
+    BaseNavView *navView =   [BaseNavView initNavBackTitle:@"拨号盘" rightView:nil];
+    navView.blockBack = ^{
+        [weakSelf.dialView removeFromSuperview];
+        [GB_Nav popViewControllerAnimated:YES];
+    };
+    [self.view addSubview:navView];
+    
 }
 #pragma mark 点击事件
 - (void)btnClick:(UIButton *)sender{
