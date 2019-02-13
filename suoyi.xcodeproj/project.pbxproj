@@ -75,6 +75,7 @@
 		4A257DF0220427B600220225 /* NSMutableArray+Insert.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A257DEF220427B600220225 /* NSMutableArray+Insert.m */; };
 		4A257DF32205850900220225 /* HomeAddressBookDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A257DF22205850900220225 /* HomeAddressBookDetailVC.m */; };
 		4A26BB16221299D400CFC404 /* SPMultipleSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A26BB14221299D400CFC404 /* SPMultipleSwitch.m */; };
+		4A26BB1A2213CB6D00CFC404 /* AboutUsListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A26BB192213CB6C00CFC404 /* AboutUsListVC.m */; };
 		4A5C9C7F21F5ACA600CA2332 /* SetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C9C7E21F5ACA600CA2332 /* SetVC.m */; };
 		4A5C9C8221F5C24100CA2332 /* MineListMindImgView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C9C8021F5C24100CA2332 /* MineListMindImgView.m */; };
 		4A5C9C8821F5C2A800CA2332 /* ImageDetailBigView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C9C8521F5C2A800CA2332 /* ImageDetailBigView.m */; };
@@ -279,6 +280,8 @@
 		4A257DF22205850900220225 /* HomeAddressBookDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeAddressBookDetailVC.m; sourceTree = "<group>"; };
 		4A26BB14221299D400CFC404 /* SPMultipleSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMultipleSwitch.m; sourceTree = "<group>"; };
 		4A26BB15221299D400CFC404 /* SPMultipleSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMultipleSwitch.h; sourceTree = "<group>"; };
+		4A26BB182213CB6C00CFC404 /* AboutUsListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutUsListVC.h; sourceTree = "<group>"; };
+		4A26BB192213CB6C00CFC404 /* AboutUsListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutUsListVC.m; sourceTree = "<group>"; };
 		4A5C9C7D21F5ACA600CA2332 /* SetVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetVC.h; sourceTree = "<group>"; };
 		4A5C9C7E21F5ACA600CA2332 /* SetVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetVC.m; sourceTree = "<group>"; };
 		4A5C9C8021F5C24100CA2332 /* MineListMindImgView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineListMindImgView.m; sourceTree = "<group>"; };
@@ -698,6 +701,15 @@
 				4A26BB14221299D400CFC404 /* SPMultipleSwitch.m */,
 			);
 			path = SPMultipleSwitch;
+			sourceTree = "<group>";
+		};
+		4A26BB172213CB4C00CFC404 /* 关于 */ = {
+			isa = PBXGroup;
+			children = (
+				4A26BB182213CB6C00CFC404 /* AboutUsListVC.h */,
+				4A26BB192213CB6C00CFC404 /* AboutUsListVC.m */,
+			);
+			path = "关于";
 			sourceTree = "<group>";
 		};
 		4A5C9C7C21F5A88900CA2332 /* 设置 */ = {
@@ -1475,6 +1487,7 @@
 		4AA9502B21FAAF05004AD66F /* 个人设置 */ = {
 			isa = PBXGroup;
 			children = (
+				4A26BB172213CB4C00CFC404 /* 关于 */,
 				4A257DD92202BEDE00220225 /* 添加设备 */,
 				4A257DC92201336000220225 /* 意见反馈 */,
 				4A257DC522001BB300220225 /* 自动观看 */,
@@ -1826,6 +1839,7 @@
 				4A83D8C721F04C9700E4EE2A /* LoadingView.m in Sources */,
 				4A83D8BB21F04C9700E4EE2A /* UIView+Coordeinate.m in Sources */,
 				4A83D68A21F027EB00E4EE2A /* RequestApi+Recommend.m in Sources */,
+				4A26BB1A2213CB6D00CFC404 /* AboutUsListVC.m in Sources */,
 				4A5C9C9621F7023200CA2332 /* LargePhotoPageViewController.m in Sources */,
 				4A83D8C121F04C9700E4EE2A /* GlobalData.m in Sources */,
 				4AE183D821EDC34300A4C5A7 /* main.m in Sources */,

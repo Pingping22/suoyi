@@ -64,7 +64,7 @@
     [call mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(weakSelf);
         make.bottom.equalTo(weakSelf).with.offset(-5);
-        make.size.mas_equalTo(CGSizeMake(W(60), W(60)));
+        make.size.mas_equalTo(CGSizeMake(W(50), W(50)));
     }];
     
     

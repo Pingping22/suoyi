@@ -73,7 +73,7 @@
 }
 #pragma mark 刷新cell
 - (void)resetCellWithModel:(ModelSkills *)model{
-    [self removeSubViewWithTag:TAG_LINE];//移除线
+    [self.contentView removeSubViewWithTag:TAG_LINE];//移除线
     //刷新view
     self.model = model;
     _iconImg.image = [UIImage imageNamed:UnPackStr(model.iconStr)];

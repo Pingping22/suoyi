@@ -115,7 +115,7 @@
         model.hideSubState = true;
         model.hidelineState = true;
         model.blocClick = ^(ModelBaseData *modelData) {
-
+            [weakSelf jumpToEditVC:@"AboutUsListVC"];
         };
         return  model;
     }(),^(){
