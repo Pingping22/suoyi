@@ -706,10 +706,18 @@
 		4A26BB172213CB4C00CFC404 /* 关于 */ = {
 			isa = PBXGroup;
 			children = (
+				4A26BB1B22151ACC00CFC404 /* 邀请好友下载 */,
 				4A26BB182213CB6C00CFC404 /* AboutUsListVC.h */,
 				4A26BB192213CB6C00CFC404 /* AboutUsListVC.m */,
 			);
 			path = "关于";
+			sourceTree = "<group>";
+		};
+		4A26BB1B22151ACC00CFC404 /* 邀请好友下载 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "邀请好友下载";
 			sourceTree = "<group>";
 		};
 		4A5C9C7C21F5A88900CA2332 /* 设置 */ = {

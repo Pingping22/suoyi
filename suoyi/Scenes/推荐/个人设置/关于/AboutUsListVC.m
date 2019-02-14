@@ -11,6 +11,7 @@
 @interface AboutUsListVC ()
 @property (nonatomic, strong) AboutUsListHeaderView * headerView;
 @property (nonatomic, strong) AboutUsListFooterView * footerView;
+@property (nonatomic, strong) ServiceTelAlertView * telAlertView;
 @end
 
 @implementation AboutUsListVC
@@ -30,6 +31,14 @@
     }
     return  _footerView;
 }
+- (ServiceTelAlertView *)telAlertView
+{
+    if (_telAlertView == nil) {
+        _telAlertView = [ServiceTelAlertView new];
+        _telAlertView.frame = CGRectMake(W(0), W(0), SCREEN_WIDTH, SCREEN_HEIGHT);
+    }
+    return  _telAlertView;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -46,6 +55,7 @@
 }
 - (void)creatDataSource{
     [self.aryDatas removeAllObjects];
+    WEAKSELF
     [self.aryDatas addObjectsFromArray:@[^(){
         ModelBaseData * model = [ModelBaseData new];
         model.string = @"版本号";
@@ -66,6 +76,9 @@
         ModelBaseData * model = [ModelBaseData new];
         model.string = @"客服电话";
         model.hideSubState = true;
+        model.blocClick = ^(ModelBaseData *modelb) {
+            [[UIApplication sharedApplication].keyWindow addSubview:weakSelf.telAlertView];
+        };
         return  model;
     }(),^(){
         ModelBaseData * model = [ModelBaseData new];
@@ -400,4 +413,133 @@
     }
 }
 
+@end
+
+
+
+
+
+
+
+@implementation ServiceTelAlertView
+#pragma mark 懒加载
+- (UIView *)backView{
+    if (_backView == nil) {
+        _backView = [UIView new];
+        _backView.backgroundColor = [UIColor whiteColor];
+        [GlobalMethod setRoundView:_backView color:[UIColor whiteColor] numRound:5 width:0];
+    }
+    return _backView;
+}
+- (UILabel *)labelTitle{
+    if (_labelTitle == nil) {
+        _labelTitle = [UILabel new];
+        [GlobalMethod setLabel:_labelTitle widthLimit:0 numLines:0 fontNum:F(12) textColor:COLOR_DETAIL text:@""];
+    }
+    return _labelTitle;
+}
+-(UIButton *)telBtn{
+    if (_telBtn == nil) {
+        _telBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        _telBtn.tag = 1;
+        [_telBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+        _telBtn.titleLabel.font = [UIFont systemFontOfSize:F(15)];
+        [_telBtn setTitle:@"呼叫400-808-1111" forState:(UIControlStateNormal)];
+        [_telBtn setTitleColor:[UIColor orangeColor] forState:(UIControlStateNormal)];
+        _telBtn.widthHeight = XY(SCREEN_WIDTH - W(10),W(40));
+    }
+    return _telBtn;
+}
+-(UIButton *)cancelBtn{
+    if (_cancelBtn == nil) {
+        _cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        _cancelBtn.tag = 2;
+        [_cancelBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+        _cancelBtn.titleLabel.font = [UIFont systemFontOfSize:F(15)];
+        [GlobalMethod setRoundView:_cancelBtn color:[UIColor clearColor] numRound:5 width:0];
+        [_cancelBtn setTitle:@"取消" forState:(UIControlStateNormal)];
+        [_cancelBtn setTitleColor:[UIColor orangeColor] forState:(UIControlStateNormal)];
+        _cancelBtn.widthHeight = XY(SCREEN_WIDTH - W(10),W(40));
+        _cancelBtn.backgroundColor = [UIColor whiteColor];
+    }
+    return _cancelBtn;
+}
+
+#pragma mark 初始化
+- (instancetype)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+        self.width = SCREEN_WIDTH;
+        [self addSubView];
+    }
+    return self;
+}
+//添加subview
+- (void)addSubView{
+    [self addSubview:self.backView];
+    [self.backView addSubview:self.labelTitle];
+    [self.backView addSubview:self.telBtn];
+    [self addSubview:self.cancelBtn];
+    [self addTarget:self action:@selector(viewClick:) forControlEvents:(UIControlEventTouchUpInside)];
+
+    //初始化页面
+    [self resetViewWithModel:nil];
+}
+
+#pragma mark 刷新view
+- (void)resetViewWithModel:(id)model{
+    [self.backView removeSubViewWithTag:TAG_LINE];//移除线
+    //刷新view
+    self.backView.frame = CGRectMake(W(5), SCREEN_HEIGHT / 2, SCREEN_WIDTH-W(10), self.backView.height);
+
+    [GlobalMethod resetLabel:self.labelTitle text:@"周一至周日：9:00-18:00 仅限中国地区" widthLimit:0];
+    self.labelTitle.centerXTop = XY(self.backView.width/2,W(15));
+    
+    self.telBtn.leftTop = XY(0,W(5)+[self.backView addLineFrame:CGRectMake(0, self.labelTitle.bottom+W(15), self.backView.width, 1)]);
+    
+    self.cancelBtn.leftBottom = XY(W(5),SCREEN_HEIGHT);
+
+    self.backView.height = self.telBtn.bottom+W(5);
+    self.backView.bottom = self.cancelBtn.top-W(5);
+    self.height = SCREEN_HEIGHT;
+
+}
+#pragma mark 点击事件
+- (void)viewClick:(UIButton *)sender{
+    [self removeFromSuperview];
+}
+#pragma mark 点击事件
+- (void)btnClick:(UIButton *)sender{
+    switch (sender.tag) {
+        case 1:
+        {
+            [self gotoTelClick];
+            [self removeFromSuperview];
+        }
+            break;
+        case 2:
+        {
+            [self removeFromSuperview];
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+//调用系统电话功能
+-(void)gotoTelClick{
+    NSString *callPhone = [NSString stringWithFormat:@"tel://400-808-1111"];
+    NSComparisonResult compare = [[UIDevice currentDevice].systemVersion compare:@"10.0"];
+    UIApplication * application = [UIApplication sharedApplication];
+    if ([application canOpenURL:[NSURL URLWithString:callPhone]]) {
+        if (compare == NSOrderedAscending || compare == NSOrderedSame) {
+            /// 大于等于10.0系统使用此openURL方法
+            [application openURL:[NSURL URLWithString:callPhone] options:@{} completionHandler:nil];
+        } else {
+            [application openURL:[NSURL URLWithString:callPhone]];
+        }
+    }
+}
 @end

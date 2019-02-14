@@ -58,3 +58,18 @@ NS_ASSUME_NONNULL_END
 #pragma mark 刷新view
 - (void)resetViewWithModel:(id)model;
 @end
+
+
+
+
+
+@interface ServiceTelAlertView : UIControl
+//属性
+@property (strong, nonatomic) UIView *backView;
+@property (strong, nonatomic) UILabel *labelTitle;
+@property (strong, nonatomic) UIButton *telBtn;
+@property (strong, nonatomic) UIButton *cancelBtn;
+
+#pragma mark 刷新view
+- (void)resetViewWithModel:(id)model;
+@end
