@@ -88,6 +88,9 @@
         ModelBaseData * model = [ModelBaseData new];
         model.string = @"邀请好友下载";
         model.hideSubState = true;
+        model.blocClick = ^(ModelBaseData *modelb) {
+            [GB_Nav pushVCName:@"InviteFriendsVC" animated:true];
+        };
         return  model;
     }()]];
     
@@ -394,7 +397,7 @@
     self.privacyLabel.widthHeight = XY(W(200), W(20));
     self.privacyLabel.leftTop = XY(W(15)+self.lineView2.right,self.personLabel.top);
     
-    [GlobalMethod resetLabel:self.labelCom text:@"Copyright @2108 山东蓝创科技有限公司\nALL rights reserved" widthLimit:0];
+    [GlobalMethod resetLabel:self.labelCom text:@"Copyright ©2108 山东蓝创科技有限公司\nALL rights reserved" widthLimit:0];
     self.labelCom.centerXTop = XY(SCREEN_WIDTH/2,self.lineView2.bottom+W(10));
     
     self.height = self.labelCom.bottom+W(5);
