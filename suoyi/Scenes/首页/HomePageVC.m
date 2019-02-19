@@ -100,10 +100,29 @@
     [super viewDidLoad];
     [self.view addSubview:self.navView];
     self.viewBG.backgroundColor = COLOR_BACKGROUND;
+    UIButton *noticeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    noticeBtn.tag = 1;
+    [noticeBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+    noticeBtn.widthHeight = XY(W(40),W(40));
+    noticeBtn.leftTop = XY(W(15), NAVIGATIONBAR_HEIGHT+W(15));
+    [noticeBtn setImage:[UIImage imageNamed:@"xiaoxi"] forState:(UIControlStateNormal)];
+    [self.view addSubview:noticeBtn];
     self.tableView.tableHeaderViews = @[self.headerView,self.secHeadView,self.thirView];
 }
 
-
+#pragma mark 点击事件
+- (void)btnClick:(UIButton *)sender{
+    switch (sender.tag) {
+        case 1:
+        {
+            [GB_Nav pushVCName:@"MessageListVC" animated:true];
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
 @end
 
 

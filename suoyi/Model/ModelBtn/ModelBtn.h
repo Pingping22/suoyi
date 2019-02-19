@@ -22,6 +22,8 @@
 @property int tag;//tag
 @property (nonatomic, assign) BOOL isSelected;//isselected
 @property (strong, nonatomic) NSString * vcName;
+@property (nonatomic, assign) NSInteger enumType;//enum
+
 //data
 @property (nonatomic, strong) NSString * subTitle;//subtitle
 @property (nonatomic, assign) CGFloat num;//num
