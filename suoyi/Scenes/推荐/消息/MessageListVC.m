@@ -34,6 +34,7 @@
     }(),^(){
         ModelBtn * model = [ModelBtn new];
         model.enumType = ENUM_MESSAGE_JOIN;
+        model.title = @"您已加入“你好的家”";
         return model;
     }(),^(){
         ModelBaseData * model = [ModelBaseData new];
@@ -42,6 +43,7 @@
     }(),^(){
         ModelBtn * model = [ModelBtn new];
         model.enumType = ENUM_MESSAGE_IMAGE;
+        model.title = @"“你好的家”拍了1张新照片";
         return  model;
     }(),^(){
         ModelBaseData * model = [ModelBaseData new];
@@ -50,6 +52,7 @@
     }(),^(){
         ModelBtn * model = [ModelBtn new];
         model.enumType = ENUM_MESSAGE_NOTICE;
+        model.title = @"小依小依，新年好！";
         return  model;
     }()]];
 //    [self.aryDatas insertDateModelFromKeyPath:@"dateStr"];
@@ -126,7 +129,7 @@
 - (UIImageView *)imgView{
     if (_imgView == nil) {
         _imgView = [UIImageView new];
-        _imgView.image = [UIImage imageNamed:@"22"];
+        _imgView.image = [UIImage imageNamed:@"xiangqing"];
     }
     return _imgView;
 }
@@ -165,13 +168,7 @@
     
     self.noticeImg.leftBottom = XY(W(15),self.backView.bottom+W(5));
 
-    if (model.enumType==ENUM_MESSAGE_JOIN) {
-        [GlobalMethod resetLabel:self.labelTitle text:@"您已加入“您好的家”" widthLimit:0];
-    }else if (model.enumType==ENUM_MESSAGE_IMAGE){
-        [GlobalMethod resetLabel:self.labelTitle text:@"“你好的家”拍了1张照片" widthLimit:0];
-    }else if (model.enumType==ENUM_MESSAGE_NOTICE){
-        [GlobalMethod resetLabel:self.labelTitle text:@"小依小依，新年好！" widthLimit:0];
-    }
+    [GlobalMethod resetLabel:self.labelTitle text:UnPackStr(model.title) widthLimit:0];
     self.labelTitle.leftTop = XY(W(15),W(10));
     
     if (model.enumType==ENUM_MESSAGE_JOIN) {
@@ -185,18 +182,18 @@
     self.detailImg.leftTop = XY(W(15),self.labelTitle.bottom+W(10));
     
     if (model.enumType==ENUM_MESSAGE_NOTICE) {
-        _imgView.widthHeight = XY(W(7),W(12));
+        _imgView.widthHeight = XY(W(15),W(15));
         self.imgView.centerXTop = XY(self.backView.width/2,W(10)+[self.backView addLineFrame:CGRectMake(0, self.detailImg.bottom+W(10), self.backView.width, 1)]);
         
         [GlobalMethod resetLabel:self.labelDetail text:@"详情" widthLimit:0];
-        self.labelDetail.leftCenterY = XY(W(8)+self.imgView.right,self.imgView.centerY);
+        self.labelDetail.leftCenterY = XY(W(5)+self.imgView.right,self.imgView.centerY);
         
         self.backView.height = self.imgView.bottom+W(10);
     }else{
         self.backView.height = self.detailImg.bottom+W(10);
     }
     self.noticeImg.bottom = self.backView.bottom+W(5);
-    self.height = self.backView.height+W(10);
+    self.height = self.backView.bottom+W(10);
 }
 
 @end
