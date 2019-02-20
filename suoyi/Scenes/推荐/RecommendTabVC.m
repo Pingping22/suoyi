@@ -523,6 +523,8 @@
         [btn setTitleColor:COLOR_LABEL forState:UIControlStateNormal];
         btn.titleLabel.fontNum = F(10);
         [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@",imgArr[i]]] forState:UIControlStateNormal];
+        btn.tag = i;
+        [btn addTarget:self action:@selector(btnClick:) forControlEvents:(UIControlEventTouchUpInside)];
         [self addSubview:btn];
         left = btn.right + W(20);
         if (i == 3) {
@@ -532,7 +534,19 @@
         self.height = btn.bottom;
     }
 }
-
+#pragma mark 点击事件
+- (void)btnClick:(UIButton *)sender{
+    switch (sender.tag) {
+        case 0:
+        {
+            [GB_Nav pushVCName:@"ContentResourcesListVC" animated:true];
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
 @end
 
 

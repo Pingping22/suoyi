@@ -10,6 +10,7 @@
 		27AE1703E24D4DEBF6AE4BCD /* libPods-suoyi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6CDD99303CB48466C34AB14 /* libPods-suoyi.a */; };
 		4A0B14A2221BD34700336CE9 /* MessageListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0B14A1221BD34700336CE9 /* MessageListVC.m */; };
 		4A0B14A6221BEF8400336CE9 /* DateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0B14A5221BEF8400336CE9 /* DateCell.m */; };
+		4A0B14AA221D249200336CE9 /* ContentResourcesListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0B14A9221D249200336CE9 /* ContentResourcesListVC.m */; };
 		4A257D5521FED58000220225 /* LHPDialVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A257D5421FED58000220225 /* LHPDialVC.m */; };
 		4A257D8D21FED93700220225 /* Key11@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D5821FED93600220225 /* Key11@3x.png */; };
 		4A257D8E21FED93700220225 /* Key13@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D5921FED93600220225 /* Key13@2x.png */; };
@@ -206,6 +207,8 @@
 		4A0B14A1221BD34700336CE9 /* MessageListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageListVC.m; sourceTree = "<group>"; };
 		4A0B14A4221BEF8400336CE9 /* DateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateCell.h; sourceTree = "<group>"; };
 		4A0B14A5221BEF8400336CE9 /* DateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateCell.m; sourceTree = "<group>"; };
+		4A0B14A8221D249200336CE9 /* ContentResourcesListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContentResourcesListVC.h; sourceTree = "<group>"; };
+		4A0B14A9221D249200336CE9 /* ContentResourcesListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContentResourcesListVC.m; sourceTree = "<group>"; };
 		4A257D5321FED58000220225 /* LHPDialVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHPDialVC.h; sourceTree = "<group>"; };
 		4A257D5421FED58000220225 /* LHPDialVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHPDialVC.m; sourceTree = "<group>"; };
 		4A257D5821FED93600220225 /* Key11@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key11@3x.png"; sourceTree = "<group>"; };
@@ -566,6 +569,15 @@
 				4A0B14A5221BEF8400336CE9 /* DateCell.m */,
 			);
 			path = "通用时间cell";
+			sourceTree = "<group>";
+		};
+		4A0B14A7221D20A700336CE9 /* 内容资源 */ = {
+			isa = PBXGroup;
+			children = (
+				4A0B14A8221D249200336CE9 /* ContentResourcesListVC.h */,
+				4A0B14A9221D249200336CE9 /* ContentResourcesListVC.m */,
+			);
+			path = "内容资源";
 			sourceTree = "<group>";
 		};
 		4A257D5221FED54D00220225 /* 拨号盘 */ = {
@@ -1054,6 +1066,7 @@
 		4A83D6B621F027FC00E4EE2A /* 推荐 */ = {
 			isa = PBXGroup;
 			children = (
+				4A0B14A7221D20A700336CE9 /* 内容资源 */,
 				4A0B149F221BD29000336CE9 /* 消息 */,
 				4AA9502B21FAAF05004AD66F /* 个人设置 */,
 				4A91660421F17C78006CF9DF /* RecommendSkillsView.h */,
@@ -1978,6 +1991,7 @@
 				4A83D8C321F04C9700E4EE2A /* GlobalMethod+LocalDatas.m in Sources */,
 				4A83D68821F027EB00E4EE2A /* RequestInstance.m in Sources */,
 				4A83D8BC21F04C9700E4EE2A /* UIView+SelectImageView.m in Sources */,
+				4A0B14AA221D249200336CE9 /* ContentResourcesListVC.m in Sources */,
 				4A5C9CD021F8648A00CA2332 /* WXApiManager.m in Sources */,
 				4A257DEC22041EA400220225 /* UIButton+Creat.m in Sources */,
 				4A5C9CA821F7026C00CA2332 /* AlbumCollectionViewCell.m in Sources */,
