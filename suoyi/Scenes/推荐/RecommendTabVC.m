@@ -81,7 +81,7 @@
         _secHeadView = [ProductMarketSecHeaderView  new];
         _secHeadView.backgroundColor = [UIColor whiteColor];
         _secHeadView.frame = CGRectMake(0, 0, SCREEN_WIDTH, _secHeadView.height);
-        [_secHeadView resetViewWithArray:@[@"内容资源",@"教育教学",@"益智游戏",@"休闲娱乐",@"生活服务",@"小度训练师",@"技能分类",@"个人中心"] imgArr:@[@"icon-wd-gray",@"icon-wd-green",@"icon-sy-gray",@"icon-sy-green",@"icon-wd-gray",@"icon-wd-green",@"icon-sy-gray",@"icon-sy-green"]];
+        [_secHeadView resetViewWithArray:@[@"内容资源",@"教育学习",@"益智游戏",@"休闲娱乐",@"生活服务",@"小度训练师",@"技能分类",@"个人中心"] imgArr:@[@"icon-wd-gray",@"icon-wd-green",@"icon-sy-gray",@"icon-sy-green",@"icon-wd-gray",@"icon-wd-green",@"icon-sy-gray",@"icon-sy-green"]];
         _secHeadView.topToUpView = W(5);
     }
     return  _secHeadView;
@@ -542,7 +542,10 @@
             [GB_Nav pushVCName:@"ContentResourcesListVC" animated:true];
         }
             break;
-            
+        case 1:
+        {
+            [GB_Nav pushVCName:@"EducationTeachingListVC" animated:true];
+        }
         default:
             break;
     }
