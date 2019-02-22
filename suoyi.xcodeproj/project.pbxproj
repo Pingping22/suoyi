@@ -12,6 +12,7 @@
 		4A0B14A6221BEF8400336CE9 /* DateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0B14A5221BEF8400336CE9 /* DateCell.m */; };
 		4A0B14AA221D249200336CE9 /* ContentResourcesListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0B14A9221D249200336CE9 /* ContentResourcesListVC.m */; };
 		4A0B14AE221E393600336CE9 /* EducationTeachingListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0B14AD221E393600336CE9 /* EducationTeachingListVC.m */; };
+		4A0B14B2221F920600336CE9 /* LeisureEntertainmentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0B14B1221F920600336CE9 /* LeisureEntertainmentVC.m */; };
 		4A257D5521FED58000220225 /* LHPDialVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A257D5421FED58000220225 /* LHPDialVC.m */; };
 		4A257D8D21FED93700220225 /* Key11@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D5821FED93600220225 /* Key11@3x.png */; };
 		4A257D8E21FED93700220225 /* Key13@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D5921FED93600220225 /* Key13@2x.png */; };
@@ -212,6 +213,8 @@
 		4A0B14A9221D249200336CE9 /* ContentResourcesListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContentResourcesListVC.m; sourceTree = "<group>"; };
 		4A0B14AC221E393600336CE9 /* EducationTeachingListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EducationTeachingListVC.h; sourceTree = "<group>"; };
 		4A0B14AD221E393600336CE9 /* EducationTeachingListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EducationTeachingListVC.m; sourceTree = "<group>"; };
+		4A0B14B0221F920600336CE9 /* LeisureEntertainmentVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeisureEntertainmentVC.h; sourceTree = "<group>"; };
+		4A0B14B1221F920600336CE9 /* LeisureEntertainmentVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeisureEntertainmentVC.m; sourceTree = "<group>"; };
 		4A257D5321FED58000220225 /* LHPDialVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHPDialVC.h; sourceTree = "<group>"; };
 		4A257D5421FED58000220225 /* LHPDialVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHPDialVC.m; sourceTree = "<group>"; };
 		4A257D5821FED93600220225 /* Key11@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key11@3x.png"; sourceTree = "<group>"; };
@@ -590,6 +593,15 @@
 				4A0B14AD221E393600336CE9 /* EducationTeachingListVC.m */,
 			);
 			path = "教育教学";
+			sourceTree = "<group>";
+		};
+		4A0B14AF221F911D00336CE9 /* 休闲娱乐 */ = {
+			isa = PBXGroup;
+			children = (
+				4A0B14B0221F920600336CE9 /* LeisureEntertainmentVC.h */,
+				4A0B14B1221F920600336CE9 /* LeisureEntertainmentVC.m */,
+			);
+			path = "休闲娱乐";
 			sourceTree = "<group>";
 		};
 		4A257D5221FED54D00220225 /* 拨号盘 */ = {
@@ -1078,6 +1090,7 @@
 		4A83D6B621F027FC00E4EE2A /* 推荐 */ = {
 			isa = PBXGroup;
 			children = (
+				4A0B14AF221F911D00336CE9 /* 休闲娱乐 */,
 				4A0B14AB221E390200336CE9 /* 教育教学 */,
 				4A0B14A7221D20A700336CE9 /* 内容资源 */,
 				4A0B149F221BD29000336CE9 /* 消息 */,
@@ -1955,6 +1968,7 @@
 				4A83D8BF21F04C9700E4EE2A /* CutomFooter.m in Sources */,
 				4A83D8C821F04C9700E4EE2A /* NoResultView.m in Sources */,
 				4A5C9CAA21F7026C00CA2332 /* AlbumNavTitleView.m in Sources */,
+				4A0B14B2221F920600336CE9 /* LeisureEntertainmentVC.m in Sources */,
 				4A83D8D421F04C9700E4EE2A /* BaseNavView.m in Sources */,
 				4A5C9CAB21F7026C00CA2332 /* AlbumSelectAssetGroupView.m in Sources */,
 				4A5C9C9521F7023200CA2332 /* CustomPhotoAlbumViewController.m in Sources */,

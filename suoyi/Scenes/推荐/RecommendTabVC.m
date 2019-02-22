@@ -546,6 +546,12 @@
         {
             [GB_Nav pushVCName:@"EducationTeachingListVC" animated:true];
         }
+            break;
+            case 2:
+        {
+            [GB_Nav pushVCName:@"LeisureEntertainmentVC" animated:true];
+        }
+            break;
         default:
             break;
     }
