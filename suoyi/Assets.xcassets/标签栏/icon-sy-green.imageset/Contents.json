@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "MainSelect.png",
+      "filename" : "xiaoxi_selected.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "MainSelect@2x.png",
+      "filename" : "xiaoxi_selected-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "MainSelect@3x.png",
+      "filename" : "xiaoxi_selected-2.png",
       "scale" : "3x"
     }
   ],

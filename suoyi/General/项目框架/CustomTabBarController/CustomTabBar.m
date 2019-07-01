@@ -8,7 +8,7 @@
 
 #import "CustomTabBar.h"
 
-#define NUM_TAB 3.0
+#define NUM_TAB 4.0
 @implementation CustomTabBar
 
 - (void)layoutSubviews

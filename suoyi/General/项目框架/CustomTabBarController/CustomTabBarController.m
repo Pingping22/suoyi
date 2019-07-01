@@ -32,10 +32,10 @@
     self.delegate = self;
     [self.view setBackgroundColor:[UIColor whiteColor]];
     // 添加子控制器
-    [self setUpChildVC:[RecommendTabVC new] title:@"语音技能" image:@"icon-wd-gray" selectedImage:@"icon-wd-green"];
-    [self setUpChildVC:[HomePageVC new] title:@"家庭互动" image:@"icon-sy-gray" selectedImage:@"icon-sy-green"];
-    [self setUpChildVC:[ToolsTabVC new] title:@"发现更多" image:@"icon-gj-gray" selectedImage:@"icon-gj-green"];
-//    [self setUpChildVC:[DynamicTabVC new] title:@"我的" image:@"icon-my-gray" selectedImage:@"icon-my-green"];
+    [self setUpChildVC:[RecommendTabVC new] title:@"大家秀" image:@"icon-wd-gray" selectedImage:@"icon-wd-green"];
+    [self setUpChildVC:[HomePageVC new] title:@"消息" image:@"icon-sy-gray" selectedImage:@"icon-sy-green"];
+    [self setUpChildVC:[ToolsTabVC new] title:@"周边" image:@"icon-gj-gray" selectedImage:@"icon-gj-green"];
+    [self setUpChildVC:[DynamicTabVC new] title:@"个人中心" image:@"icon-my-gray" selectedImage:@"icon-my-green"];
     //添加中间加号按钮（居中按钮）
     //{
         //UIViewController * vc = [ManageModuleFormVC new];

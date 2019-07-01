@@ -13,6 +13,12 @@
 		4A0B14AA221D249200336CE9 /* ContentResourcesListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0B14A9221D249200336CE9 /* ContentResourcesListVC.m */; };
 		4A0B14AE221E393600336CE9 /* EducationTeachingListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0B14AD221E393600336CE9 /* EducationTeachingListVC.m */; };
 		4A0B14B2221F920600336CE9 /* LeisureEntertainmentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0B14B1221F920600336CE9 /* LeisureEntertainmentVC.m */; };
+		4A17A68022CA09CE0024B94B /* FirstRegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A17A67722CA09CE0024B94B /* FirstRegisterVC.m */; };
+		4A17A68122CA09CE0024B94B /* SecondRegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A17A67A22CA09CE0024B94B /* SecondRegisterVC.m */; };
+		4A17A68222CA09CE0024B94B /* NextForViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A17A67C22CA09CE0024B94B /* NextForViewController.m */; };
+		4A17A68322CA09CE0024B94B /* ForgetPasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A17A67E22CA09CE0024B94B /* ForgetPasswordVC.m */; };
+		4A17A68722CA0BB60024B94B /* UIButton+countDown.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A17A68522CA0BB60024B94B /* UIButton+countDown.m */; };
+		4A17A68A22CA0C1C0024B94B /* BaseVC+BaseImageSelectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A17A68922CA0C1C0024B94B /* BaseVC+BaseImageSelectVC.m */; };
 		4A257D5521FED58000220225 /* LHPDialVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A257D5421FED58000220225 /* LHPDialVC.m */; };
 		4A257D8D21FED93700220225 /* Key11@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D5821FED93600220225 /* Key11@3x.png */; };
 		4A257D8E21FED93700220225 /* Key13@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D5921FED93600220225 /* Key13@2x.png */; };
@@ -215,6 +221,18 @@
 		4A0B14AD221E393600336CE9 /* EducationTeachingListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EducationTeachingListVC.m; sourceTree = "<group>"; };
 		4A0B14B0221F920600336CE9 /* LeisureEntertainmentVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeisureEntertainmentVC.h; sourceTree = "<group>"; };
 		4A0B14B1221F920600336CE9 /* LeisureEntertainmentVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeisureEntertainmentVC.m; sourceTree = "<group>"; };
+		4A17A67722CA09CE0024B94B /* FirstRegisterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstRegisterVC.m; sourceTree = "<group>"; };
+		4A17A67822CA09CE0024B94B /* SecondRegisterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondRegisterVC.h; sourceTree = "<group>"; };
+		4A17A67922CA09CE0024B94B /* FirstRegisterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstRegisterVC.h; sourceTree = "<group>"; };
+		4A17A67A22CA09CE0024B94B /* SecondRegisterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondRegisterVC.m; sourceTree = "<group>"; };
+		4A17A67C22CA09CE0024B94B /* NextForViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NextForViewController.m; sourceTree = "<group>"; };
+		4A17A67D22CA09CE0024B94B /* ForgetPasswordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordVC.h; sourceTree = "<group>"; };
+		4A17A67E22CA09CE0024B94B /* ForgetPasswordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordVC.m; sourceTree = "<group>"; };
+		4A17A67F22CA09CE0024B94B /* NextForViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NextForViewController.h; sourceTree = "<group>"; };
+		4A17A68522CA0BB60024B94B /* UIButton+countDown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+countDown.m"; sourceTree = "<group>"; };
+		4A17A68622CA0BB60024B94B /* UIButton+countDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+countDown.h"; sourceTree = "<group>"; };
+		4A17A68822CA0C1C0024B94B /* BaseVC+BaseImageSelectVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BaseVC+BaseImageSelectVC.h"; sourceTree = "<group>"; };
+		4A17A68922CA0C1C0024B94B /* BaseVC+BaseImageSelectVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BaseVC+BaseImageSelectVC.m"; sourceTree = "<group>"; };
 		4A257D5321FED58000220225 /* LHPDialVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHPDialVC.h; sourceTree = "<group>"; };
 		4A257D5421FED58000220225 /* LHPDialVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHPDialVC.m; sourceTree = "<group>"; };
 		4A257D5821FED93600220225 /* Key11@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key11@3x.png"; sourceTree = "<group>"; };
@@ -602,6 +620,37 @@
 				4A0B14B1221F920600336CE9 /* LeisureEntertainmentVC.m */,
 			);
 			path = "休闲娱乐";
+			sourceTree = "<group>";
+		};
+		4A17A67622CA09CE0024B94B /* 注册 */ = {
+			isa = PBXGroup;
+			children = (
+				4A17A67722CA09CE0024B94B /* FirstRegisterVC.m */,
+				4A17A67822CA09CE0024B94B /* SecondRegisterVC.h */,
+				4A17A67922CA09CE0024B94B /* FirstRegisterVC.h */,
+				4A17A67A22CA09CE0024B94B /* SecondRegisterVC.m */,
+			);
+			path = "注册";
+			sourceTree = "<group>";
+		};
+		4A17A67B22CA09CE0024B94B /* 忘记密码 */ = {
+			isa = PBXGroup;
+			children = (
+				4A17A67C22CA09CE0024B94B /* NextForViewController.m */,
+				4A17A67D22CA09CE0024B94B /* ForgetPasswordVC.h */,
+				4A17A67E22CA09CE0024B94B /* ForgetPasswordVC.m */,
+				4A17A67F22CA09CE0024B94B /* NextForViewController.h */,
+			);
+			path = "忘记密码";
+			sourceTree = "<group>";
+		};
+		4A17A68422CA0BB60024B94B /* UIButton */ = {
+			isa = PBXGroup;
+			children = (
+				4A17A68622CA0BB60024B94B /* UIButton+countDown.h */,
+				4A17A68522CA0BB60024B94B /* UIButton+countDown.m */,
+			);
+			path = UIButton;
 			sourceTree = "<group>";
 		};
 		4A257D5221FED54D00220225 /* 拨号盘 */ = {
@@ -1112,6 +1161,8 @@
 		4A83D6BD21F027FC00E4EE2A /* 登录注册 */ = {
 			isa = PBXGroup;
 			children = (
+				4A17A67B22CA09CE0024B94B /* 忘记密码 */,
+				4A17A67622CA09CE0024B94B /* 注册 */,
 				4A83D6BE21F027FC00E4EE2A /* 登录 */,
 			);
 			path = "登录注册";
@@ -1161,6 +1212,7 @@
 		4A83D82F21F04C9700E4EE2A /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				4A17A68422CA0BB60024B94B /* UIButton */,
 				4A257DED220427B600220225 /* NSMutableArray */,
 				4A83D83021F04C9700E4EE2A /* NSArray */,
 				4A83D83321F04C9700E4EE2A /* NSDictionary */,
@@ -1490,6 +1542,8 @@
 		4A83D8A021F04C9700E4EE2A /* BaseViewController */ = {
 			isa = PBXGroup;
 			children = (
+				4A17A68822CA0C1C0024B94B /* BaseVC+BaseImageSelectVC.h */,
+				4A17A68922CA0C1C0024B94B /* BaseVC+BaseImageSelectVC.m */,
 				4A83D8A121F04C9700E4EE2A /* BaseTableVC.h */,
 				4A83D8A221F04C9700E4EE2A /* BaseTableVC.m */,
 				4A83D8A321F04C9700E4EE2A /* BaseVC+KeyboardObserve.h */,
@@ -1926,6 +1980,7 @@
 				4A83D8E421F06FDF00E4EE2A /* UITableView+Category.m in Sources */,
 				4A83D8C521F04C9700E4EE2A /* GlobalMethod+Version.m in Sources */,
 				4A257DE82204160500220225 /* LdSearchView.m in Sources */,
+				4A17A68A22CA0C1C0024B94B /* BaseVC+BaseImageSelectVC.m in Sources */,
 				4A83D6C921F027FC00E4EE2A /* ModelProductItem.m in Sources */,
 				4A83D8BA21F04C9700E4EE2A /* UIView+Category.m in Sources */,
 				4A257DC822001BC500220225 /* AutomaticWatchVC.m in Sources */,
@@ -1945,8 +2000,10 @@
 				4A83D8B221F04C9700E4EE2A /* NSMutableArray+Safe.m in Sources */,
 				4A83D8CD21F04C9700E4EE2A /* OpenMoreLevelBtnView.m in Sources */,
 				4A83D6C521F027FC00E4EE2A /* ModelBaseData.m in Sources */,
+				4A17A68322CA09CE0024B94B /* ForgetPasswordVC.m in Sources */,
 				4A91660C21F1AEE6006CF9DF /* SkillsCell.m in Sources */,
 				4A83D6C421F027FC00E4EE2A /* ModelAryIndex.m in Sources */,
+				4A17A68722CA0BB60024B94B /* UIButton+countDown.m in Sources */,
 				4A5C9C8C21F6F17100CA2332 /* GlobalMethod+UI.m in Sources */,
 				4A83D8B121F04C9700E4EE2A /* NSDictionary+Safe.m in Sources */,
 				4A257DE92204160500220225 /* SearchTextField.m in Sources */,
@@ -1999,9 +2056,11 @@
 				4A83D8CC21F04C9700E4EE2A /* SliderView.m in Sources */,
 				4A83D8D821F04C9700E4EE2A /* CustomTabBar.m in Sources */,
 				4A83D6D021F027FC00E4EE2A /* RecommendTabVC.m in Sources */,
+				4A17A68222CA09CE0024B94B /* NextForViewController.m in Sources */,
 				4A83D8B721F04C9700E4EE2A /* UIImageView+Jump.m in Sources */,
 				4AA9502E21FAB156004AD66F /* MineSetVC.m in Sources */,
 				4A26BB1E221654A500CFC404 /* InviteFriendsVC.m in Sources */,
+				4A17A68122CA09CE0024B94B /* SecondRegisterVC.m in Sources */,
 				4A83D8D221F04C9700E4EE2A /* BaseImage.m in Sources */,
 				4A83D8D721F04C9700E4EE2A /* BaseVC.m in Sources */,
 				4A91660321F17C66006CF9DF /* LHPBtn.m in Sources */,
@@ -2026,6 +2085,7 @@
 				4A257DD02201381600220225 /* PlaceHolderTextView.m in Sources */,
 				4A83D8B321F04C9700E4EE2A /* NSObject+Catrgory.m in Sources */,
 				4A257D5521FED58000220225 /* LHPDialVC.m in Sources */,
+				4A17A68022CA09CE0024B94B /* FirstRegisterVC.m in Sources */,
 				4A83D8B621F04C9700E4EE2A /* UIColor+Category.m in Sources */,
 				4A5C9C9721F7023200CA2332 /* LargePhotoViewController.m in Sources */,
 				4A257DF0220427B600220225 /* NSMutableArray+Insert.m in Sources */,

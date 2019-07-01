@@ -42,7 +42,7 @@
 //    [GlobalMethod requestVersion];
 //    //sld_test
 //#ifdef SLD_TEST
-//    [GB_Nav pushVCName:@"TestVC" animated:false];
+    [GB_Nav pushVCName:@"LoginViewController" animated:false];
 //#endif
 }
 
