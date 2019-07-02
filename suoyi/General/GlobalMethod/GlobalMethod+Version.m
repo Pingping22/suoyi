@@ -30,22 +30,41 @@
     
     AppDelegate * delegate = (AppDelegate *) [UIApplication sharedApplication].delegate;
     delegate.window = window;
-//    //判断是否需要登陆
-//    if (![self isLoginSuccess]) {
-//        [GB_Nav pushViewController:[LoginViewController new] animated:false];
-//    }else if(![GlobalMethod isCompanyCreated]){
-//        [GB_Nav jumpToAry:@[[LoginViewController new],[JoinedTheCompanyVC new]] animate:false];
-//    }else if(![GlobalMethod isComanyValid]){
-//        [GB_Nav pushViewController:[LoginViewController new] animated:false];
-//    }
-//    //请求版本
-//    [GlobalMethod requestVersion];
-//    //sld_test
-//#ifdef SLD_TEST
-    [GB_Nav pushVCName:@"LoginViewController" animated:false];
-//#endif
+    //    //判断是否需要登陆
+    //    if (![self isLoginSuccess]) {
+    //        [GB_Nav pushViewController:[LoginViewController new] animated:false];
+    //    }else if(![GlobalMethod isCompanyCreated]){
+    //        [GB_Nav jumpToAry:@[[LoginViewController new],[JoinedTheCompanyVC new]] animate:false];
+    //    }else if(![GlobalMethod isComanyValid]){
+    //        [GB_Nav pushViewController:[LoginViewController new] animated:false];
+    //    }
+    //    //请求版本
+    //    [GlobalMethod requestVersion];
+    //    //sld_test
+    //#ifdef SLD_TEST
+    if (![self isLoginSuccess]) {
+        [GB_Nav pushViewController:[LoginViewController new] animated:false];
+    }
+    //#endif
+}
+//判断是否登陆
++(BOOL)isLoginSuccess{
+    return [GlobalData sharedInstance].GB_Key.length > 0;
 }
 
++ (void)loginWithBlock:(void (^)(void))block {
+    if ([self isLoginSuccess]) {
+        block();
+    }else{
+        [GB_Nav pushViewController:[LoginViewController new] animated:true];
+        //        LoginView * loginView = [[[NSBundle mainBundle]loadNibNamed:@"LoginView" owner:self options:nil]lastObject];
+        //        loginView.blockLoginSuccess = block;
+        //        loginView.frame = CGRectMake(0, 0, screenWidth, screenHeight);
+        //        [GB_Nav.view addSubview:loginView];
+        //        loginView.blockLoginSuccess();
+    }
+    
+}
 #pragma mark - 注销
 //清除全局数据
 + (void)clearUserInfo{
@@ -78,7 +97,7 @@
     }
     return true;
 }
-    
+
 #pragma mark - 异步执行
 + (void)asynthicBlock:(void (^)(void))block{
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block);

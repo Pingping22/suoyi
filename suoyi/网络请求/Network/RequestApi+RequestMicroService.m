@@ -10,6 +10,8 @@
 //请求单例
 #import "RequestInstance.h"
 #import "AFHTTPSessionManager.h"
+#import "NSDictionary+Model.h"
+#import "GlobalMethod.h"
 
 
 
@@ -26,7 +28,7 @@ typedef NS_ENUM(NSUInteger, ENUM_REQUEST_TYPE) {
 NSString * kResponseData = @"data";
 NSString * kResponseMessage = @"msg";
 NSString * kResponseCode = @"code";
-double kResponseCodeSuccess = 0;
+double kResponseCodeSuccess = 000;
 
 //get
 + (void)get:(NSString *)URL
@@ -53,7 +55,7 @@ constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block
      success:(void (^)(NSDictionary * response, id mark))success
      failure:(void (^)(NSString * errorStr, id mark))failure{
     [self requestURL:URL delegate:delegate parameters:parameters returnAll:[parameters doubleValueForKey:KEY_REQUEST_RETURN_ALL] type:ENUM_REQUEST_TYPE_POST constructingBodyWithBlock:block success:success failure:failure];
-
+    
 }
 
 // put
@@ -102,12 +104,12 @@ constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block
     //拼接参数
     NSString * urlNew =[URL hasPrefix:@"http"]?URL:[NSString stringWithFormat:@"%@%@",URL_HEAD,URL];
     
-    NSString * url = [self setUrl:urlNew];
+    //    NSString * url = [self setUrl:urlNew];
     //走回调 隐藏progress
     [GlobalMethod performSelector:@"protocolWillRequest" delegate:delegate];
     
     //选择请求方式
-    [self request:url parameters:parameters type:requestType constructingBodyWithBlock:block   success:^(NSURLSessionDataTask *task, id responseObject) {
+    [self request:urlNew parameters:parameters type:requestType constructingBodyWithBlock:block   success:^(NSURLSessionDataTask *task, id responseObject) {
         //上拉 下拉 刷新
         [self endRefresh:delegate];
         //返回数据
@@ -119,14 +121,15 @@ constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block
         }
         //判断请求状态
         if([dicResponse doubleValueForKey:kResponseCode] == kResponseCodeSuccess){
-            [self requestSuccessDelegate:delegate responseDic:returnAll?dicResponse:dicResponse[kResponseData] success:success];
+            [self requestSuccessDelegate:delegate responseDic:returnAll?dicResponse:dicResponse success:success];
             return;
         }
-        if([dicResponse[kResponseCode] isEqualToNumber:RESPONSE_CODE_NEGATIVE100]){
-            //重新登陆
+        if([dicResponse[kResponseCode] isEqualToString:RESPONSE_CODE_NEGATIVE100]){
+            // 重新登陆
             [GlobalMethod relogin];
+            [GlobalMethod showAlert:@"请重新登录"];
             return;
-        }
+        }else
         {
             //走回调 请求失败
             [self requestFailDelegate:delegate errorStr:dicResponse[kResponseMessage] errorCode:isNum(dicResponse[kResponseCode])?[NSString stringWithFormat:@"%@",dicResponse[kResponseCode]]:@"0"  failure:failure];
@@ -185,7 +188,7 @@ constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block
 #pragma mark 拼接基础头字符串
 + (NSString *)setUrl:(NSString *)url{
     
-    NSString *token =[GlobalData sharedInstance].GB_Key;
+    NSString *token =nil;
     
     if ([url rangeOfString:@"token"].location != NSNotFound) {
         return url;

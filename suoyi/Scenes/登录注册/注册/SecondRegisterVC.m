@@ -53,15 +53,11 @@
         {
             [self.view endEditing:true];
             
-//            [RequestApi requestAccountRegisterWithIcon:self.imageURL == nil?@"":self.imageURL account:self.secondView.nameTextField.text phone:self.phone pwd:self.secondView.passWordTextFiled.text pwds:self.secondView.repassWordTextFiled.text code:self.code delegate:self success:^(NSDictionary *response, id mark) {
-//                if ([GlobalMethod isComanyValid]) {
-//                    [GB_Nav popToRootViewControllerAnimated:true];
-//                }else {
-//                    [GB_Nav pushVCName:@"JoinedTheCompanyVC"  animated:true];
-//                }
-//            } failure:^(NSString *errorStr, id mark) {
-//
-//            }];
+            [RequestApi requestUserRegisterWithPhone:self.phone password:self.secondView.passWordTextFiled.text nick:self.secondView.nameTextField.text delegate:self success:^(NSDictionary *response, id mark) {
+                [GB_Nav pushVCName:@"LoginViewController"  animated:true];
+            } failure:^(NSString *errorStr, id mark) {
+
+            }];
             
             
         }
@@ -224,8 +220,8 @@
         [self addSubview:self.passWordTextFiled];
         [self addSubview:self.repassWordTextFiled];
         [self addSubview:self.registerButton];
-        [self addSubview:self.LoginLabel];
-        [self addSubview:self.XYButton];
+//        [self addSubview:self.LoginLabel];
+//        [self addSubview:self.XYButton];
         //                [self addSubview:self.YSButton];
         
         [self addSubview:self.IconButton];

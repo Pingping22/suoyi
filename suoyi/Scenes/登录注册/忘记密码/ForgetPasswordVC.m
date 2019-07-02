@@ -171,22 +171,20 @@
 }
 #pragma mark 点击事件
 - (void)btnClick:(UIButton *)sender{
-    NSArray *phone = [self.phoneTextField.text componentsValidSeparatedByString:@"-"];
-    NSString *phoneNumber = [phone componentsJoinedByString:@""];
     switch (sender.tag) {
         case 1:// 获取验证码
         {
-//            [RequestApi requestForgetUserSmsWithTel:phoneNumber delegate:self success:^(NSDictionary *response, id mark) {
-//                [self.codeButton startWithTime:59 title:@"获取验证码" countDownTitle:@"重新发送" mainColor:[UIColor blueColor] countColor:[UIColor lightGrayColor]];
-//            } failure:^(NSString *errorStr, id mark) {
-//                
-//            }];
+            [RequestApi requestUserSmcodeWithPhone:self.phoneTextField.text delegate:self success:^(NSDictionary *response, id mark) {
+                [self.codeButton startWithTime:59 title:@"获取验证码" countDownTitle:@"重新发送" mainColor:[UIColor blueColor] countColor:[UIColor lightGrayColor]];
+            } failure:^(NSString *errorStr, id mark) {
+                
+            }];
 
         }
             break;
         case 2:// 下一步
         {
-            if (!isStr(phoneNumber)) {
+            if (!isStr(self.phoneTextField.text)) {
                 [GlobalMethod showAlert:@"请输入手机号"];
                 return;
             }
@@ -194,14 +192,13 @@
                 [GlobalMethod showAlert:@"请输入验证码"];
                 return;
             }
-//            [RequestApi requestJudgecodeWithPhone:phoneNumber type:@"forget" smscode:self.codeTextField.text delegate:self success:^(NSDictionary *response, id mark) {
+            [RequestApi requestUserVerfiySmcodeWithPhone:self.phoneTextField.text smCode:self.codeTextField.text delegate:self success:^(NSDictionary *response, id mark) {
                 NextForViewController *next = [NextForViewController new];
-                next.mindPhone = phoneNumber;
-                next.mindCode = self.codeTextField.text;
+                next.mindPhone = self.phoneTextField.text;
                 [GB_Nav pushViewController:next animated:true];
-//            } failure:^(NSString *errorStr, id mark) {
-//
-//            }];
+            } failure:^(NSString *errorStr, id mark) {
+
+            }];
             
         }
             break;

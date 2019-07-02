@@ -40,6 +40,15 @@ NSString *const kModelUserQq = @"qq";
 NSString *const kModelUserRealNameAuth = @"realNameAuth";
 NSString *const kModelUserHometown = @"hometown";
 NSString *const kModelUserBirthdayDefault =@"birthdayDefault";
+//lhp
+NSString *const kModelUserNick = @"nick";
+NSString *const kModelUserUid = @"uid";
+NSString *const kModelUserCode = @"code";
+NSString *const kModelUserFname = @"fname";
+NSString *const kModelUserAvtar = @"avtar";
+NSString *const kModelUserMsg = @"msg";
+NSString *const kModelUserFid = @"fid";
+NSString *const kModelUserImtoken = @"imtoken";
 
 @interface ModelUser ()
 @end
@@ -121,6 +130,15 @@ NSString *const kModelUserBirthdayDefault =@"birthdayDefault";
             self.qq = [dict stringValueForKey:kModelUserQq];
             self.realNameAuth = [dict doubleValueForKey:kModelUserRealNameAuth];
         self.birthdayDefault = [dict doubleValueForKey:kModelUserBirthdayDefault];
+        //lhp
+        self.nick = [dict stringValueForKey:kModelUserNick];
+        self.uid = [dict doubleValueForKey:kModelUserUid];
+        self.code = [dict doubleValueForKey:kModelUserCode];
+        self.fname = [dict stringValueForKey:kModelUserFname];
+        self.avtar = [dict stringValueForKey:kModelUserAvtar];
+        self.msg = [dict stringValueForKey:kModelUserMsg];
+        self.fid = [dict doubleValueForKey:kModelUserFid];
+        self.imtoken = [dict stringValueForKey:kModelUserImtoken];
     }
     
     return self;
@@ -159,6 +177,15 @@ NSString *const kModelUserBirthdayDefault =@"birthdayDefault";
     [mutableDict setValue:self.qq forKey:kModelUserQq];
     [mutableDict setValue:[NSNumber numberWithDouble:self.realNameAuth] forKey:kModelUserRealNameAuth];
     [mutableDict setValue:[NSNumber numberWithDouble:self.birthdayDefault] forKey:kModelUserBirthdayDefault];
+    //lhp
+    [mutableDict setValue:self.nick forKey:kModelUserNick];
+    [mutableDict setValue:[NSNumber numberWithDouble:self.uid] forKey:kModelUserUid];
+    [mutableDict setValue:[NSNumber numberWithDouble:self.code] forKey:kModelUserCode];
+    [mutableDict setValue:self.fname forKey:kModelUserFname];
+    [mutableDict setValue:self.avtar forKey:kModelUserAvtar];
+    [mutableDict setValue:self.msg forKey:kModelUserMsg];
+    [mutableDict setValue:[NSNumber numberWithDouble:self.fid] forKey:kModelUserFid];
+    [mutableDict setValue:self.imtoken forKey:kModelUserImtoken];
     return [NSDictionary dictionaryWithDictionary:mutableDict];
 }
 

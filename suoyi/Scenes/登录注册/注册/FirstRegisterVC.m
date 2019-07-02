@@ -64,17 +64,15 @@
 
 #pragma mark 点击事件
 - (void)fetchCode{
-    NSArray *phone = [self.firstView.phoneTextFiled.text componentsValidSeparatedByString:@"-"];
-    self.phoneNumber = [phone componentsJoinedByString:@""];
-//    [RequestApi requestUserSmsWithTel:self.phoneNumber delegate:self success:^(NSDictionary *response, id mark) {
+    self.phoneNumber = self.firstView.phoneTextFiled.text;
+    [RequestApi requestUserSmcodeWithPhone:self.phoneNumber delegate:self success:^(NSDictionary *response, id mark) {
        [self.firstView.captchaButton startWithTime:59 title:@"获取验证码" countDownTitle:@"重新发送" mainColor:[UIColor blueColor] countColor:[UIColor lightGrayColor]];
-//    } failure:^(NSString *errorStr, id mark) {
-//
-//    }];
+    } failure:^(NSString *errorStr, id mark) {
+
+    }];
 }
 - (void)next{
-    NSArray *phone = [self.firstView.phoneTextFiled.text componentsValidSeparatedByString:@"-"];
-    self.phoneNumber = [phone componentsJoinedByString:@""];
+    self.phoneNumber = self.firstView.phoneTextFiled.text;
     if (self.phoneNumber == nil || self.phoneNumber.length == 0) {
         [GlobalMethod showAlert:@"请输入手机号"];
         return;
@@ -87,14 +85,14 @@
         [GlobalMethod showAlert:@"请输入正确验证码"];
         return;
     }
-//    [RequestApi requestJudgecodeWithPhone:self.phoneNumber type:@"reg" smscode:self.firstView.captchaTextFiled.text delegate:self success:^(NSDictionary *response, id mark) {
+    [RequestApi requestUserVerfiySmcodeWithPhone:self.phoneNumber smCode:self.firstView.captchaTextFiled.text delegate:self success:^(NSDictionary *response, id mark) {
         SecondRegisterVC *sec = [SecondRegisterVC new];
         sec.phone = self.phoneNumber;
         sec.code = self.firstView.captchaTextFiled.text;
         [GB_Nav pushViewController:sec animated:true];
-//    } failure:^(NSString *errorStr, id mark) {
-//
-//    }];
+    } failure:^(NSString *errorStr, id mark) {
+
+    }];
     
 }
 

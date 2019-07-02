@@ -10,7 +10,5 @@
 
 @interface NextForViewController : BaseVC
 
-
 @property (nonatomic, strong) NSString *mindPhone;
-@property (nonatomic, strong) NSString *mindCode;
 @end

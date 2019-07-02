@@ -9,7 +9,7 @@
 #import "RequestApi.h"
 //全局方法
 #import "GlobalMethod.h"
-#import "GlobalMethod+Version.h"
+//#import "GlobalMethod+Version.h"
 //请求单例
 #import "RequestInstance.h"
 //登陆页面
@@ -111,12 +111,13 @@ constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block
         }
         //判断请求状态
         if([@([dicResponse[RESPONSE_CODE] integerValue]) isEqualToNumber:RESPONSE_CODE_200]){
-            [self requestSuccessDelegate:delegate responseDic:returnAll?dicResponse:dicResponse[RESPONSE_DATA] success:success];
+            [self requestSuccessDelegate:delegate responseDic:dicResponse success:success];
             return;
         }
-        if([@([dicResponse[RESPONSE_CODE] integerValue]) isEqualToNumber:RESPONSE_CODE_NEGATIVE100]){
+        if([dicResponse[RESPONSE_CODE] isEqualToString:RESPONSE_CODE_NEGATIVE100]){
             //重新登陆
             [GlobalMethod relogin];
+            [GlobalMethod showAlert:@"请重新登录"];
             return;
         }
         {

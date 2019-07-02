@@ -82,8 +82,8 @@ return [UIColor colorWithRed:((float)((hexNumber & 0xFF0000) >> 16))/255.0 green
 #define RESPONSE_DATA @"datas"//网络请求datas
 #define RESPONSE_MESSAGE @"msg"//网络请求message
 #define RESPONSE_CODE @"code"//网络请求提示码
-#define RESPONSE_CODE_200 @(200)//请求成功
-#define RESPONSE_CODE_NEGATIVE100 @(11001)//重新登陆
+#define RESPONSE_CODE_200 @(000)//请求成功
+#define RESPONSE_CODE_NEGATIVE100 @"401"//重新登陆
 #define TIME_REQUEST_OUT 8
 
 

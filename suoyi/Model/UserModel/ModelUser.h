@@ -54,6 +54,15 @@
 @property (nonatomic, strong) NSString *positionName;//职位名称
 @property (nonatomic, strong) NSString *ecName;//环信用户名
 @property (nonatomic, strong) NSString *ecPwd;//环信密码
+//lhp_change
+@property (nonatomic, strong) NSString *nick;
+@property (nonatomic, assign) double uid;
+@property (nonatomic, assign) double code;
+@property (nonatomic, strong) NSString *fname;
+@property (nonatomic, strong) NSString *avtar;
+@property (nonatomic, strong) NSString *msg;
+@property (nonatomic, assign) double fid;
+@property (nonatomic, strong) NSString *imtoken;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;

@@ -11,9 +11,9 @@
 
 #pragma mark - 请求URL
 #if DEBUG
-#define URL_HEAD  @"https://ldyxagapi.vx5.cn"//线上库
+#define URL_HEAD  @"https://app.xiaoyi99.com/v2"//线上库
 #else
-#define URL_HEAD  @"https://ldyxagapi.vx5.cn"//线上库
+#define URL_HEAD  @"https://dev.xiaoyi99.com/v2"//线上库
 #endif
 
 //图片

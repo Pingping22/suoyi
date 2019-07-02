@@ -36,6 +36,7 @@
 #import "GlobalMethod+Authority.h" //权限
 #import "GlobalMethod+LocalDatas.h" //操作数据-数据存储
 #import "RequestApi.h" //请求接口
+#import "RequestApi+LHP.h"
 
 //基础VC
 #import "BaseVC.h"

@@ -16,7 +16,11 @@
 #pragma mark - 注销
 //清除全局数据
 + (void)clearUserInfo;
+//判断是否登陆
++(BOOL)isLoginSuccess;
 
+//登陆 with block
++ (void)loginWithBlock:(void (^)(void))block;
 //重新登陆
 + (void)relogin;
 

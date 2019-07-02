@@ -168,13 +168,13 @@
                 [GlobalMethod showAlert:@"两次输入密码不一致,请重新输入"];
                 return;
             }
-//            [RequestApi requestAccountForgetpwdWithPhone:self.mindPhone pwd:self.passWordTextFiled.text code:self.mindCode delegate:self success:^(NSDictionary *response, id mark) {
-//                LoginViewController *lo = [LoginViewController new];
-//                [GB_Nav pushViewController:lo animated:true];
-//                [GlobalMethod showAlert:@"修改成功"];
-//            } failure:^(NSString *errorStr, id mark) {
-//                
-//            }];
+            [RequestApi requestUserUpdatepwWithPhone:self.mindPhone opw:self.passWordTextFiled.text npw:self.repassWordTextFiled.text delegate:self success:^(NSDictionary *response, id mark) {
+                LoginViewController *lo = [LoginViewController new];
+                [GB_Nav pushViewController:lo animated:true];
+                [GlobalMethod showAlert:@"修改成功"];
+            } failure:^(NSString *errorStr, id mark) {
+                
+            }];
             
         }
             break;
