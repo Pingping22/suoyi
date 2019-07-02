@@ -8,117 +8,203 @@
 
 #import "HomePageVC.h"
 #import "ProductMarketNavView.h"
-
-@interface HomePageVC ()
-@property (nonatomic, strong) ProductMarketNavView * navView;
-@property (nonatomic, strong) HomePageHeaderView * headerView;
-@property (nonatomic, strong) HomePageSecHeaderView * secHeadView;
-@property (nonatomic, strong) HomePageThirHeaderView * thirView;
+//slider view
+#import "SliderView.h"
+//sc link
+#import "LinkScrollView.h"
+//vc
+#import "SingleChatListVC.h"
+#import "GroupChatListVC.h"
+//view
+#import "SelectTypeView.h"
+@interface HomePageVC ()<UIScrollViewDelegate,SliderViewDelegate>
+@property (nonatomic, strong) LinkScrollView *scAll;//全部sc
+@property (nonatomic, strong) UIScrollView *scList;//list sc
+@property (strong, nonatomic) SliderView *sliderView;//sliderview
+@property (nonatomic, strong) SingleChatListVC *listVCNew;//最新订单
+@property (nonatomic, strong) GroupChatListVC *listVCComplete;//已完成订单
+@property (nonatomic, strong) SelectTypeView *selectTypeView;
+@property (nonatomic, strong) BaseNavView *nav;
+@property (nonatomic, strong) NSArray * dataArr;
 @end
 
 @implementation HomePageVC
-@synthesize tableView = _tableView;
+#pragma mark lazy
+- (SelectTypeView *)selectTypeView {
+    if (!_selectTypeView) {
+        _selectTypeView = [SelectTypeView new];
+    }
+    return _selectTypeView;
+}
+- (NSArray *)dataArr{
+    if (!_dataArr) {
+        _dataArr = @[^(){
+            ModelBtn * model = [ModelBtn modelWithTitle:@"扫一扫" imageName:@"sweepcode" highImageName:@"sweepcode" tag:0];
+            model.blockClick = ^{
 
-#pragma mark - lazy
-- (UITableView *)tableView{
-    if (!_tableView) {
-        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, self.navView.bottom, SCREEN_WIDTH, SCREEN_HEIGHT-self.navView.bottom-TABBAR_HEIGHT) style:UITableViewStylePlain];
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
-        _tableView.backgroundColor = [UIColor clearColor];
-        _tableView.showsVerticalScrollIndicator = NO;
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        if (self.strCellName != nil) {
-            [_tableView registerClass:NSClassFromString(self.strCellName) forCellReuseIdentifier:self.strCellName];
-        }
+            };
+            return model;
+        }(),^(){
+            ModelBtn * model = [ModelBtn modelWithTitle:@"添加好友" imageName:@"addfriend" highImageName:@"addfriend" tag:1];
+            model.blockClick = ^{
+
+            };
+            return model;
+        }(),^(){
+            ModelBtn * model = [ModelBtn modelWithTitle:@"发起群聊" imageName:@"groupchat" highImageName:@"groupchat" tag:3];
+            model.blockClick = ^{
+
+            };
+            return model;
+        }()];
+    }
+    return _dataArr;
+}
+- (LinkScrollView *)scAll{
+    if (!_scAll) {
+        _scAll = [LinkScrollView new];
         if (@available(iOS 11.0, *)) {
-            _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-            _tableView.estimatedRowHeight = 0;
-            _tableView.estimatedSectionFooterHeight = 0;
-            _tableView.estimatedSectionHeaderHeight = 0;
+            _scAll.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         }
+        _scAll.frame = CGRectMake(0, NAVIGATIONBAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT-NAVIGATIONBAR_HEIGHT);
+        _scAll.contentSize = CGSizeMake(0, SCREEN_HEIGHT*5);
+        _scAll.backgroundColor = [UIColor clearColor];
+        _scAll.sizeHeight = self.sliderView.top - 2;
+        _scAll.showsVerticalScrollIndicator = false;
+        _scAll.showsHorizontalScrollIndicator = false;
+        _scAll.scrollEnabled = false;
+        [_scAll addSubview:self.scList];
     }
-    return _tableView;
+    return _scAll;
 }
-- (ProductMarketNavView *)navView
-{
-    if (_navView == nil) {
-        _navView = [ProductMarketNavView  new];
-        _navView.frame = CGRectMake(0, 0, SCREEN_WIDTH, NAVIGATIONBAR_HEIGHT);
-        [_navView resetViewWithTitle:@"你好的家"];
+- (UIScrollView *)scList{
+    if (!_scList) {
+        _scList = [UIScrollView new];
+        _scList.backgroundColor = [UIColor whiteColor];
+        _scList = [[UIScrollView alloc]initWithFrame:CGRectMake(0, self.sliderView.bottom +1, SCREEN_WIDTH, SCREEN_HEIGHT - self.sliderView.height-NAVIGATIONBAR_HEIGHT)];
+        _scList.delegate = self;
+        _scList.showsVerticalScrollIndicator = false;
+        _scList.showsHorizontalScrollIndicator = false;
+        _scList.contentSize = CGSizeMake(SCREEN_WIDTH * 3, 0);
+        _scList.pagingEnabled = true;
     }
-    return  _navView;
+    return _scList;
 }
-- (HomePageHeaderView *)headerView
-{
-    if (_headerView == nil) {
-        _headerView = [HomePageHeaderView new];
-        _headerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, _headerView.height);
+- (SingleChatListVC *)listVCNew{
+    if (!_listVCNew) {
+        _listVCNew = [SingleChatListVC new];
+        _listVCNew.view.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - TABBAR_HEIGHT - self.sliderView.height-NAVIGATIONBAR_HEIGHT);
+        _listVCNew.tableView.frame = _listVCNew.view.bounds;
+        [self addChildViewController:_listVCNew];
     }
-    return  _headerView;
+    return _listVCNew;
 }
-- (HomePageSecHeaderView *)secHeadView
-{
-    if (_secHeadView == nil) {
-        _secHeadView = [HomePageSecHeaderView  new];
-        _secHeadView.backgroundColor = [UIColor whiteColor];
-        _secHeadView.frame = CGRectMake(0, 0, SCREEN_WIDTH, _secHeadView.height);
+- (GroupChatListVC *)listVCComplete{
+    if (!_listVCComplete) {
+        _listVCComplete = [GroupChatListVC new];
+        _listVCComplete.view.frame = CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT - TABBAR_HEIGHT - self.sliderView.height-NAVIGATIONBAR_HEIGHT);
+        _listVCComplete.tableView.frame = _listVCComplete.view.bounds;
+        [self addChildViewController:_listVCComplete];
     }
-    return  _secHeadView;
-}
-- (HomePageThirHeaderView *)thirView
-{
-    if (_thirView == nil) {
-        _thirView = [HomePageThirHeaderView new];
-        _thirView.frame = CGRectMake(0, 0, SCREEN_WIDTH, _thirView.height);
-        NSMutableArray *arr = @[^(){
-            ModelImage * model = [ModelImage new];
-            model.url = @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1548138517507&di=78799c29d427b33735de2756e1a89a2d&imgtype=0&src=http%3A%2F%2Fwww.pp3.cn%2Fuploads%2F201701%2F2017022305.jpg";
-            return model;
-        }(),^(){
-            ModelImage * model = [ModelImage new];
-            model.url = @"22";
-            return model;
-        }(),^(){
-            ModelImage * model = [ModelImage new];
-            model.url = @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1548139295838&di=77757991a6ffe2652e4e7589f5d7dd68&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fblog%2F201508%2F03%2F20150803090619_sYGZM.thumb.700_0.jpeg";
-            return model;
-        }(),^(){
-            ModelImage * model = [ModelImage new];
-            model.url = @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1548138934438&di=382a1d65280c7b7544c9b4515b0f39c3&imgtype=0&src=http%3A%2F%2Fs1.sinaimg.cn%2Fmw690%2F001KcHF3zy75TWW2s7ud0%26690";
-            return model;
-        }()].mutableCopy;
-        ModelImage * model = [ModelImage new];
-        model.url = @"22";
-        [arr addObject:model];
-        [_thirView resetWithAry:arr];
-    }
-    return  _thirView;
+    return _listVCComplete;
 }
 
+- (BaseNavView *)nav {
+    if (!_nav) {
+        WEAKSELF
+        _nav = [BaseNavView initNavTitle:@"" leftImageName:@"" leftBlock:nil rightImageName:@"add_right" righBlock:^{
+            [weakSelf.view endEditing:YES];
+            [weakSelf navRightClick];
+        }];
+    }
+    return _nav;
+}
+- (SliderView *)sliderView{
+    if (_sliderView == nil) {
+        _sliderView = [SliderView new];
+        _sliderView.widthHeight = XY(SCREEN_WIDTH, W(44));
+        _sliderView.viewSlidWidth = W(44);
+        _sliderView.isHasSlider = true;
+        _sliderView.isLineVerticalHide = true;
+        _sliderView.viewSlidColor = [UIColor blueColor];
+        [_sliderView resetWithAry:@[[ModelBtn modelWithTitle:@"聊天"],[ModelBtn modelWithTitle:@"群"]]];
+        _sliderView.delegate = self;
+    }
+    
+    return _sliderView;
+}
+#pragma mark 初始化
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view addSubview:self.navView];
-    self.viewBG.backgroundColor = COLOR_BACKGROUND;
-    UIButton *noticeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    noticeBtn.tag = 1;
-    [noticeBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
-    noticeBtn.widthHeight = XY(W(40),W(40));
-    noticeBtn.leftTop = XY(W(15), NAVIGATIONBAR_HEIGHT+W(15));
-    [noticeBtn setImage:[UIImage imageNamed:@"xiaoxi"] forState:(UIControlStateNormal)];
-    [self.view addSubview:noticeBtn];
-    self.tableView.tableHeaderViews = @[self.headerView,self.secHeadView,self.thirView];
+    //添加导航栏
+    [self addNav];
+    [self.view addSubview:self.scAll];
+    [self.scAll addSubview:self.sliderView];
+    //初始化子vc
+    [self setupChildVC];
 }
 
-#pragma mark 点击事件
-- (void)btnClick:(UIButton *)sender{
+-(void)addNav{
+    
+    [self.view addSubview:self.nav];
+    
+}
+- (void)navRightClick{
+    UIView * window = [UIApplication sharedApplication].keyWindow;
+    [self.selectTypeView showWithFrame:[self.view convertRect:self.nav.frame toView:window] ary:self.dataArr];
+}
+#pragma mark view will appear
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.listVCNew refreshHeaderAll];
+    [self.listVCComplete refreshHeaderAll];
+}
+/**
+ * 初始化子控制器
+ */
+- (void)setupChildVC{
+    [self.scList addSubview:self.listVCNew.view];
+    [self.scList addSubview:self.listVCComplete.view];
+}
+
+#pragma mark scrollview delegat
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    if ([scrollView isEqual:self.scList]) {
+        [self fetchCurrentView];
+    }
+}
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    if ([scrollView isEqual:self.scList]) {
+        if (!decelerate) {
+            [self fetchCurrentView];
+        }
+    }
+}
+- (void)fetchCurrentView {
+    // 获取已经滚动的比例
+    double ratio = self.scList.contentOffset.x / SCREEN_WIDTH;
+    int    page  = (int)(ratio + 0.5);
+    // scrollview 到page页时 将toolbar调至对应按钮
+    [self.sliderView sliderToIndex:page noticeDelegate:NO];
+}
+
+#pragma mark slider delegate
+- (void)protocolSliderViewBtnSelect:(NSUInteger)tag btn:(CustomSliderControl *)control{
+    [UIView animateWithDuration:0.5 animations:^{
+        self.scList.contentOffset = CGPointMake(SCREEN_WIDTH * tag, 0);
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+
+#pragma mark click
+- (void)btnClick:(UIButton *)sender {
     switch (sender.tag) {
-        case 1:
+        case 3://search
         {
-            [GB_Nav pushVCName:@"MessageListVC" animated:true];
+
         }
             break;
-            
         default:
             break;
     }

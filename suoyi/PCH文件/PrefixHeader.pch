@@ -60,6 +60,7 @@
 #import "UIImage+LHP.h"
 #import "UIButton+Creat.h"
 #import "NSMutableArray+Insert.h"
+#import "UIScrollView+Category.h"//scrollView category
 
 //Safe
 #import "NSString+Category.h"

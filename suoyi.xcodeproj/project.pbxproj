@@ -20,6 +20,12 @@
 		4A17A68722CA0BB60024B94B /* UIButton+countDown.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A17A68522CA0BB60024B94B /* UIButton+countDown.m */; };
 		4A17A68A22CA0C1C0024B94B /* BaseVC+BaseImageSelectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A17A68922CA0C1C0024B94B /* BaseVC+BaseImageSelectVC.m */; };
 		4A17A68D22CAFD020024B94B /* RequestApi+LHP.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A17A68C22CAFD020024B94B /* RequestApi+LHP.m */; };
+		4A17A69122CB59A60024B94B /* LinkScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A17A68F22CB59A60024B94B /* LinkScrollView.m */; };
+		4A17A69422CB5A8B0024B94B /* SingleChatListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A17A69322CB5A8B0024B94B /* SingleChatListVC.m */; };
+		4A17A69722CB5B600024B94B /* GroupChatListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A17A69622CB5B600024B94B /* GroupChatListVC.m */; };
+		4A17A69B22CB5C160024B94B /* UIScrollView+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A17A69A22CB5C160024B94B /* UIScrollView+Category.m */; };
+		4A17A6A122CB5E7C0024B94B /* SelectBlackTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A17A69D22CB5E7C0024B94B /* SelectBlackTypeView.m */; };
+		4A17A6A222CB5E7C0024B94B /* SelectTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A17A69F22CB5E7C0024B94B /* SelectTypeView.m */; };
 		4A257D5521FED58000220225 /* LHPDialVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A257D5421FED58000220225 /* LHPDialVC.m */; };
 		4A257D8D21FED93700220225 /* Key11@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D5821FED93600220225 /* Key11@3x.png */; };
 		4A257D8E21FED93700220225 /* Key13@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D5921FED93600220225 /* Key13@2x.png */; };
@@ -236,6 +242,18 @@
 		4A17A68922CA0C1C0024B94B /* BaseVC+BaseImageSelectVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BaseVC+BaseImageSelectVC.m"; sourceTree = "<group>"; };
 		4A17A68B22CAFD020024B94B /* RequestApi+LHP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RequestApi+LHP.h"; sourceTree = "<group>"; };
 		4A17A68C22CAFD020024B94B /* RequestApi+LHP.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "RequestApi+LHP.m"; sourceTree = "<group>"; };
+		4A17A68F22CB59A60024B94B /* LinkScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkScrollView.m; sourceTree = "<group>"; };
+		4A17A69022CB59A60024B94B /* LinkScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkScrollView.h; sourceTree = "<group>"; };
+		4A17A69222CB5A8B0024B94B /* SingleChatListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SingleChatListVC.h; sourceTree = "<group>"; };
+		4A17A69322CB5A8B0024B94B /* SingleChatListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SingleChatListVC.m; sourceTree = "<group>"; };
+		4A17A69522CB5B600024B94B /* GroupChatListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupChatListVC.h; sourceTree = "<group>"; };
+		4A17A69622CB5B600024B94B /* GroupChatListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupChatListVC.m; sourceTree = "<group>"; };
+		4A17A69922CB5C160024B94B /* UIScrollView+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Category.h"; sourceTree = "<group>"; };
+		4A17A69A22CB5C160024B94B /* UIScrollView+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Category.m"; sourceTree = "<group>"; };
+		4A17A69D22CB5E7C0024B94B /* SelectBlackTypeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectBlackTypeView.m; sourceTree = "<group>"; };
+		4A17A69E22CB5E7C0024B94B /* SelectTypeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectTypeView.h; sourceTree = "<group>"; };
+		4A17A69F22CB5E7C0024B94B /* SelectTypeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectTypeView.m; sourceTree = "<group>"; };
+		4A17A6A022CB5E7C0024B94B /* SelectBlackTypeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectBlackTypeView.h; sourceTree = "<group>"; };
 		4A257D5321FED58000220225 /* LHPDialVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHPDialVC.h; sourceTree = "<group>"; };
 		4A257D5421FED58000220225 /* LHPDialVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHPDialVC.m; sourceTree = "<group>"; };
 		4A257D5821FED93600220225 /* Key11@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key11@3x.png"; sourceTree = "<group>"; };
@@ -656,6 +674,35 @@
 			path = UIButton;
 			sourceTree = "<group>";
 		};
+		4A17A68E22CB59A60024B94B /* 联动ScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				4A17A68F22CB59A60024B94B /* LinkScrollView.m */,
+				4A17A69022CB59A60024B94B /* LinkScrollView.h */,
+			);
+			path = "联动ScrollView";
+			sourceTree = "<group>";
+		};
+		4A17A69822CB5C160024B94B /* UIScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				4A17A69922CB5C160024B94B /* UIScrollView+Category.h */,
+				4A17A69A22CB5C160024B94B /* UIScrollView+Category.m */,
+			);
+			path = UIScrollView;
+			sourceTree = "<group>";
+		};
+		4A17A69C22CB5E7C0024B94B /* 下拉列表 */ = {
+			isa = PBXGroup;
+			children = (
+				4A17A6A022CB5E7C0024B94B /* SelectBlackTypeView.h */,
+				4A17A69D22CB5E7C0024B94B /* SelectBlackTypeView.m */,
+				4A17A69E22CB5E7C0024B94B /* SelectTypeView.h */,
+				4A17A69F22CB5E7C0024B94B /* SelectTypeView.m */,
+			);
+			path = "下拉列表";
+			sourceTree = "<group>";
+		};
 		4A257D5221FED54D00220225 /* 拨号盘 */ = {
 			isa = PBXGroup;
 			children = (
@@ -920,6 +967,8 @@
 		4A5C9CB521F80C6F00CA2332 /* 页面逻辑 */ = {
 			isa = PBXGroup;
 			children = (
+				4A17A69C22CB5E7C0024B94B /* 下拉列表 */,
+				4A17A68E22CB59A60024B94B /* 联动ScrollView */,
 				4A0B14A3221BEF5700336CE9 /* 通用时间cell */,
 				4A26BB13221299D400CFC404 /* SPMultipleSwitch */,
 				4A257DE32204160500220225 /* 搜索框 */,
@@ -1191,6 +1240,10 @@
 				4A5C9C8021F5C24100CA2332 /* MineListMindImgView.m */,
 				4A83D6C221F027FC00E4EE2A /* HomePageVC.h */,
 				4A83D6C321F027FC00E4EE2A /* HomePageVC.m */,
+				4A17A69222CB5A8B0024B94B /* SingleChatListVC.h */,
+				4A17A69322CB5A8B0024B94B /* SingleChatListVC.m */,
+				4A17A69522CB5B600024B94B /* GroupChatListVC.h */,
+				4A17A69622CB5B600024B94B /* GroupChatListVC.m */,
 			);
 			path = "首页";
 			sourceTree = "<group>";
@@ -1217,6 +1270,7 @@
 		4A83D82F21F04C9700E4EE2A /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				4A17A69822CB5C160024B94B /* UIScrollView */,
 				4A17A68422CA0BB60024B94B /* UIButton */,
 				4A257DED220427B600220225 /* NSMutableArray */,
 				4A83D83021F04C9700E4EE2A /* NSArray */,
@@ -1988,6 +2042,7 @@
 				4A17A68A22CA0C1C0024B94B /* BaseVC+BaseImageSelectVC.m in Sources */,
 				4A83D6C921F027FC00E4EE2A /* ModelProductItem.m in Sources */,
 				4A83D8BA21F04C9700E4EE2A /* UIView+Category.m in Sources */,
+				4A17A69722CB5B600024B94B /* GroupChatListVC.m in Sources */,
 				4A257DC822001BC500220225 /* AutomaticWatchVC.m in Sources */,
 				4A5C9CB421F7FEF300CA2332 /* ProductMarketNavView.m in Sources */,
 				4A83D8D021F04C9700E4EE2A /* ImagePickerVC.m in Sources */,
@@ -2004,6 +2059,7 @@
 				4A83D6CB21F027FC00E4EE2A /* DynamicCell.m in Sources */,
 				4A83D8B221F04C9700E4EE2A /* NSMutableArray+Safe.m in Sources */,
 				4A83D8CD21F04C9700E4EE2A /* OpenMoreLevelBtnView.m in Sources */,
+				4A17A69422CB5A8B0024B94B /* SingleChatListVC.m in Sources */,
 				4A83D6C521F027FC00E4EE2A /* ModelBaseData.m in Sources */,
 				4A17A68322CA09CE0024B94B /* ForgetPasswordVC.m in Sources */,
 				4A91660C21F1AEE6006CF9DF /* SkillsCell.m in Sources */,
@@ -2012,6 +2068,7 @@
 				4A5C9C8C21F6F17100CA2332 /* GlobalMethod+UI.m in Sources */,
 				4A83D8B121F04C9700E4EE2A /* NSDictionary+Safe.m in Sources */,
 				4A257DE92204160500220225 /* SearchTextField.m in Sources */,
+				4A17A6A122CB5E7C0024B94B /* SelectBlackTypeView.m in Sources */,
 				4A5C9CB121F7028F00CA2332 /* GXPHKitTool.m in Sources */,
 				4A5C9CAC21F7026C00CA2332 /* AlbumSelectTableViewCell.m in Sources */,
 				4A83D8AD21F04C9700E4EE2A /* NSDictionary+Model.m in Sources */,
@@ -2025,6 +2082,7 @@
 				4A257DD82201586800220225 /* QRCoderVC.m in Sources */,
 				4A83D68721F027EB00E4EE2A /* RequestApi.m in Sources */,
 				4A0B14A6221BEF8400336CE9 /* DateCell.m in Sources */,
+				4A17A69B22CB5C160024B94B /* UIScrollView+Category.m in Sources */,
 				4A5C9CB821F80CBC00CA2332 /* ShareAlertView.m in Sources */,
 				4A5C9C8221F5C24100CA2332 /* MineListMindImgView.m in Sources */,
 				4A83D8BF21F04C9700E4EE2A /* CutomFooter.m in Sources */,
@@ -2071,6 +2129,7 @@
 				4A83D8D721F04C9700E4EE2A /* BaseVC.m in Sources */,
 				4A91660321F17C66006CF9DF /* LHPBtn.m in Sources */,
 				4A83D8D621F04C9700E4EE2A /* BaseVC+KeyboardObserve.m in Sources */,
+				4A17A6A222CB5E7C0024B94B /* SelectTypeView.m in Sources */,
 				4A83D8D321F04C9700E4EE2A /* BaseNavController.m in Sources */,
 				4AA9502A21F9B783004AD66F /* HomeAddressBookListVC.m in Sources */,
 				4AA9503F21FAFBD4004AD66F /* MineNameVC.m in Sources */,
@@ -2083,6 +2142,7 @@
 				4A257DC421FEEB7900220225 /* LHPDialListVC.m in Sources */,
 				4A83D8C321F04C9700E4EE2A /* GlobalMethod+LocalDatas.m in Sources */,
 				4A83D68821F027EB00E4EE2A /* RequestInstance.m in Sources */,
+				4A17A69122CB59A60024B94B /* LinkScrollView.m in Sources */,
 				4A83D8BC21F04C9700E4EE2A /* UIView+SelectImageView.m in Sources */,
 				4A0B14AA221D249200336CE9 /* ContentResourcesListVC.m in Sources */,
 				4A5C9CD021F8648A00CA2332 /* WXApiManager.m in Sources */,
