@@ -29,7 +29,7 @@
 
 #pragma mark - 添加导航栏
 - (void)addNav{
-    [self.view addSubview:[BaseNavView initNavTitle:@"我的" leftView:nil rightView:nil]];
+    [self.view addSubview:[BaseNavView initNavTitle:@"个人中心" leftView:nil rightView:nil]];
 }
 
 #pragma mark - UITableViewDelegate
@@ -52,8 +52,8 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     ModelBtn * model = self.aryDatas[indexPath.row];
-    if ([model.title isEqualToString:@"选择图片"]){
-        [self.view showImageVC:1];
+    if ([model.title isEqualToString:@"退出登录"]){
+        [GlobalMethod logoutSuccess];
         return;
     }
 }
@@ -74,7 +74,7 @@
 
 #pragma mark - request
 - (void)requestList{
-    NSArray * titleAry = @[@"选择图片"];
+    NSArray * titleAry = @[@"退出登录"];
     for (NSString * str in titleAry) {
         ModelBtn * model = [ModelBtn new];
         model.title = str;

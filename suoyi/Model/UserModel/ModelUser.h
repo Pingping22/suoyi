@@ -63,6 +63,7 @@
 @property (nonatomic, strong) NSString *msg;
 @property (nonatomic, assign) double fid;
 @property (nonatomic, strong) NSString *imtoken;
+@property (nonatomic, strong) NSString *phone;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;

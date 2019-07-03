@@ -53,11 +53,11 @@
 #define COLOR_TABBAR_SELECT   [UIColor colorWithHexString:@"#46BC62"]
 #define COLOR_TABBAR_UNSELECT [UIColor colorWithHexString:@"#7A7E81"]
 #define COLOR_NAV_COLOR       [UIColor colorWithHexString:@"#46BC62"]
-#define COLOR_GREEN           [UIColor colorWithHexString:@"#00aa98"]
-#define COLOR_LABEL           [UIColor colorWithHexString:@"#333333"]
-#define COLOR_DETAIL          [UIColor colorWithHexString:@"#666666"]
+#define COLOR_GREEN           [UIColor colorWithHexString:@"#72B425"]
+#define COLOR_LABEL           [UIColor colorWithHexString:@"#4D4D4D"]
+#define COLOR_DETAIL          [UIColor colorWithHexString:@"#808080"]
 #define COLOR_BACKGROUND      [UIColor colorWithHexString:@"#EFEFF4"]
-#define COLOR_LINE            [UIColor colorWithHexString:@"#E0E0E0"]
+#define COLOR_LINE            [UIColor colorWithHexString:@"#DEDEDE"]
 #define COLOR_PAGEBACK [UIColor colorWithHexString:@"#e5e5e5"]
 #define COLOR_CURRENTPAGE [UIColor colorWithHexString:@"#b1b1b1"]
 //透明度
@@ -71,7 +71,7 @@ return [UIColor colorWithRed:((float)((hexNumber & 0xFF0000) >> 16))/255.0 green
 }()
 
 //默认图片
-#define IMAGE_HEAD_DEFAULT    @"默认"
+#define IMAGE_HEAD_DEFAULT    @"22"
 
 
 //Tag

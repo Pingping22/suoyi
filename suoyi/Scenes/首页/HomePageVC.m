@@ -47,7 +47,7 @@
         }(),^(){
             ModelBtn * model = [ModelBtn modelWithTitle:@"添加好友" imageName:@"addfriend" highImageName:@"addfriend" tag:1];
             model.blockClick = ^{
-
+                [GB_Nav pushVCName:@"SearchFriendListVC" animated:true];
             };
             return model;
         }(),^(){

@@ -42,6 +42,16 @@ NS_ASSUME_NONNULL_BEGIN
                          delegate:(id <RequestDelegate>)delegate
                           success:(void (^)(NSDictionary * response, id mark))success
                           failure:(void (^)(NSString * errorStr, id mark))failure;
+//按手机号搜索好友
++ (void)requestFriendSearchByPhoneWithPhone:(NSString *)phone
+                                   delegate:(id <RequestDelegate>)delegate
+                                    success:(void (^)(NSDictionary * response, id mark))success
+                                    failure:(void (^)(NSString * errorStr, id mark))failure;
+//按手机号搜索好友
++ (void)requestFriendSearchByIdWithUserId:(NSString *)user_id
+                                 delegate:(id <RequestDelegate>)delegate
+                                  success:(void (^)(NSDictionary * response, id mark))success
+                                  failure:(void (^)(NSString * errorStr, id mark))failure;
 @end
 
 NS_ASSUME_NONNULL_END

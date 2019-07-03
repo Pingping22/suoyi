@@ -62,4 +62,22 @@
                           };
     [self postUrl:@"/mobile/user/updatepw" delegate:delegate parameters:dic success:success failure:failure];
 }
+//按手机号搜索好友
++ (void)requestFriendSearchByPhoneWithPhone:(NSString *)phone
+                                   delegate:(id <RequestDelegate>)delegate
+                                    success:(void (^)(NSDictionary * response, id mark))success
+                                    failure:(void (^)(NSString * errorStr, id mark))failure{
+    NSDictionary *dic = @{@"phone":UnPackStr(phone)
+                          };
+    [self getUrl:@"/mobile/friend/searchbyphone" delegate:delegate parameters:dic success:success failure:failure];
+}
+//按手机号搜索好友
++ (void)requestFriendSearchByIdWithUserId:(NSString *)user_id
+                                 delegate:(id <RequestDelegate>)delegate
+                                  success:(void (^)(NSDictionary * response, id mark))success
+                                  failure:(void (^)(NSString * errorStr, id mark))failure{
+    NSDictionary *dic = @{@"user_id":UnPackStr(user_id)
+                          };
+    [self getUrl:@"/mobile/friend/searchbyid" delegate:delegate parameters:dic success:success failure:failure];
+}
 @end

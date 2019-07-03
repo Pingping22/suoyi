@@ -13,6 +13,17 @@
 #import "LoginViewController.h" //登录
 
 @implementation GlobalMethod (Version)
+//注销
++ (void)logoutSuccess{
+    //logout
+    
+//    [RequestApi requestAccountLogoutWithDelegate:nil success:nil failure:nil];
+//    [self requestUnBindDeviceToken];
+    //清空数据
+    [self clearUserInfo];
+    //重置根视图
+    [self createRootNav];
+}
 
 #pragma mark - 创建rootNav
 + (void)createRootNav{

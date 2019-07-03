@@ -52,7 +52,6 @@
         case 1: // 注册
         {
             [self.view endEditing:true];
-            
             [RequestApi requestUserRegisterWithPhone:self.phone password:self.secondView.passWordTextFiled.text nick:self.secondView.nameTextField.text delegate:self success:^(NSDictionary *response, id mark) {
                 [GB_Nav pushVCName:@"LoginViewController"  animated:true];
             } failure:^(NSString *errorStr, id mark) {

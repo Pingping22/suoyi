@@ -14,6 +14,8 @@
 + (void)createRootNav;
 
 #pragma mark - 注销
+//注销
++ (void)logoutSuccess;
 //清除全局数据
 + (void)clearUserInfo;
 //判断是否登陆

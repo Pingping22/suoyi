@@ -15,6 +15,8 @@
 
 #pragma mark - 用户
 #import "ModelUser.h"
+//
+#import "ModelFriend.h"
 
 #pragma mark - 商品列表
 #import "ModelProductItem.h"

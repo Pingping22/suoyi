@@ -17,12 +17,116 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    //cell
+     [self.tableView registerClass:[SingleChatListCell class] forCellReuseIdentifier:@"SingleChatListCell"];
+}
+#pragma mark UITableViewDelegate
+//row num
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 2;
+}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+//cell
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    SingleChatListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SingleChatListCell" forIndexPath:indexPath];
+    [cell resetCellWithModel:nil];
+    return cell;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return [SingleChatListCell fetchHeight:nil];
 }
 
 #pragma mark scroll delegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     [scrollView scrollLink:(LinkScrollView *)scrollView.superview.superview.superview];
+}
+
+@end
+
+
+
+@implementation SingleChatListCell
+#pragma mark 懒加载
+- (UIImageView *)iconImg{
+    if (_iconImg == nil) {
+        _iconImg = [UIImageView new];
+        _iconImg.image = [UIImage imageNamed:@"group_default"];
+        _iconImg.widthHeight = XY(W(45),W(45));
+    }
+    return _iconImg;
+}
+- (UILabel *)labelName{
+    if (_labelName == nil) {
+        _labelName = [UILabel new];
+        [GlobalMethod setLabel:_labelName widthLimit:0 numLines:0 fontNum:F(18) textColor:COLOR_LABEL text:@""];
+    }
+    return _labelName;
+}
+- (UILabel *)labelContent{
+    if (_labelContent == nil) {
+        _labelContent = [UILabel new];
+        [GlobalMethod setLabel:_labelContent widthLimit:0 numLines:0 fontNum:F(15) textColor:COLOR_DETAIL text:@""];
+    }
+    return _labelContent;
+}
+-(UIButton *)telBtn{
+    if (_telBtn == nil) {
+        _telBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        _telBtn.tag = 1;
+        [_telBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [_telBtn setImage:[UIImage imageNamed:@"phone_list"] forState:(UIControlStateNormal)];
+        _telBtn.widthHeight = XY(W(40),W(40));
+    }
+    return _telBtn;
+}
+
+#pragma mark 初始化
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        self.contentView.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = [UIColor whiteColor];
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        [self.contentView addSubview:self.iconImg];
+        [self.contentView addSubview:self.labelName];
+        [self.contentView addSubview:self.labelContent];
+        [self.contentView addSubview:self.telBtn];
+        
+    }
+    return self;
+}
+#pragma mark 刷新cell
+- (void)resetCellWithModel:(id)model{
+    [self.contentView removeSubViewWithTag:TAG_LINE];//移除线
+    //刷新view
+    
+//    [self.iconImg sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:IMAGE_HEAD_DEFAULT]];
+    self.iconImg.leftTop = XY(W(16),W(12));
+    
+    [GlobalMethod resetLabel:self.labelName text:@"幸福一家人" widthLimit:0];
+    self.labelName.leftTop = XY(W(15)+self.iconImg.right,self.iconImg.top);
+    
+    [GlobalMethod resetLabel:self.labelContent text:@"一起愉快地聊天吧" widthLimit:0];
+    self.labelContent.leftBottom = XY(W(15)+self.iconImg.right,self.iconImg.bottom);
+    
+    self.telBtn.rightCenterY = XY(SCREEN_WIDTH-W(16),self.iconImg.centerY);
+    
+    self.height = [self.contentView addLineFrame:CGRectMake(W(16), self.iconImg.bottom+W(12), SCREEN_WIDTH-W(16), 1)];
+}
+#pragma mark 点击事件
+- (void)btnClick:(UIButton *)sender{
+    switch (sender.tag) {
+        case 1:
+        {
+            
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 @end

@@ -1,8 +1,8 @@
 //
-//  SingleChatListVC.h
+//  SearchFriendListVC.h
 //  suoyi
 //
-//  Created by 王伟 on 2019/7/2.
+//  Created by 王伟 on 2019/7/3.
 //  Copyright © 2019 liuhuiping. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SingleChatListVC : BaseTableVC
+@interface SearchFriendListVC : BaseTableVC
 
 @end
 
@@ -19,12 +19,11 @@ NS_ASSUME_NONNULL_END
 
 
 
-@interface SingleChatListCell : UITableViewCell
+
+@interface SearchFriendListCell : UITableViewCell
 @property (strong, nonatomic) UIImageView *iconImg;
 @property (strong, nonatomic) UILabel *labelName;
-@property (strong, nonatomic) UILabel *labelContent;
-@property (strong, nonatomic) UIButton *telBtn;
-
+@property (nonatomic, strong) ModelFriend * model;
 #pragma mark 刷新cell
-- (void)resetCellWithModel:(id)model;
+- (void)resetCellWithModel:(ModelFriend *)model;
 @end
