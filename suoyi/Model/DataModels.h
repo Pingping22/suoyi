@@ -15,8 +15,13 @@
 
 #pragma mark - 用户
 #import "ModelUser.h"
-//
+//好友
 #import "ModelFriend.h"
+//群
+#import "ModelUserGroup.h"
+#import "ModelUserGroupOwner.h"
+#import "ModelUserGroupAdmin.h"
+#import "ModelUserGroupMember.h"
 
 #pragma mark - 商品列表
 #import "ModelProductItem.h"

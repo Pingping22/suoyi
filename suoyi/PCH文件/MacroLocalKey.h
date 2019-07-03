@@ -41,5 +41,8 @@
 #define LOCAL_USERMODEL @"LOCAL_USERMODEL" //本地存储用户信息
 #define LOCAL_PHONE @"LOCAL_PHONE" //本地存储最后一个手机号
 
+#define USER_PHONE  [[NSUserDefaults standardUserDefaults] objectForKey:PHONE]  //用户PHONE
+
+#define PHONE  @"phone"
 
 #endif /* MacroLocalKey_h */

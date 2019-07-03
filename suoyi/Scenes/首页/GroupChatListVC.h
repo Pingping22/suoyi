@@ -15,3 +15,15 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+
+
+
+@interface GroupChatListCell : UITableViewCell
+@property (strong, nonatomic) UIImageView *iconImg;
+@property (strong, nonatomic) UILabel *labelName;
+@property (strong, nonatomic) UILabel *labelContent;
+@property (strong, nonatomic) UIButton *telBtn;
+@property (nonatomic, strong) ModelUserGroupOwner * model;
+#pragma mark 刷新cell
+- (void)resetCellWithModel:(ModelUserGroupOwner *)model;
+@end

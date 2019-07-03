@@ -53,7 +53,7 @@
         }(),^(){
             ModelBtn * model = [ModelBtn modelWithTitle:@"发起群聊" imageName:@"groupchat" highImageName:@"groupchat" tag:3];
             model.blockClick = ^{
-
+                [GB_Nav pushVCName:@"CreateGroupVC" animated:true];
             };
             return model;
         }()];

@@ -31,17 +31,17 @@ NS_ASSUME_NONNULL_BEGIN
                                  failure:(void (^)(NSString * errorStr, id mark))failure;
 //用户登录
 + (void)requestUserLoginWithPhone:(NSString *)phone
-                            password:(NSString *)password
-                            delegate:(id <RequestDelegate>)delegate
-                             success:(void (^)(NSDictionary * response, id mark))success
-                             failure:(void (^)(NSString * errorStr, id mark))failure;
+                         password:(NSString *)password
+                         delegate:(id <RequestDelegate>)delegate
+                          success:(void (^)(NSDictionary * response, id mark))success
+                          failure:(void (^)(NSString * errorStr, id mark))failure;
 //修改密码
 + (void)requestUserUpdatepwWithPhone:(NSString *)phone
                                  opw:(NSString *)opw
                                  npw:(NSString *)npw
-                         delegate:(id <RequestDelegate>)delegate
-                          success:(void (^)(NSDictionary * response, id mark))success
-                          failure:(void (^)(NSString * errorStr, id mark))failure;
+                            delegate:(id <RequestDelegate>)delegate
+                             success:(void (^)(NSDictionary * response, id mark))success
+                             failure:(void (^)(NSString * errorStr, id mark))failure;
 //按手机号搜索好友
 + (void)requestFriendSearchByPhoneWithPhone:(NSString *)phone
                                    delegate:(id <RequestDelegate>)delegate
@@ -52,6 +52,17 @@ NS_ASSUME_NONNULL_BEGIN
                                  delegate:(id <RequestDelegate>)delegate
                                   success:(void (^)(NSDictionary * response, id mark))success
                                   failure:(void (^)(NSString * errorStr, id mark))failure;
+//创建一个群
++ (void)requestUserGroupCreateGroupWithGname:(NSString *)gname
+                                     gnotice:(NSString *)gnotice
+                                     invites:(NSString *)invites
+                                    delegate:(id <RequestDelegate>)delegate
+                                     success:(void (^)(NSDictionary * response, id mark))success
+                                     failure:(void (^)(NSString * errorStr, id mark))failure;
+//返回用户涉及的群
++ (void)requestUserGroupFetchGroupWithDelegate:(id <RequestDelegate>)delegate
+                                       success:(void (^)(NSDictionary * response, id mark))success
+                                       failure:(void (^)(NSString * errorStr, id mark))failure;
 @end
 
 NS_ASSUME_NONNULL_END

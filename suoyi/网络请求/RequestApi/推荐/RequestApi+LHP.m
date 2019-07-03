@@ -80,4 +80,23 @@
                           };
     [self getUrl:@"/mobile/friend/searchbyid" delegate:delegate parameters:dic success:success failure:failure];
 }
+//创建一个群
++ (void)requestUserGroupCreateGroupWithGname:(NSString *)gname
+                                     gnotice:(NSString *)gnotice
+                                     invites:(NSString *)invites
+                                    delegate:(id <RequestDelegate>)delegate
+                                     success:(void (^)(NSDictionary * response, id mark))success
+                                     failure:(void (^)(NSString * errorStr, id mark))failure{
+    NSDictionary *dic = @{@"gname":UnPackStr(gname),
+                          @"gnotice":UnPackStr(gnotice),
+                          @"invites":UnPackStr(invites)
+                          };
+    [self postUrl:@"/mobile/userGroup/creategroup" delegate:delegate parameters:dic success:success failure:failure];
+}
+//返回用户涉及的群
++ (void)requestUserGroupFetchGroupWithDelegate:(id <RequestDelegate>)delegate
+                                       success:(void (^)(NSDictionary * response, id mark))success
+                                       failure:(void (^)(NSString * errorStr, id mark))failure{
+    [self postUrl:@"/mobile/userGroup/fetchgroup" delegate:delegate parameters:nil success:success failure:failure];
+}
 @end

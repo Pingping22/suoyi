@@ -3,6 +3,10 @@ inhibit_all_warnings!
 source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/aliyun/aliyun-specs.git'
 def pods
+    #RongCloud
+    pod 'RongCloudRTC/RongCallLib', '2.9.0'
+    pod 'RongCloudIM/IMLib','2.9.18'
+    pod 'RongCloudIM/IMKit','2.9.18'
     #LodPod
     pod 'LDMacro', :git => 'https://github.com/SCriminal/LDMacro.git', :tag=> '0.1.0'
     #倒计时

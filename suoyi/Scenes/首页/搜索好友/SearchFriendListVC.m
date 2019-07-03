@@ -70,7 +70,7 @@
 }
 - (void)searchTitle:(NSString *)str{
     [RequestApi requestFriendSearchByPhoneWithPhone:UnPackStr(str) delegate:self success:^(NSDictionary * response, id  mark) {
-        if ([str isEqualToString:[GlobalData sharedInstance].GB_UserModel.phone]) {
+        if ([str isEqualToString:USER_PHONE]) {
             [GlobalMethod showAlert:@"你不能添加自己到通讯录"];
             return ;
         }

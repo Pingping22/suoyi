@@ -163,7 +163,7 @@
     NSUserDefaults * user = [NSUserDefaults standardUserDefaults];
     NSString * strValue = [user objectForKey:LOCAL_PHONE];
     
-    self.phoneTextFiled.text = [self exchangePhone:isStr(strValue)?strValue:@""];
+    self.phoneTextFiled.text = isStr(strValue)?strValue:@"";
 //    [GlobalMethod logoutHyphen];
     
     //添加键盘监听
@@ -223,17 +223,7 @@
     
     
 }
-#pragma mark 转换手机号为带-
-- (NSString *)exchangePhone:(NSString*)str{
-    str = [str stringByReplacingOccurrencesOfString:@"-" withString:@""];
-    NSMutableString * strReturn = [NSMutableString stringWithString:str];
-    if (strReturn.length >= 11) {
-        [strReturn insertString:@"-" atIndex:7];
-        [strReturn insertString:@"-" atIndex:3];
-        return strReturn;
-    }
-    return str;
-}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     if (textField == self.passWordTextField) {
         [self loginBtnClik];
@@ -270,6 +260,9 @@
 //            NSLog(@"token错误");
 //        }]
         [GlobalData sharedInstance].GB_UserModel = [ModelUser modelObjectWithDictionary:response];
+        NSUserDefaults * user = [NSUserDefaults standardUserDefaults];
+        [user setObject:_phoneTextFiled.text  forKey:PHONE];
+        [user synchronize];
         [GlobalData sharedInstance].GB_Key = [NSString stringWithFormat:@"%.f",[GlobalData sharedInstance].GB_UserModel.uid];
         [GB_Nav popToRootViewControllerAnimated:false];
     } failure:^(NSString *errorStr, id mark) {
