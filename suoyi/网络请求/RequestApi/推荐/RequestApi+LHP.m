@@ -99,4 +99,21 @@
                                        failure:(void (^)(NSString * errorStr, id mark))failure{
     [self postUrl:@"/mobile/userGroup/fetchgroup" delegate:delegate parameters:nil success:success failure:failure];
 }
+///创建家庭组
++ (void)requestUserGroupCreateFamilyGroupWithFname:(NSString *)fname
+                                           invites:(NSString *)invites
+                                          delegate:(id <RequestDelegate>)delegate
+                                           success:(void (^)(NSDictionary * response, id mark))success
+                                           failure:(void (^)(NSString * errorStr, id mark))failure{
+    NSDictionary *dic = @{@"fname":UnPackStr(fname),
+                          @"invites":UnPackStr(invites)
+                          };
+    [self postUrl:@"/mobile/userGroup/createfamilygroup" delegate:delegate parameters:dic success:success failure:failure];
+}
+///查询家庭组
++ (void)requestUserGroupFetchFamilyGroupWithDelegate:(id <RequestDelegate>)delegate
+                                             success:(void (^)(NSDictionary * response, id mark))success
+                                             failure:(void (^)(NSString * errorStr, id mark))failure{
+    [self postUrl:@"/mobile/userGroup/fetchFamilyGroup" delegate:delegate parameters:nil success:success failure:failure];
+}
 @end

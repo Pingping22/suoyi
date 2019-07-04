@@ -11,16 +11,22 @@
 #import "LinkScrollView.h"
 
 @interface GroupChatListVC ()
-
+@property (nonatomic, strong) NSMutableArray * arr;//家庭组
 @end
 
 @implementation GroupChatListVC
+- (NSMutableArray *)arr
+{
+    if (_arr == nil) {
+        _arr = [NSMutableArray new];
+    }
+    return  _arr;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     //cell
     [self.tableView registerClass:[GroupChatListCell class] forCellReuseIdentifier:@"GroupChatListCell"];
-    [self requestList];
 }
 #pragma mark UITableViewDelegate
 //row num
@@ -40,15 +46,26 @@
     return [GroupChatListCell fetchHeight:self.aryDatas[indexPath.row]];
 }
 - (void)requestList{
+    
     [RequestApi requestUserGroupFetchGroupWithDelegate:self success:^(NSDictionary * _Nonnull response, id  _Nonnull mark) {
         [self.aryDatas removeAllObjects];
-        NSArray * aryResponse = [GlobalMethod exchangeDic:response[@"owner"] toAryWithModelName:@"ModelUserGroupOwner"];
-        [self.aryDatas addObjectsFromArray:aryResponse];
+        ModelUserGroup * aryResponse = [GlobalMethod exchangeDicToModel:response modelName:@"ModelUserGroup"];
+        [self.aryDatas addObjectsFromArray:aryResponse.owner];
+        [self.tableView reloadData];
+    } failure:^(NSString * _Nonnull errorStr, id  _Nonnull mark) {
+        
+    }];
+    [RequestApi requestUserGroupFetchFamilyGroupWithDelegate:self success:^(NSDictionary * _Nonnull response, id  _Nonnull mark) {
+        [self.arr removeAllObjects];
+        ModelUserGroup * aryResponse = [GlobalMethod exchangeDicToModel:response modelName:@"ModelUserGroup"];
+        [self.arr addObject:aryResponse];
+        [self.aryDatas addObjectsFromArray:self.arr];
         [self.tableView reloadData];
     } failure:^(NSString * _Nonnull errorStr, id  _Nonnull mark) {
         
     }];
 }
+
 #pragma mark scroll delegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     [scrollView scrollLink:(LinkScrollView *)scrollView.superview.superview.superview];
@@ -116,22 +133,43 @@
     return self;
 }
 #pragma mark 刷新cell
-- (void)resetCellWithModel:(ModelUserGroupOwner *)model{
+- (void)resetCellWithModel:(id)model{
     [self.contentView removeSubViewWithTag:TAG_LINE];//移除线
     //刷新view
-    self.model = model;
-    [self.iconImg sd_setImageWithURL:[NSURL URLWithString:UnPackStr(model.gAvatar)] placeholderImage:[UIImage imageNamed:@"group_default"]];
-    self.iconImg.leftTop = XY(W(16),W(12));
+    if ([model isKindOfClass:[ModelUserGroup class]]) {
+        self.modelGroup = model;
+        [self.iconImg sd_setImageWithURL:[NSURL URLWithString:UnPackStr(self.model.gAvatar)] placeholderImage:[UIImage imageNamed:@"22"]];
+        self.iconImg.leftTop = XY(W(16),W(12));
+        
+        [GlobalMethod resetLabel:self.labelName text:UnPackStr(self.modelGroup.fname) widthLimit:0];
+        self.labelName.leftCenterY = XY(W(15)+self.iconImg.right,self.iconImg.centerY);
+        
+        [GlobalMethod resetLabel:self.labelContent text:@"" widthLimit:0];
+        self.labelContent.leftBottom = XY(W(15)+self.iconImg.right,self.iconImg.bottom);
+        
+        self.telBtn.rightCenterY = XY(SCREEN_WIDTH-W(16),self.iconImg.centerY);
+        
+        self.height = [self.contentView addLineFrame:CGRectMake(W(16), self.iconImg.bottom+W(12), SCREEN_WIDTH-W(16), 1)];
+    }else{
+        self.model = model;
+        [self.iconImg sd_setImageWithURL:[NSURL URLWithString:UnPackStr(self.model.gAvatar)] placeholderImage:[UIImage imageNamed:@"group_default"]];
+        self.iconImg.leftTop = XY(W(16),W(12));
+        
+        [GlobalMethod resetLabel:self.labelName text:UnPackStr(self.model.groupName) widthLimit:0];
+        if (isStr(self.model.gNotice)) {
+            self.labelName.leftTop = XY(W(15)+self.iconImg.right,self.iconImg.top);
+        }else{
+            self.labelName.leftCenterY = XY(W(15)+self.iconImg.right,self.iconImg.centerY);
+        }
+        
+        [GlobalMethod resetLabel:self.labelContent text:UnPackStr(self.model.gNotice) widthLimit:0];
+        self.labelContent.leftBottom = XY(W(15)+self.iconImg.right,self.iconImg.bottom);
+        
+        self.telBtn.rightCenterY = XY(SCREEN_WIDTH-W(16),self.iconImg.centerY);
+        
+        self.height = [self.contentView addLineFrame:CGRectMake(W(16), self.iconImg.bottom+W(12), SCREEN_WIDTH-W(16), 1)];
+    }
     
-    [GlobalMethod resetLabel:self.labelName text:UnPackStr(model.groupName) widthLimit:0];
-    self.labelName.leftTop = XY(W(15)+self.iconImg.right,self.iconImg.top);
-    
-    [GlobalMethod resetLabel:self.labelContent text:UnPackStr(model.gNotice) widthLimit:0];
-    self.labelContent.leftBottom = XY(W(15)+self.iconImg.right,self.iconImg.bottom);
-    
-    self.telBtn.rightCenterY = XY(SCREEN_WIDTH-W(16),self.iconImg.centerY);
-    
-    self.height = [self.contentView addLineFrame:CGRectMake(W(16), self.iconImg.bottom+W(12), SCREEN_WIDTH-W(16), 1)];
 }
 #pragma mark 点击事件
 - (void)btnClick:(UIButton *)sender{

@@ -35,6 +35,7 @@
 		4A17A6C022CCA2B80024B94B /* ModelUserGroupAdmin.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A17A6B922CCA2B80024B94B /* ModelUserGroupAdmin.m */; };
 		4A17A6C122CCA2B80024B94B /* ModelUserGroupOwner.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A17A6BA22CCA2B80024B94B /* ModelUserGroupOwner.m */; };
 		4A17A6C222CCA2B80024B94B /* ModelUserGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A17A6BE22CCA2B80024B94B /* ModelUserGroup.m */; };
+		4A17A6C922CD95A60024B94B /* ModelFamilyGroupFamilyDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A17A6C622CD95A60024B94B /* ModelFamilyGroupFamilyDevice.m */; };
 		4A257D5521FED58000220225 /* LHPDialVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A257D5421FED58000220225 /* LHPDialVC.m */; };
 		4A257D8D21FED93700220225 /* Key11@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D5821FED93600220225 /* Key11@3x.png */; };
 		4A257D8E21FED93700220225 /* Key13@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D5921FED93600220225 /* Key13@2x.png */; };
@@ -281,6 +282,8 @@
 		4A17A6BC22CCA2B80024B94B /* ModelUserGroupOwner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelUserGroupOwner.h; sourceTree = "<group>"; };
 		4A17A6BD22CCA2B80024B94B /* ModelUserGroupAdmin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelUserGroupAdmin.h; sourceTree = "<group>"; };
 		4A17A6BE22CCA2B80024B94B /* ModelUserGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelUserGroup.m; sourceTree = "<group>"; };
+		4A17A6C522CD95A60024B94B /* ModelFamilyGroupFamilyDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelFamilyGroupFamilyDevice.h; sourceTree = "<group>"; };
+		4A17A6C622CD95A60024B94B /* ModelFamilyGroupFamilyDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelFamilyGroupFamilyDevice.m; sourceTree = "<group>"; };
 		4A257D5321FED58000220225 /* LHPDialVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHPDialVC.h; sourceTree = "<group>"; };
 		4A257D5421FED58000220225 /* LHPDialVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHPDialVC.m; sourceTree = "<group>"; };
 		4A257D5821FED93600220225 /* Key11@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key11@3x.png"; sourceTree = "<group>"; };
@@ -776,6 +779,15 @@
 			path = "普通群";
 			sourceTree = "<group>";
 		};
+		4A17A6C322CD95A60024B94B /* 家庭组 */ = {
+			isa = PBXGroup;
+			children = (
+				4A17A6C522CD95A60024B94B /* ModelFamilyGroupFamilyDevice.h */,
+				4A17A6C622CD95A60024B94B /* ModelFamilyGroupFamilyDevice.m */,
+			);
+			path = "家庭组";
+			sourceTree = "<group>";
+		};
 		4A257D5221FED54D00220225 /* 拨号盘 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1150,6 +1162,7 @@
 		4A83D69521F027FC00E4EE2A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4A17A6C322CD95A60024B94B /* 家庭组 */,
 				4A17A6B622CCA2B80024B94B /* 普通群 */,
 				4A17A6A722CC54010024B94B /* 好友 */,
 				4A83D78121F04BFB00E4EE2A /* DataModels.h */,
@@ -2110,6 +2123,7 @@
 				4A83D6C921F027FC00E4EE2A /* ModelProductItem.m in Sources */,
 				4A83D8BA21F04C9700E4EE2A /* UIView+Category.m in Sources */,
 				4A17A69722CB5B600024B94B /* GroupChatListVC.m in Sources */,
+				4A17A6C922CD95A60024B94B /* ModelFamilyGroupFamilyDevice.m in Sources */,
 				4A257DC822001BC500220225 /* AutomaticWatchVC.m in Sources */,
 				4A5C9CB421F7FEF300CA2332 /* ProductMarketNavView.m in Sources */,
 				4A83D8D021F04C9700E4EE2A /* ImagePickerVC.m in Sources */,

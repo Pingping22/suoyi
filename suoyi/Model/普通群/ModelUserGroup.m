@@ -9,12 +9,16 @@
 #import "ModelUserGroupOwner.h"
 #import "ModelUserGroupAdmin.h"
 #import "ModelUserGroupMember.h"
+#import "ModelFamilyGroupFamilyDevice.h"
 
 
 NSString *const kModelUserGroupOwner = @"owner";
 NSString *const kModelUserGroupAdmin = @"admin";
 NSString *const kModelUserGroupMember = @"member";
-
+//
+NSString *const kModelUserGroupFamilyDevice = @"family_device";
+NSString *const kModelUserGroupFid = @"fid";
+NSString *const kModelUserGroupFname = @"fname";
 
 @interface ModelUserGroup ()
 
@@ -39,6 +43,9 @@ NSString *const kModelUserGroupMember = @"member";
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
     if (self && [dict isKindOfClass:[NSDictionary class]]) {
+        self.familyDevice = [ModelFamilyGroupFamilyDevice modelObjectWithDictionary:[dict objectForKey:kModelUserGroupFamilyDevice]];
+        self.fid = [[self objectOrNilForKey:kModelUserGroupFid fromDictionary:dict] doubleValue];
+        self.fname = [self objectOrNilForKey:kModelUserGroupFname fromDictionary:dict];
     NSObject *receivedOwner = [dict objectForKey:kModelUserGroupOwner];
     NSMutableArray *parsedOwner = [NSMutableArray array];
     
@@ -126,7 +133,9 @@ NSString *const kModelUserGroupMember = @"member";
         }
     }
     [mutableDict setValue:[NSArray arrayWithArray:tempArrayForMember] forKey:kModelUserGroupMember];
-
+    [mutableDict setValue:[self.familyDevice dictionaryRepresentation] forKey:kModelUserGroupFamilyDevice];
+    [mutableDict setValue:[NSNumber numberWithDouble:self.fid] forKey:kModelUserGroupFid];
+    [mutableDict setValue:self.fname forKey:kModelUserGroupFname];
     return [NSDictionary dictionaryWithDictionary:mutableDict];
 }
 

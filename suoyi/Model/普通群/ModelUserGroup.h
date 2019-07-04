@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@class ModelFamilyGroupFamilyDevice;
 
 
 
@@ -14,6 +15,10 @@
 @property (nonatomic, strong) NSArray *owner;
 @property (nonatomic, strong) NSArray *admin;
 @property (nonatomic, strong) NSArray *member;
+//家庭组
+@property (nonatomic, assign) double fid;
+@property (nonatomic, strong) NSString *fname;
+@property (nonatomic, strong) ModelFamilyGroupFamilyDevice *familyDevice;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;

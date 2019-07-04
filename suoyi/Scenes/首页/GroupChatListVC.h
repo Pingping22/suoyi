@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_END
 @property (strong, nonatomic) UILabel *labelContent;
 @property (strong, nonatomic) UIButton *telBtn;
 @property (nonatomic, strong) ModelUserGroupOwner * model;
+@property (nonatomic, strong) ModelUserGroup * modelGroup;
 #pragma mark 刷新cell
-- (void)resetCellWithModel:(ModelUserGroupOwner *)model;
+- (void)resetCellWithModel:(id)model;
 @end

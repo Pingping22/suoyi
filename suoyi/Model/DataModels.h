@@ -22,6 +22,8 @@
 #import "ModelUserGroupOwner.h"
 #import "ModelUserGroupAdmin.h"
 #import "ModelUserGroupMember.h"
+//家庭组
+#import "ModelFamilyGroupFamilyDevice.h"
 
 #pragma mark - 商品列表
 #import "ModelProductItem.h"

@@ -53,6 +53,11 @@
         {
             [self.view endEditing:true];
             [RequestApi requestUserRegisterWithPhone:self.phone password:self.secondView.passWordTextFiled.text nick:self.secondView.nameTextField.text delegate:self success:^(NSDictionary *response, id mark) {
+                [RequestApi requestUserGroupCreateFamilyGroupWithFname:@"家庭组" invites:@"15105363643" delegate:self success:^(NSDictionary * _Nonnull response, id  _Nonnull mark) {
+                    
+                } failure:^(NSString * _Nonnull errorStr, id  _Nonnull mark) {
+                    
+                }];
                 [GB_Nav pushVCName:@"LoginViewController"  animated:true];
             } failure:^(NSString *errorStr, id mark) {
 
