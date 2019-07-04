@@ -158,6 +158,8 @@
     [super viewWillAppear:animated];
     [self.listVCNew refreshHeaderAll];
     [self.listVCComplete refreshHeaderAll];
+    [self.listVCComplete requestData];
+    [self.tabBarController.tabBar showBadgeOnItemIndex:1];
 }
 /**
  * 初始化子控制器

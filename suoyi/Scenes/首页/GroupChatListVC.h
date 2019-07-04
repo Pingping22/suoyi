@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GroupChatListVC : BaseTableVC
-
+- (void)requestData;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -41,9 +41,9 @@
 #pragma mark 点击事件
 - (void)btnClick:(UIButton *)sender{
     switch (sender.tag) {
-        case 1:
+        case 3:
         {
-            
+            [self addFriend];
         }
             break;
             
@@ -51,7 +51,15 @@
             break;
     }
 }
-
+//加好友
+- (void)addFriend{
+    [RequestApi requestFriendApplyWithFuid:self.model.userId delegate:self success:^(NSDictionary * response, id mark) {
+        [GlobalMethod showAlert:@"申请成功"];
+        [GB_Nav popMultiVC:2];
+    } failure:^(NSString * errorStr, id mark) {
+        
+    }];
+}
 @end
 
 

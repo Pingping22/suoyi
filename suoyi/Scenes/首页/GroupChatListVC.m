@@ -47,7 +47,7 @@
 }
 - (void)requestList{
     
-    [RequestApi requestUserGroupFetchGroupWithDelegate:self success:^(NSDictionary * _Nonnull response, id  _Nonnull mark) {
+    [RequestApi requestUserGroupFetchGroupWithDelegate:self success:^(NSDictionary * response, id mark) {
         [self.aryDatas removeAllObjects];
         ModelUserGroup * aryResponse = [GlobalMethod exchangeDicToModel:response modelName:@"ModelUserGroup"];
         [self.aryDatas addObjectsFromArray:aryResponse.owner];
@@ -55,7 +55,9 @@
     } failure:^(NSString * _Nonnull errorStr, id  _Nonnull mark) {
         
     }];
-    [RequestApi requestUserGroupFetchFamilyGroupWithDelegate:self success:^(NSDictionary * _Nonnull response, id  _Nonnull mark) {
+}
+- (void)requestData{
+    [RequestApi requestUserGroupFetchFamilyGroupWithDelegate:self success:^(NSDictionary * response, id mark) {
         [self.arr removeAllObjects];
         ModelUserGroup * aryResponse = [GlobalMethod exchangeDicToModel:response modelName:@"ModelUserGroup"];
         [self.arr addObject:aryResponse];
@@ -65,7 +67,6 @@
         
     }];
 }
-
 #pragma mark scroll delegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     [scrollView scrollLink:(LinkScrollView *)scrollView.superview.superview.superview];

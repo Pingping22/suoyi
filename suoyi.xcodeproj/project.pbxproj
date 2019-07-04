@@ -36,6 +36,9 @@
 		4A17A6C122CCA2B80024B94B /* ModelUserGroupOwner.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A17A6BA22CCA2B80024B94B /* ModelUserGroupOwner.m */; };
 		4A17A6C222CCA2B80024B94B /* ModelUserGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A17A6BE22CCA2B80024B94B /* ModelUserGroup.m */; };
 		4A17A6C922CD95A60024B94B /* ModelFamilyGroupFamilyDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A17A6C622CD95A60024B94B /* ModelFamilyGroupFamilyDevice.m */; };
+		4A17A6CC22CDCA0B0024B94B /* NewFriendListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A17A6CB22CDCA0B0024B94B /* NewFriendListVC.m */; };
+		4A17A6CF22CDD8CF0024B94B /* ModelNewFriendList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A17A6CE22CDD8CF0024B94B /* ModelNewFriendList.m */; };
+		4A17A6D222CDE0E00024B94B /* UITabBar+littleRedDotBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A17A6D022CDE0E00024B94B /* UITabBar+littleRedDotBadge.m */; };
 		4A257D5521FED58000220225 /* LHPDialVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A257D5421FED58000220225 /* LHPDialVC.m */; };
 		4A257D8D21FED93700220225 /* Key11@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D5821FED93600220225 /* Key11@3x.png */; };
 		4A257D8E21FED93700220225 /* Key13@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A257D5921FED93600220225 /* Key13@2x.png */; };
@@ -284,6 +287,12 @@
 		4A17A6BE22CCA2B80024B94B /* ModelUserGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelUserGroup.m; sourceTree = "<group>"; };
 		4A17A6C522CD95A60024B94B /* ModelFamilyGroupFamilyDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelFamilyGroupFamilyDevice.h; sourceTree = "<group>"; };
 		4A17A6C622CD95A60024B94B /* ModelFamilyGroupFamilyDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelFamilyGroupFamilyDevice.m; sourceTree = "<group>"; };
+		4A17A6CA22CDCA0B0024B94B /* NewFriendListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewFriendListVC.h; sourceTree = "<group>"; };
+		4A17A6CB22CDCA0B0024B94B /* NewFriendListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewFriendListVC.m; sourceTree = "<group>"; };
+		4A17A6CD22CDD8CE0024B94B /* ModelNewFriendList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelNewFriendList.h; sourceTree = "<group>"; };
+		4A17A6CE22CDD8CF0024B94B /* ModelNewFriendList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelNewFriendList.m; sourceTree = "<group>"; };
+		4A17A6D022CDE0E00024B94B /* UITabBar+littleRedDotBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+littleRedDotBadge.m"; sourceTree = "<group>"; };
+		4A17A6D122CDE0E00024B94B /* UITabBar+littleRedDotBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+littleRedDotBadge.h"; sourceTree = "<group>"; };
 		4A257D5321FED58000220225 /* LHPDialVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHPDialVC.h; sourceTree = "<group>"; };
 		4A257D5421FED58000220225 /* LHPDialVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHPDialVC.m; sourceTree = "<group>"; };
 		4A257D5821FED93600220225 /* Key11@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Key11@3x.png"; sourceTree = "<group>"; };
@@ -733,6 +742,8 @@
 				4A17A6A522CC43570024B94B /* SearchFriendListVC.m */,
 				4A17A6AB22CC5B3D0024B94B /* SearchFriendDetailVC.h */,
 				4A17A6AC22CC5B3D0024B94B /* SearchFriendDetailVC.m */,
+				4A17A6CA22CDCA0B0024B94B /* NewFriendListVC.h */,
+				4A17A6CB22CDCA0B0024B94B /* NewFriendListVC.m */,
 			);
 			path = "搜索好友";
 			sourceTree = "<group>";
@@ -740,6 +751,8 @@
 		4A17A6A722CC54010024B94B /* 好友 */ = {
 			isa = PBXGroup;
 			children = (
+				4A17A6CD22CDD8CE0024B94B /* ModelNewFriendList.h */,
+				4A17A6CE22CDD8CF0024B94B /* ModelNewFriendList.m */,
 				4A17A6A822CC57B80024B94B /* ModelFriend.h */,
 				4A17A6A922CC57B80024B94B /* ModelFriend.m */,
 			);
@@ -1347,6 +1360,8 @@
 		4A83D82F21F04C9700E4EE2A /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				4A17A6D122CDE0E00024B94B /* UITabBar+littleRedDotBadge.h */,
+				4A17A6D022CDE0E00024B94B /* UITabBar+littleRedDotBadge.m */,
 				4A17A69822CB5C160024B94B /* UIScrollView */,
 				4A17A68422CA0BB60024B94B /* UIButton */,
 				4A257DED220427B600220225 /* NSMutableArray */,
@@ -2143,6 +2158,7 @@
 				4A83D8CD21F04C9700E4EE2A /* OpenMoreLevelBtnView.m in Sources */,
 				4A17A69422CB5A8B0024B94B /* SingleChatListVC.m in Sources */,
 				4A83D6C521F027FC00E4EE2A /* ModelBaseData.m in Sources */,
+				4A17A6CC22CDCA0B0024B94B /* NewFriendListVC.m in Sources */,
 				4A17A68322CA09CE0024B94B /* ForgetPasswordVC.m in Sources */,
 				4A17A6BF22CCA2B80024B94B /* ModelUserGroupMember.m in Sources */,
 				4A91660C21F1AEE6006CF9DF /* SkillsCell.m in Sources */,
@@ -2152,6 +2168,7 @@
 				4A83D8B121F04C9700E4EE2A /* NSDictionary+Safe.m in Sources */,
 				4A257DE92204160500220225 /* SearchTextField.m in Sources */,
 				4A17A6A122CB5E7C0024B94B /* SelectBlackTypeView.m in Sources */,
+				4A17A6D222CDE0E00024B94B /* UITabBar+littleRedDotBadge.m in Sources */,
 				4A5C9CB121F7028F00CA2332 /* GXPHKitTool.m in Sources */,
 				4A5C9CAC21F7026C00CA2332 /* AlbumSelectTableViewCell.m in Sources */,
 				4A83D8AD21F04C9700E4EE2A /* NSDictionary+Model.m in Sources */,
@@ -2206,6 +2223,7 @@
 				4A83D8CC21F04C9700E4EE2A /* SliderView.m in Sources */,
 				4A83D8D821F04C9700E4EE2A /* CustomTabBar.m in Sources */,
 				4A83D6D021F027FC00E4EE2A /* RecommendTabVC.m in Sources */,
+				4A17A6CF22CDD8CF0024B94B /* ModelNewFriendList.m in Sources */,
 				4A17A68222CA09CE0024B94B /* NextForViewController.m in Sources */,
 				4A83D8B721F04C9700E4EE2A /* UIImageView+Jump.m in Sources */,
 				4AA9502E21FAB156004AD66F /* MineSetVC.m in Sources */,

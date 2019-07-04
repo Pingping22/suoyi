@@ -61,6 +61,7 @@
 #import "UIButton+Creat.h"
 #import "NSMutableArray+Insert.h"
 #import "UIScrollView+Category.h"//scrollView category
+#import "UITabBar+littleRedDotBadge.h"
 
 //Safe
 #import "NSString+Category.h"

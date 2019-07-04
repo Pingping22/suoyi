@@ -116,4 +116,30 @@
                                              failure:(void (^)(NSString * errorStr, id mark))failure{
     [self postUrl:@"/mobile/userGroup/fetchFamilyGroup" delegate:delegate parameters:nil success:success failure:failure];
 }
+///申请加好友
++ (void)requestFriendApplyWithFuid:(double)fuid
+                          delegate:(id <RequestDelegate>)delegate
+                           success:(void (^)(NSDictionary * response, id mark))success
+                           failure:(void (^)(NSString * errorStr, id mark))failure{
+    NSDictionary *dic = @{@"fuid":NSNumber.dou(fuid)
+                          };
+    [self postUrl:@"/mobile/friend/apply" delegate:delegate parameters:dic success:success failure:failure];
+}
+///查看好友（type 为0则是好友，为1则是待添加）
++ (void)requestFriendListWithDelegate:(id <RequestDelegate>)delegate
+                              success:(void (^)(NSDictionary * response, id mark))success
+                              failure:(void (^)(NSString * errorStr, id mark))failure{
+    [self getUrl:@"/mobile/friend/list" delegate:delegate parameters:nil success:success failure:failure];
+}
+///同意添加好友
++ (void)requestFriendAgreeWithFuid:(double)fuid
+                          delegate:(id <RequestDelegate>)delegate
+                           success:(void (^)(NSDictionary * response, id mark))success
+                           failure:(void (^)(NSString * errorStr, id mark))failure{
+    NSDictionary *dic = @{@"fuid":NSNumber.dou(fuid)
+                          };
+    [self postUrl:@"/mobile/friend/agree" delegate:delegate parameters:dic success:success failure:failure];
+}
+
+
 @end

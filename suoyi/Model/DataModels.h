@@ -17,6 +17,8 @@
 #import "ModelUser.h"
 //好友
 #import "ModelFriend.h"
+#import "ModelNewFriendList.h"
+
 //群
 #import "ModelUserGroup.h"
 #import "ModelUserGroupOwner.h"

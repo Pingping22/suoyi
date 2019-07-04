@@ -24,7 +24,15 @@ NS_ASSUME_NONNULL_END
 @property (strong, nonatomic) UILabel *labelName;
 @property (strong, nonatomic) UILabel *labelContent;
 @property (strong, nonatomic) UIButton *telBtn;
-
+@property (nonatomic, strong) UILabel * labelCount;
 #pragma mark 刷新cell
 - (void)resetCellWithModel:(id)model;
+@end
+
+
+
+@interface SingleChatFriendCell : SingleChatListCell
+@property (nonatomic, strong) ModelNewFriendList * model;
+#pragma mark 刷新cell
+- (void)resetCellWithArr:(NSMutableArray *)arr;
 @end

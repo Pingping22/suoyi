@@ -65,17 +65,28 @@ NS_ASSUME_NONNULL_BEGIN
                                        failure:(void (^)(NSString * errorStr, id mark))failure;
 ///创建家庭组
 + (void)requestUserGroupCreateFamilyGroupWithFname:(NSString *)fname
-                                     invites:(NSString *)invites
-                                    delegate:(id <RequestDelegate>)delegate
-                                     success:(void (^)(NSDictionary * response, id mark))success
-                                     failure:(void (^)(NSString * errorStr, id mark))failure;
+                                           invites:(NSString *)invites
+                                          delegate:(id <RequestDelegate>)delegate
+                                           success:(void (^)(NSDictionary * response, id mark))success
+                                           failure:(void (^)(NSString * errorStr, id mark))failure;
 ///查询家庭组
 + (void)requestUserGroupFetchFamilyGroupWithDelegate:(id <RequestDelegate>)delegate
-                                       success:(void (^)(NSDictionary * response, id mark))success
-                                       failure:(void (^)(NSString * errorStr, id mark))failure;
-
-
-
+                                             success:(void (^)(NSDictionary * response, id mark))success
+                                             failure:(void (^)(NSString * errorStr, id mark))failure;
+///申请加好友
++ (void)requestFriendApplyWithFuid:(double)fuid
+                          delegate:(id <RequestDelegate>)delegate
+                           success:(void (^)(NSDictionary * response, id mark))success
+                           failure:(void (^)(NSString * errorStr, id mark))failure;
+///查看好友（type 为0则是好友，为1则是待添加）
++ (void)requestFriendListWithDelegate:(id <RequestDelegate>)delegate
+                                             success:(void (^)(NSDictionary * response, id mark))success
+                                             failure:(void (^)(NSString * errorStr, id mark))failure;
+///同意添加好友
++ (void)requestFriendAgreeWithFuid:(double)fuid
+                          delegate:(id <RequestDelegate>)delegate
+                           success:(void (^)(NSDictionary * response, id mark))success
+                           failure:(void (^)(NSString * errorStr, id mark))failure;
 
 
 @end
