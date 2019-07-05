@@ -87,6 +87,15 @@ NS_ASSUME_NONNULL_BEGIN
                           delegate:(id <RequestDelegate>)delegate
                            success:(void (^)(NSDictionary * response, id mark))success
                            failure:(void (^)(NSString * errorStr, id mark))failure;
+///获得当前用户使用IM服务的认证令牌，第三方融云
++ (void)requestUserImtokenWithDelegate:(id <RequestDelegate>)delegate
+                              success:(void (^)(NSDictionary * response, id mark))success
+                              failure:(void (^)(NSString * errorStr, id mark))failure;
+
+
+
+
+
 
 
 @end

@@ -140,6 +140,16 @@
                           };
     [self postUrl:@"/mobile/friend/agree" delegate:delegate parameters:dic success:success failure:failure];
 }
+///获得当前用户使用IM服务的认证令牌，第三方融云
++ (void)requestUserImtokenWithDelegate:(id <RequestDelegate>)delegate
+                               success:(void (^)(NSDictionary * response, id mark))success
+                               failure:(void (^)(NSString * errorStr, id mark))failure{
+    [self getUrl:@"/mobile/user/imtoken" delegate:delegate parameters:nil success:success failure:failure];
+}
+
+
+
+
 
 
 @end

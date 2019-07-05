@@ -18,7 +18,8 @@
 //
 ////guide view
 //#import "GuideView.h"
-
+//融云
+#import <RongIMKit/RongIMKit.h>
 
 
 @interface LoginViewController ()<UINavigationControllerDelegate>
@@ -243,22 +244,48 @@
             break;
     }
 }
-
+// 获取token
+- (void)getIMToken {
+    [RequestApi requestUserImtokenWithDelegate:self success:^(NSDictionary *  response, id   mark) {
+        [[RCIM sharedRCIM] connectWithToken:[response valueForKey:@"imtoken"] success:^(NSString *userId) {
+            NSLog(@"登陆成功。当前登录的用户ID：%@", userId);
+            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+            //登陆成功后把用户名存储到UserDefault
+            [userDefaults setObject:[response valueForKey:@"imtoken"] forKey:@"imKey"];
+            [userDefaults synchronize];
+            
+        } error:^(RCConnectErrorCode status) {
+            NSLog(@"登陆的错误码为:%ld", (long)status);
+        } tokenIncorrect:^{
+            //token过期或者不正确。
+            //如果设置了token有效期并且token过期，请重新请求您的服务器获取新的token
+            //如果没有设置token有效期却提示token错误，请检查您客户端和服务器的appkey是否匹配，还有检查您获取token的流程。
+            NSLog(@"token错误");
+        }];
+    } failure:^(NSString *  errorStr, id   mark) {
+        
+    }];
+    
+}
 - (void)loginBtnClik{
     [RequestApi requestUserLoginWithPhone:_phoneTextFiled.text password:_passWordTextField.text delegate:self success:^(NSDictionary *response, id mark) {
-//        [[RCIM sharedRCIM] connectWithToken:[responseObject valueForKey:@"imtoken"] success:^(NSString *userId) {
-//            NSLog(@"登陆成功。当前登录的用户ID：%@", userId);
-//
-//        } error:^(RCConnectErrorCode status) {
-//            NSLog(@"登陆的错误码为:%ld", (long)status);
-//        } tokenIncorrect:^{
-//            //token过期或者不正确。
-//            //如果设置了token有效期并且token过期，请重新请求您的服务器获取新的token
-//            //如果没有设置token有效期却提示token错误，请检查您客户端和服务器的appkey是否匹配，还有检查您获取token的流程。
-//            [self getIMToken];
-//
-//            NSLog(@"token错误");
-//        }]
+        [[RCIM sharedRCIM] connectWithToken:@"8zkedcFCE+tf9KXIoE9c5gu8VMEPKCryB+6kvOq5fupPExfhEdhVTNB5MNFwz1sB/bjwbX3QezmU78/S/s6WPg==" success:^(NSString *userId) {
+            NSLog(@"登陆成功。当前登录的用户ID：%@", userId);
+            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+            //登陆成功后把用户名存储到UserDefault
+            [userDefaults setObject:[response valueForKey:@"imtoken"] forKey:@"imKey"];
+            [userDefaults synchronize];
+            
+        } error:^(RCConnectErrorCode status) {
+            NSLog(@"登陆的错误码为:%ld", (long)status);
+        } tokenIncorrect:^{
+            //token过期或者不正确。
+            //如果设置了token有效期并且token过期，请重新请求您的服务器获取新的token
+            //如果没有设置token有效期却提示token错误，请检查您客户端和服务器的appkey是否匹配，还有检查您获取token的流程。
+            [self getIMToken];
+            
+            NSLog(@"token错误");
+        }];
         [GlobalData sharedInstance].GB_UserModel = [ModelUser modelObjectWithDictionary:response];
         NSUserDefaults * user = [NSUserDefaults standardUserDefaults];
         [user setObject:_phoneTextFiled.text  forKey:PHONE];
